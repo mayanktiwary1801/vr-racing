@@ -275,6 +275,20 @@
       "sizes": "(max-width: 640px) 100vw, 50vw",
       "alt": "Vice City's twin towers seen from the water, boats crossing the bay",
       "credit": "Grand Theft Auto VI screenshot (3840x2160) — © Rockstar Games / Take-Two Interactive, rockstargames.com/VI/media"
+    },
+    {
+      "name": "tile-snowrunner",
+      "src": "snowrunner-1.jpg",
+      "crop": [
+        64,
+        36,
+        3776,
+        2124
+      ],
+      "max": 2560,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "SnowRunner key art: a yellow Freightliner hauling pipes through deep snow, an off-roader behind it",
+      "credit": "SnowRunner 1-Year Anniversary Edition key art (3840x2160, border cropped) — © Focus Entertainment / Saber Interactive, from the PlayStation Store"
     }
   ]
 }
