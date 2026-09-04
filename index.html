@@ -215,6 +215,8 @@
   .sector.weekend{border-color:rgba(255,210,63,.45);box-shadow:inset 0 0 0 1px rgba(255,210,63,.15)}
   .sector.weekend .amt{color:var(--kerb)}
   .sector p{margin:.6rem 0 0;color:var(--tarmac);font-size:.95rem}
+  .sector p.perk{margin-top:.8rem;padding-top:.7rem;border-top:1px dashed rgba(255,210,63,.35);color:var(--chalk)}
+  .sector p.perk b{color:var(--kerb);font-weight:600}
   .terms{margin-top:1.2rem;display:grid;gap:.5rem;font-size:.95rem;color:var(--tarmac)}
   .terms b{color:var(--chalk);font-weight:600}
   .guarantee{margin-top:1.4rem;border:1px solid rgba(255,210,63,.35);border-left:4px solid var(--kerb);border-radius:8px;padding:1rem 1.2rem;background:rgba(255,210,63,.04)}
@@ -329,6 +331,7 @@
           <li><b>Screen first, then the headset.</b> Short stints to start; stop the moment you want to.</li>
           <li><b>Ages 12 and up</b> for the headset, per the manufacturer. Glasses are fine.</li>
           <li><b>More VR games are coming.</b> Gran Turismo 7 first; other PlayStation VR2 titles follow.<span class="soon">soon</span></li>
+          <li><b>Three hours or more of VR on a weekday, and the snacks are on us.</b> Unlimited Thums Up, chips and Kurkure for everyone in the room, up to five.</li>
         </ul>
       </div>
       <div class="vr-stack">
@@ -533,7 +536,7 @@
     <!-- The figures here are repeated in the RATES table in the script (for the live estimate).
          Change both together. -->
     <div class="price">
-      <div class="sector weekend"><div class="eyebrow">Racing in VR · the headline session · from 25 September</div><div class="amt">₹2,000<small>per hour, weekdays</small></div><p>Gran Turismo 7 on PlayStation VR2, on the rig. Weekends ₹2,400. More VR games coming.</p></div>
+      <div class="sector weekend"><div class="eyebrow">Racing in VR · the headline session · from 25 September</div><div class="amt">₹2,000<small>per hour, weekdays</small></div><p>Gran Turismo 7 on PlayStation VR2, on the rig. Weekends ₹2,400. More VR games coming.</p><p class="perk"><b>Book three hours or more on a weekday</b> and unlimited Thums Up, chips and Kurkure are on us — for everyone in the room, up to five.</p></div>
       <div class="sector"><div class="eyebrow">Racing · the rig on the OLED</div><div class="amt">₹1,500<small>per hour, weekdays</small></div><p>Gran Turismo 7 on the direct-drive wheel and the cockpit. Weekends ₹1,800.</p></div>
       <div class="sector"><div class="eyebrow">Console night · PS5 on the big screen</div><div class="amt">₹1,000<small>per hour, weekdays</small></div><p>Up to four playing at once. Weekends ₹1,200.</p></div>
     </div>
@@ -542,6 +545,7 @@
       <div><b>Weekends cost 20% more</b> than weekdays, on every option.</div>
       <div><b>Billed by time played,</b> rounded up to the nearest half hour, less the ₹100 token.</div>
       <div><b>Premium on purpose.</b> This is a direct-drive rig and a real cockpit in a private room, not a queue at an arcade.</div>
+      <div><b>Three hours or more of VR on a weekday:</b> unlimited Thums Up, chips and Kurkure for the room, on us. Up to five people. Weekdays only.</div>
     </div>
     <div class="guarantee">
       <b>If we fail you, we pay.</b>
@@ -578,7 +582,7 @@
         <label>Start time<select name="time" required><option value="">Pick a date first</option></select></label>
       </div>
       <div class="row">
-        <label>How long<select name="hours" required><option value="">Choose</option><option value="1">1 hour</option><option value="1.5">1.5 hours</option><option value="2">2 hours</option><option value="3">3 hours</option></select></label>
+        <label>How long<select name="hours" required><option value="">Choose</option><option value="1">1 hour</option><option value="1.5">1.5 hours</option><option value="2">2 hours</option><option value="3">3 hours</option><option value="4">4 hours</option></select></label>
         <label>How many of you<select name="people" required><option value="">Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
       </div>
       <div class="estimate" id="estimate" aria-live="polite"><div class="sum">Your price</div><div>Pick what you are booking, a date and how long, and the price shows here.</div></div>
@@ -604,7 +608,7 @@
     <details><summary>How many controllers are there?</summary><p>Three. Four people can play at once if one of you brings a fourth PS5 controller, and you are welcome to bring your own controller anyway if you prefer it. The room holds five, so on a console night one person sits out, takes the rig, or runs the tournament bracket.</p></details>
     <details><summary>Can I bring my own wheel or headset?</summary><p>No. The rig is fixed to the cockpit and calibrated, and that is what you are paying for. Your own PS5 controller is welcome, and so is your own PlayStation account if you want your Gran Turismo 7 progress, cars and licences on the screen.</p></details>
     <details><summary>What about motion sickness in VR?</summary><p>Some people feel it in the first minutes, especially in a car, because your eyes see movement your body does not feel. So we do not put the headset on you cold: every VR session starts on the screen, moves to the headset in short stints, and stops the moment you want to. Tell us if you know you are prone to it and we will keep the stints shorter.</p><p>The headset is for ages 12 and up, per the manufacturer. It fits over most glasses.</p></details>
-    <details><summary>What should I bring or wear?</summary><p>Nothing in particular. Closed shoes are better than sandals on the pedals, and anything you can sit in for an hour is fine. Water is welcome; keep food and other drinks away from the rig and the screen. If you wear glasses, keep them on for the screen and for VR.</p></details>
+    <details><summary>What should I bring or wear?</summary><p>Nothing in particular. Closed shoes are better than sandals on the pedals, and anything you can sit in for an hour is fine. Water is welcome; keep food and other drinks away from the rig and the screen. If you wear glasses, keep them on for the screen and for VR.</p><p>Book three hours or more of VR on a weekday and we feed the room: unlimited Thums Up, chips and Kurkure for everyone, up to five people — on the sofa side, not at the wheel. Weekdays only.</p></details>
     <details><summary>Can we book for a birthday, a team night or a group?</summary><p>Yes — the room is built for it. Up to five people per booking, four playing at once on the console, or everyone taking turns on the rig with the lap board keeping score. Book two or three hours for a group; one hour goes quickly with five people rotating. Tell us it is an occasion when you book and we will set the games up before you arrive.</p></details>
     <details><summary>Can I take photos or record my laps?</summary><p>Yes. Photos and videos for your own use are fine, and the PS5 can save your best lap for you to take home. Please keep other guests out of your shots unless they are happy to be in them.</p></details>
   </div>
@@ -669,7 +673,8 @@
       var we=isWeekend(iso),rate=we?r.we:r.wd,total=rate*hrs,bal=total-TOKEN;
       var h=hrs===1?'1 hour':hrs+' hours';
       var line=rupees(total)+' ('+(we?'weekend':'weekday')+' rate '+rupees(rate)+'/hr × '+h+'); '+rupees(TOKEN)+' token now, '+rupees(bal)+' on the day';
-      return{ok:true,warn:false,title:rupees(total),sub:'for '+h+', '+(we?'weekend':'weekday')+' rate',text:rupees(TOKEN)+' token by UPI once we confirm, '+rupees(bal)+' on the day. Billed by time played if you stop early.',line:line};
+      var perk=(what==='vr'&&hrs>=3&&!we)?' Three hours or more of VR on a weekday: unlimited Thums Up, chips and Kurkure for the room, on us.':'';
+      return{ok:true,warn:false,title:rupees(total),sub:'for '+h+', '+(we?'weekend':'weekday')+' rate',text:rupees(TOKEN)+' token by UPI once we confirm, '+rupees(bal)+' on the day. Billed by time played if you stop early.'+perk,line:line+(perk?' + snacks and Thums Up on the house':'')};
     }
     function render(){
       var q=quote();
