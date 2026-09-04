@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VR Racing — private sim-racing sessions in Gurugram</title>
+<meta name="description" content="Book a private Gran Turismo 7 session on a Fanatec direct-drive wheel and a Playseat Trophy cockpit in Gurugram, Sector 38 — or a PS5 night on a 65-inch OLED: FIFA, WWE, Rocket League, Mortal Kombat and the PlayStation Plus catalogue on request. VR on PlayStation VR2 from late September. Up to five people per slot. Booking online only.">
+<meta property="og:title" content="VR Racing — private sim-racing sessions in Gurugram">
+<meta property="og:description" content="Gran Turismo 7 on a direct-drive Fanatec wheel and a Playseat Trophy, or a PS5 night on the big screen. Your own room, up to five people, evenings and weekends. Book online.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vrracing.mecomm.in/">
+<meta property="og:image" content="https://vrracing.mecomm.in/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="VR Racing — your own race room in Gurugram. ₹100 UPI token per booking, weekdays from ₹1,000 an hour, weekends +20%.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VR Racing — private sim-racing sessions in Gurugram">
+<meta name="twitter:description" content="Gran Turismo 7 on a direct-drive Fanatec wheel and a Playseat Trophy, or a PS5 night on the big screen. Your own room, up to five people, evenings and weekends. Book online.">
+<meta name="twitter:image" content="https://vrracing.mecomm.in/og.png">
+<meta name="theme-color" content="#0b0c10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230b0c10'/%3E%3Cpath d='M12 18h12l8 18 8-18h12L36 50h-8z' fill='%23e0261c'/%3E%3Crect x='12' y='52' width='40' height='4' fill='%23ffd23f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" imagesrcset="img/gt7-keyart-800.webp 800w, img/gt7-keyart-1600.webp 1600w, img/gt7-keyart-2560.webp 2560w, img/gt7-keyart-3840.webp 3840w" imagesizes="100vw" type="image/webp">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  /* ---- tokens: the subject's own materials ----
+     pit    = asphalt at night, the OLED's true black
+     carbon = the cockpit's frame, panels
+     seat   = the Playseat Trophy's red — the one accent
+     kerb   = the yellow of kerbs and flags — timing figures and the VR flag only
+     chalk  = pit-lane line paint — text
+     tarmac = muted text */
+  :root{
+    --pit:#0b0c10; --carbon:#15171e; --carbon-2:#1e2129; --line:#2a2e38;
+    --seat:#e0261c; --seat-deep:#b81c14; --kerb:#ffd23f;
+    --chalk:#f2efe9; --tarmac:#9297a3; --tarmac-2:#6a6f7a;
+    --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+    --body:"Inter Tight",Inter,"Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --wrap:72rem;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:5rem}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--pit);color:var(--chalk);font-family:var(--body);font-size:clamp(1rem,.95rem + .25vw,1.08rem);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{max-width:100%;height:auto;display:block}
+  :focus-visible{outline:3px solid var(--kerb);outline-offset:3px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.25rem;position:relative;z-index:1}
+  .display{font-family:var(--display);font-weight:900;letter-spacing:.01em;text-transform:uppercase;line-height:.92}
+  .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+  .eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tarmac)}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--display);font-weight:800;font-size:1.25rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:.85rem 1.4rem;border-radius:6px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background .15s ease}
+  .btn.primary{background:var(--seat);color:#fff}
+  .btn.primary:hover{background:var(--seat-deep);transform:translateY(-1px)}
+  .btn.ghost{border-color:rgba(242,239,233,.35);color:var(--chalk);background:rgba(11,12,16,.35);backdrop-filter:blur(6px)}
+  .btn.ghost:hover{border-color:var(--chalk)}
+
+  /* ---- colour grading: the red heat carried through the whole page ----
+     A fixed ambient layer (two soft red pools plus the faint pit-lane stripes) behind everything,
+     then each section adds its own glow in an alternating corner. */
+  .ambient{position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+    radial-gradient(70% 45% at 12% 8%,rgba(224,38,28,.13),transparent 70%),
+    radial-gradient(55% 40% at 92% 85%,rgba(224,38,28,.07),transparent 70%),
+    repeating-linear-gradient(90deg,transparent 0 44px,rgba(255,255,255,.022) 44px 46px)}
+  section{position:relative;padding:4rem 0;border-top:1px solid var(--line)}
+  section::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 55% at 100% 0%,rgba(224,38,28,.11),transparent 70%)}
+  section:nth-of-type(odd)::before{background:radial-gradient(60% 55% at 0% 100%,rgba(224,38,28,.09),transparent 70%)}
+
+  /* ---- the slow zoom: every photograph creeps in while it is on screen, the way the game's
+     own menus move their frames, then eases back. Runs only while in view (the script toggles
+     .in); off under reduce-motion. Product shots creep less than photographs. ---- */
+  .zoom picture{display:block;transform-origin:50% 50%;will-change:transform}
+  .hero-bg.zoom picture,.band .bg.zoom picture{width:100%;height:100%}
+  .zoom.in picture{animation:creep 26s ease-in-out infinite alternate}
+  .hero-bg.zoom.in picture{animation-duration:36s}
+  .product.zoom.in picture,.headset.zoom.in picture{animation-duration:22s}
+  .gallery .shot:nth-child(2n) picture,.tiles .tile:nth-child(2n) picture{animation-delay:-9s}
+  .gallery .shot:nth-child(3n) picture,.tiles .tile:nth-child(3n) picture{animation-delay:-17s}
+  .gallery .shot:nth-child(4n) picture{animation-delay:-5s}
+  @keyframes creep{from{transform:scale(1)}to{transform:scale(1.12)}}
+  /* hover: the image grows under the mouse (multiplies with the creep); pointer devices only */
+  .zoom img{transform-origin:50% 50%;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .4s ease}
+  @media (hover:hover){
+    .shot:hover img,.tile:hover img,.product:hover img,.headset:hover img{transform:scale(1.06)}
+    .hero:hover .hero-bg img,.band:hover .bg img{transform:scale(1.03)}
+  }
+  @media (prefers-reduced-motion:reduce){.zoom.in picture{animation:none}.zoom img{transition:filter .4s ease}}
+
+  /* ---- nav ---- */
+  header.top{position:sticky;top:0;z-index:20;background:rgba(11,12,16,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:3.6rem}
+  .brand{font-family:var(--display);font-weight:900;font-size:1.5rem;letter-spacing:.06em;text-decoration:none;display:flex;align-items:center;gap:.5rem}
+  .brand i{display:inline-block;width:.85rem;height:.85rem;background:var(--seat);transform:skewX(-18deg)}
+  nav.links{display:flex;gap:1.3rem;font-size:.92rem}
+  nav.links a{text-decoration:none;color:var(--tarmac)}
+  nav.links a:hover{color:var(--chalk)}
+  @media (max-width:640px){nav.links{display:none}}
+
+  /* ---- hero: the 4K key art full-bleed, the words over its dark left half ---- */
+  section.hero{padding:0;border-top:0;min-height:min(86vh,58rem);display:grid;align-items:end;overflow:hidden}
+  section.hero::before{display:none}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(90deg,rgba(11,12,16,.92) 0%,rgba(11,12,16,.72) 38%,rgba(11,12,16,.18) 68%,rgba(11,12,16,.05) 100%),
+    linear-gradient(0deg,rgba(11,12,16,.95) 0%,rgba(11,12,16,.35) 30%,transparent 60%)}
+  .hero .wrap{padding-top:6rem;padding-bottom:3rem;display:grid;grid-template-columns:minmax(0,38rem) 1fr;gap:2rem;align-items:end}
+  @media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-top:4.5rem}.hero-bg img{object-position:70% 50%}}
+  .hero h1{font-size:clamp(3.4rem,2rem + 4.6vw,6.2rem);margin:.4rem 0 .6rem;overflow-wrap:anywhere;text-shadow:0 2px 24px rgba(0,0,0,.6)}
+  .hero h1 span{display:block;color:var(--seat)}
+  .hero p.lede{font-size:clamp(1.05rem,1rem + .4vw,1.22rem);max-width:34rem;color:var(--chalk);margin:0 0 1.6rem;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+  .hero .cta{display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .flag{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--pit);background:var(--kerb);padding:.35rem .7rem;border-radius:4px}
+  .flag i{width:.55rem;height:.55rem;background:var(--pit);display:inline-block}
+  .readout{justify-self:end;text-align:right;padding-bottom:.4rem}
+  .readout .eyebrow{display:block;margin-bottom:.1rem}
+  .readout .lap{font-family:var(--mono);font-weight:600;font-size:clamp(2rem,1.4rem + 2vw,3rem);line-height:1;color:var(--kerb);letter-spacing:.02em;text-shadow:0 2px 16px rgba(0,0,0,.7)}
+  .readout .foot{font-family:var(--mono);font-size:.74rem;color:var(--tarmac);margin-top:.5rem;max-width:22rem}
+  @media (max-width:860px){.readout{justify-self:start;text-align:left}}
+
+  /* ---- full-bleed photo bands ---- */
+  .band{position:relative;padding:0;border-top:1px solid var(--line);min-height:min(72vh,46rem);display:grid;align-items:end;overflow:hidden}
+  .band::before{display:none}
+  .band .bg{position:absolute;inset:0;z-index:0}
+  .band .bg img{width:100%;height:100%;object-fit:cover}
+  .band .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,12,16,.9) 0%,rgba(11,12,16,.45) 40%,rgba(11,12,16,.08) 75%)}
+  .band .wrap{padding-top:6rem;padding-bottom:2.6rem}
+  .band h2{margin-bottom:.6rem;text-shadow:0 2px 24px rgba(0,0,0,.6)}
+  .band p{max-width:38rem;margin:0;text-shadow:0 1px 12px rgba(0,0,0,.7)}
+  .band .credit{position:absolute;right:1rem;bottom:.6rem;z-index:1;font-family:var(--mono);font-size:.68rem;color:var(--tarmac-2)}
+
+  /* ---- sections: shared ---- */
+  section h2{font-family:var(--display);font-weight:900;font-size:clamp(2.4rem,2rem + 2.5vw,4rem);text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin:.3rem 0 1.2rem}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+  .two>*{min-width:0}
+  @media (max-width:860px){.two{grid-template-columns:1fr}}
+
+  /* ---- the rig: the two product photographs on the black, then the spec sheet ---- */
+  .products{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:center;margin:1.4rem 0 2.2rem}
+  @media (max-width:860px){.products{grid-template-columns:1fr}}
+  [data-full]{cursor:zoom-in}
+  .product{margin:0;position:relative;overflow:hidden;border-radius:14px;background:radial-gradient(70% 70% at 50% 60%,#1b1e26,var(--pit) 90%);border:1px solid var(--line);padding:1.4rem 1.4rem 1rem;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+  .product img{width:100%;height:auto;filter:drop-shadow(0 22px 30px rgba(0,0,0,.6))}
+  .product figcaption{font-family:var(--mono);font-size:.78rem;color:var(--tarmac);margin-top:.9rem;display:flex;justify-content:space-between;gap:1rem}
+  .product figcaption b{color:var(--chalk);font-weight:600}
+  .product figcaption em,.headset figcaption em{font-style:normal;color:var(--kerb)}
+  .headset figcaption em{color:#9a6700}
+  table.sheet{width:100%;border-collapse:collapse;font-size:.98rem;table-layout:fixed}
+  table.sheet td{padding:.75rem 0;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
+  table.sheet td:first-child{font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tarmac);width:7.5rem;padding-top:.95rem}
+  table.sheet td b{font-weight:600}
+  .soon{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--kerb);border:1px solid rgba(255,210,63,.4);padding:.15rem .45rem;border-radius:3px;margin-left:.5rem;white-space:nowrap}
+
+  /* ---- the 4K gallery: tap any frame to see it at full size ---- */
+  .gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:.9rem;margin-top:1.4rem}
+  @media (max-width:640px){.gallery{grid-template-columns:1fr}}
+  .shot{position:relative;margin:0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--carbon);cursor:zoom-in;display:block;width:100%;text-align:left;color:inherit;font:inherit}
+  .shot img{width:100%;aspect-ratio:16/9;object-fit:cover}
+  .shot:hover img{filter:brightness(1.06)}
+  .shot span{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1rem .8rem;font-family:var(--mono);font-size:.76rem;color:var(--chalk);background:linear-gradient(transparent,rgba(11,12,16,.85));display:flex;justify-content:space-between;gap:1rem}
+  .shot span b{color:var(--kerb);font-weight:600;white-space:nowrap}
+  dialog.lightbox{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh;margin:0}
+  dialog.lightbox::backdrop{background:rgba(11,12,16,.96)}
+  dialog.lightbox img{width:100vw;height:100vh;object-fit:contain;display:block}
+  dialog.lightbox .close{position:fixed;top:1rem;right:1rem;background:rgba(21,23,30,.9);color:var(--chalk);border:1px solid var(--line);border-radius:999px;width:2.8rem;height:2.8rem;font:600 1.4rem/1 var(--mono);cursor:pointer}
+  dialog.lightbox .cap{position:fixed;left:1rem;bottom:1rem;right:5rem;font-family:var(--mono);font-size:.78rem;color:var(--tarmac)}
+
+  /* ---- VR: the cockpit frame and the headset ---- */
+  .vr-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:2.5rem;align-items:center}
+  .vr-grid>*{min-width:0}
+  @media (max-width:860px){.vr-grid{grid-template-columns:1fr}}
+  .vr-points{margin:1rem 0 0;padding:0;list-style:none;display:grid;gap:.6rem;color:var(--tarmac)}
+  .vr-points li{padding-left:1.4rem;position:relative}
+  .vr-points li::before{content:"";position:absolute;left:0;top:.55em;width:.7rem;height:.7rem;background:var(--kerb);transform:skewX(-18deg)}
+  .vr-points b{color:var(--chalk);font-weight:600}
+  .vr-stack{display:grid;gap:1rem}
+  .headset{margin:0;overflow:hidden;padding:1rem 1.2rem .2rem;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#f7f7f8,#e2e3e7)}  /* a light product card: the headset itself is white */
+  .headset img{width:100%;height:auto;filter:drop-shadow(0 14px 22px rgba(0,0,0,.25))}
+  .headset figcaption{font-family:var(--mono);font-size:.76rem;color:#3a3d46;padding:.6rem 0 .8rem}
+
+  /* ---- modes / game tiles ---- */
+  .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.9rem;margin-top:1rem}
+  .mode{background:var(--carbon);border:1px solid var(--line);border-radius:8px;padding:1rem 1.1rem}
+  .mode b{display:block;font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.25rem}
+  .mode p{margin:0;color:var(--tarmac);font-size:.95rem}
+  .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:1.4rem}
+  @media (max-width:860px){.tiles{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:520px){.tiles{grid-template-columns:1fr}}
+  .tile{position:relative;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--carbon);aspect-ratio:4/3;display:flex;flex-direction:column;justify-content:flex-end;padding:1rem 1.1rem;isolation:isolate}
+  .tile picture{position:absolute;inset:0;z-index:-1}
+  .tile picture img{width:100%;height:100%;object-fit:cover}
+  .tile:hover picture img{filter:brightness(1.06)}
+  .tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(11,12,16,.92) 0%,rgba(11,12,16,.45) 45%,rgba(11,12,16,.05) 100%)}
+  .tile b{display:block;font-family:var(--display);font-weight:800;font-size:1.45rem;letter-spacing:.05em;text-transform:uppercase;margin:0 0 .15rem;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+  .tile p{margin:0;color:var(--chalk);font-size:.92rem;opacity:.9;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+  .tile.plain{background:linear-gradient(160deg,#1e2129,var(--carbon));justify-content:center}
+  .tile.plain b{color:var(--kerb)}
+
+  /* ---- steps — a real sequence, so the numbers earn their place ---- */
+  ol.steps{list-style:none;margin:1.2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;counter-reset:s}
+  ol.steps li{position:relative;background:var(--carbon);border:1px solid var(--line);border-radius:8px;padding:1.1rem;counter-increment:s}
+  ol.steps li::before{content:counter(s);font-family:var(--display);font-weight:900;font-size:2.4rem;line-height:1;color:var(--seat);display:block;margin-bottom:.4rem}
+  ol.steps b{display:block;font-weight:600;margin-bottom:.3rem}
+  ol.steps p{margin:0;color:var(--tarmac);font-size:.95rem}
+
+  /* ---- pricing board ---- */
+  .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:1rem}
+  .sector{background:var(--carbon);border:1px solid var(--line);border-radius:10px;padding:1.2rem 1.3rem}
+  .sector .amt{font-family:var(--mono);font-weight:600;font-size:clamp(2.2rem,1.8rem + 1.8vw,3rem);color:var(--chalk);margin:.3rem 0 0;line-height:1.1}
+  .sector .amt small{font-family:var(--body);font-weight:500;font-size:1rem;color:var(--tarmac);margin-left:.3rem}
+  .sector.weekend .amt{color:var(--kerb)}
+  .sector p{margin:.6rem 0 0;color:var(--tarmac);font-size:.95rem}
+  .terms{margin-top:1.2rem;display:grid;gap:.5rem;font-size:.95rem;color:var(--tarmac)}
+  .terms b{color:var(--chalk);font-weight:600}
+  .guarantee{margin-top:1.4rem;border:1px solid rgba(255,210,63,.35);border-left:4px solid var(--kerb);border-radius:8px;padding:1rem 1.2rem;background:rgba(255,210,63,.04)}
+  .guarantee b{display:block;font-family:var(--display);font-weight:800;font-size:1.35rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.3rem}
+  .guarantee p{margin:0;color:var(--tarmac)}
+  .guarantee p strong{color:var(--chalk);font-weight:600}
+
+  /* ---- booking form + live estimate ---- */
+  .book{background:var(--carbon);border:1px solid var(--line);border-radius:12px;padding:1.5rem;display:grid;gap:1rem}
+  .book label{display:grid;gap:.35rem;font-size:.9rem;color:var(--tarmac)}
+  .book input,.book select{font:inherit;color:var(--chalk);background:var(--pit);border:1px solid var(--line);border-radius:6px;padding:.7rem .8rem;min-width:0;width:100%}
+  .book input:focus,.book select:focus{border-color:var(--tarmac)}
+  .book .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  @media (max-width:520px){.book .row{grid-template-columns:1fr}}
+  .book .note{font-size:.88rem;color:var(--tarmac);margin:0}
+  .estimate{border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;background:var(--pit);font-size:.95rem;color:var(--tarmac);display:grid;gap:.25rem}
+  .estimate .sum{font-family:var(--mono);font-weight:600;font-size:1.5rem;color:var(--kerb);line-height:1.1}
+  .estimate .sum small{font-family:var(--body);font-weight:500;font-size:.9rem;color:var(--tarmac);margin-left:.35rem}
+  .estimate.warn{border-color:rgba(224,38,28,.6)}
+  .estimate.warn .sum{color:var(--seat);font-size:1.05rem;font-family:var(--body);font-weight:600}
+  .rules{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
+  .rules li{padding-left:1.4rem;position:relative;color:var(--tarmac)}
+  .rules li::before{content:"";position:absolute;left:0;top:.55em;width:.7rem;height:.7rem;background:var(--seat);transform:skewX(-18deg)}
+  .rules li b{color:var(--chalk);font-weight:600}
+
+  /* ---- faq ---- */
+  details{border-top:1px solid var(--line);padding:.9rem 0}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--mono);color:var(--tarmac);flex:none}
+  details[open] summary::after{content:"–"}
+  details p{margin:.6rem 0 0;color:var(--tarmac);max-width:62ch}
+  details p+p{margin-top:.5rem}
+
+  /* ---- footer ---- */
+  footer{border-top:1px solid var(--line);padding:2.5rem 0 3rem;font-size:.9rem;color:var(--tarmac)}
+  footer .wrap{display:grid;gap:1rem}
+  footer p{margin:0;max-width:70ch}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "VR Racing",
+  "description": "Private sim-racing and console sessions on a Fanatec direct-drive wheel and a Playseat Trophy cockpit in Gurugram. Booking only, up to five people per slot.",
+  "url": "https://vrracing.mecomm.in/",
+  "image": "https://vrracing.mecomm.in/og.png",
+  "priceRange": "₹1,000–₹2,400 per hour",
+  "currenciesAccepted": "INR",
+  "paymentAccepted": "UPI",
+  "areaServed": "Gurugram, Haryana, India",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Gurugram",
+    "addressRegion": "Haryana",
+    "addressCountry": "IN",
+    "streetAddress": "Sector 38 (exact address shared after a confirmed booking)"
+  }
+}
+</script>
+</head>
+<!-- data-wa = the ONE place the WhatsApp number lives. The script fills every booking link and the
+     visible number from it. Replace it with the VR Racing business number before publishing. -->
+<body data-wa="918102266504">
+<div class="ambient" aria-hidden="true"></div>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top"><i></i>VR RACING</a>
+  <nav class="links" aria-label="Sections">
+    <a href="#rig">The rig</a><a href="#gallery">GT7 in 4K</a><a href="#vr">VR</a><a href="#games">Games</a><a href="#how">How it works</a><a href="#price">Price</a><a href="#book">Book</a>
+  </nav>
+</div></header>
+
+<!-- Hero: Gran Turismo 7's own 4K key art, full-bleed; the words sit over its dark left half. -->
+<section class="hero" id="top">
+  <div class="hero-bg zoom in" aria-hidden="true">
+    <picture>
+      <source type="image/webp" srcset="img/gt7-keyart-800.webp 800w, img/gt7-keyart-1600.webp 1600w, img/gt7-keyart-2560.webp 2560w, img/gt7-keyart-3840.webp 3840w" sizes="100vw">
+      <img src="img/gt7-keyart-1600.jpg" srcset="img/gt7-keyart-800.jpg 800w, img/gt7-keyart-1600.jpg 1600w, img/gt7-keyart-2560.jpg 2560w, img/gt7-keyart-3840.jpg 3840w" sizes="100vw" width="3840" height="2160" fetchpriority="high" decoding="async" alt="">
+    </picture>
+  </div>
+  <div class="wrap">
+    <div>
+      <span class="flag"><i></i> VR sessions from 25 September</span>
+      <h1 class="display">Your own<br>race room in<span>Gurugram.</span></h1>
+      <p class="lede">Gran Turismo 7 on a direct-drive Fanatec wheel and a Playseat Trophy cockpit, in front of a 65-inch OLED. Or a PS5 night on the big screen: FIFA, WWE, Rocket League, Mortal Kombat. One booking takes the whole room, you or up to five of you. Evenings and weekends. Booking online only.</p>
+      <div class="cta">
+        <a class="btn primary" href="#book">Book a slot</a>
+        <a class="btn ghost" href="#how">How it works</a>
+      </div>
+    </div>
+    <div class="readout" aria-label="Session board">
+      <span class="eyebrow">Sector 38 · lap</span>
+      <div class="lap" aria-live="off">1:47.<span id="ms">000</span></div>
+      <div class="foot">₹100 UPI token holds your slot · balance by time played · rig, VR or a PS5 night</div>
+    </div>
+  </div>
+</section>
+
+<!-- Drift band: real photography, 4K — what a direct-drive wheel teaches you to catch. -->
+<section class="band" id="drift" aria-label="Drifting">
+  <div class="bg zoom">
+    <picture>
+      <source type="image/webp" srcset="img/drift-bmw-rx7-800.webp 800w, img/drift-bmw-rx7-1600.webp 1600w, img/drift-bmw-rx7-2560.webp 2560w, img/drift-bmw-rx7-3840.webp 3840w" sizes="100vw">
+      <img src="img/drift-bmw-rx7-1600.jpg" srcset="img/drift-bmw-rx7-800.jpg 800w, img/drift-bmw-rx7-1600.jpg 1600w, img/drift-bmw-rx7-2560.jpg 2560w, img/drift-bmw-rx7-3840.jpg 3840w" sizes="100vw" width="3840" height="2560" loading="lazy" decoding="async" alt="A yellow BMW and a white Mazda RX-7 drifting side by side through a corner, tyre smoke pouring off the rear wheels">
+    </picture>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Opposite lock</div>
+    <h2>The rear steps out.<br>You catch it.</h2>
+    <p>A direct-drive wheel tells you the exact moment the rear tyres let go, through your hands, before your eyes know. That is what you cannot get from a controller, and it is what the first twenty minutes here are about.</p>
+  </div>
+  <span class="credit">Photo: RAW Visual Studio / Unsplash</span>
+</section>
+
+<section id="rig">
+  <div class="wrap">
+    <div class="eyebrow">The rig</div>
+    <h2>Direct drive.<br>Real pedals.<br>A proper seat.</h2>
+    <p style="max-width:40rem">This is the equipment sim-racing lounges charge by the half hour for, set up in a private room with nobody waiting behind you. The wheel talks to the car through a 5 Nm direct-drive motor, so you feel the kerb, the lock-up and the rear stepping out. The cockpit holds you in place for it.</p>
+    <div class="products">
+      <figure class="product zoom" tabindex="0" role="button" data-full="img/fanatec-gt-dd-pro-1600.png" data-full-webp="img/fanatec-gt-dd-pro-1600.webp" data-cap="Fanatec Gran Turismo DD Pro — 5 Nm direct-drive base, GT wheel, pedals">
+        <picture>
+          <source type="image/webp" srcset="img/fanatec-gt-dd-pro-800.webp 800w, img/fanatec-gt-dd-pro-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 40vw">
+          <img src="img/fanatec-gt-dd-pro-1600.png" srcset="img/fanatec-gt-dd-pro-800.png 800w, img/fanatec-gt-dd-pro-1600.png 1600w" sizes="(max-width: 860px) 100vw, 40vw" width="1600" height="1066" loading="lazy" decoding="async" alt="Fanatec Gran Turismo DD Pro: the direct-drive base, the GT wheel and the pedal set">
+        </picture>
+        <figcaption><b>Fanatec Gran Turismo DD Pro</b><span>5 Nm · PlayStation-licensed · <em>tap to enlarge</em></span></figcaption>
+      </figure>
+      <figure class="product zoom" tabindex="0" role="button" data-full="img/playseat-trophy-1600.png" data-full-webp="img/playseat-trophy-1600.webp" data-cap="Playseat Trophy — the cockpit, direct-drive rated">
+        <picture>
+          <source type="image/webp" srcset="img/playseat-trophy-800.webp 800w, img/playseat-trophy-1600.webp 1600w" sizes="(max-width: 860px) 100vw, 40vw">
+          <img src="img/playseat-trophy-1600.png" srcset="img/playseat-trophy-800.png 800w, img/playseat-trophy-1600.png 1600w" sizes="(max-width: 860px) 100vw, 40vw" width="1600" height="1600" loading="lazy" decoding="async" alt="Playseat Trophy cockpit in red">
+        </picture>
+        <figcaption><b>Playseat Trophy</b><span>direct-drive rated · <em>tap to enlarge</em></span></figcaption>
+      </figure>
+    </div>
+    <table class="sheet">
+      <tr><td>Wheel</td><td><b>Fanatec Gran Turismo DD Pro</b> — 5 Nm direct-drive base, GT wheel, quick release. Officially licensed for PlayStation.</td></tr>
+      <tr><td>Pedals</td><td>Fanatec pedal set with the bundle. Shifter and handbrake join in late September.<span class="soon">from 25 Sep</span></td></tr>
+      <tr><td>Cockpit</td><td><b>Playseat Trophy</b> — a direct-drive-rated racing seat and frame.</td></tr>
+      <tr><td>Screen</td><td><b>65-inch LG 4K OLED</b> — true blacks for night races, the full width of the room.</td></tr>
+      <tr><td>Console</td><td>PlayStation 5, with <b>PlayStation Plus</b> — the subscription's game catalogue, downloaded on request.</td></tr>
+      <tr><td>Game</td><td><b>Gran Turismo 7</b> — hundreds of cars, real circuits, licences, online lobbies.</td></tr>
+      <tr><td>VR</td><td><b>PlayStation VR2</b> — GT7's full VR mode: you sit in the car, turn your head to the apex, and race in stereo 4K.<span class="soon">from 25 Sep</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- The 4K gallery. Each frame is Polyphony's own 3840x2160 screenshot; tap to see it full size. -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="eyebrow">Gran Turismo 7 · official frames</div>
+    <h2>What runs on the screen.<br>In 4K.</h2>
+    <p style="max-width:40rem">Every frame below is Gran Turismo 7 as it renders on the PlayStation 5 — the game you drive here, on the 65-inch OLED. Tap any one to see it at its full 3840 × 2160.</p>
+    <div class="gallery">
+      <button class="shot zoom" type="button" data-full="img/gt7-rx-vision-3840.jpg" data-full-webp="img/gt7-rx-vision-3840.webp" data-cap="Mazda RX-Vision GT3 Concept · Gran Turismo 7 · 3840 × 2160">
+        <picture><source type="image/webp" srcset="img/gt7-rx-vision-800.webp 800w, img/gt7-rx-vision-1600.webp 1600w, img/gt7-rx-vision-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-rx-vision-1600.jpg" srcset="img/gt7-rx-vision-800.jpg 800w, img/gt7-rx-vision-1600.jpg 1600w, img/gt7-rx-vision-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="Mazda RX-Vision GT3 Concept powering along a mountain road in Gran Turismo 7"></picture>
+        <span>Mazda RX-Vision GT3 · mountain road <b>4K</b></span>
+      </button>
+      <button class="shot zoom" type="button" data-full="img/gt7-eiger-subaru-3840.jpg" data-full-webp="img/gt7-eiger-subaru-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
+        <picture><source type="image/webp" srcset="img/gt7-eiger-subaru-800.webp 800w, img/gt7-eiger-subaru-1600.webp 1600w, img/gt7-eiger-subaru-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-eiger-subaru-1600.jpg" srcset="img/gt7-eiger-subaru-800.jpg 800w, img/gt7-eiger-subaru-1600.jpg 1600w, img/gt7-eiger-subaru-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A blue Subaru at speed on the Eiger Nordwand course, Alps behind"></picture>
+        <span>Eiger Nordwand · Subaru <b>4K</b></span>
+      </button>
+      <button class="shot zoom" type="button" data-full="img/gt7-eiger-station-3840.jpg" data-full-webp="img/gt7-eiger-station-3840.webp" data-cap="Kleine Scheidegg, Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
+        <picture><source type="image/webp" srcset="img/gt7-eiger-station-800.webp 800w, img/gt7-eiger-station-1600.webp 1600w, img/gt7-eiger-station-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-eiger-station-1600.jpg" srcset="img/gt7-eiger-station-800.jpg 800w, img/gt7-eiger-station-1600.jpg 1600w, img/gt7-eiger-station-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="Cars cornering past the Kleine Scheidegg station on the Eiger Nordwand course"></picture>
+        <span>Eiger Nordwand · the station corner <b>4K</b></span>
+      </button>
+      <button class="shot zoom" type="button" data-full="img/gt7-eiger-bridge-3840.jpg" data-full-webp="img/gt7-eiger-bridge-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
+        <picture><source type="image/webp" srcset="img/gt7-eiger-bridge-800.webp 800w, img/gt7-eiger-bridge-1600.webp 1600w, img/gt7-eiger-bridge-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-eiger-bridge-1600.jpg" srcset="img/gt7-eiger-bridge-800.jpg 800w, img/gt7-eiger-bridge-1600.jpg 1600w, img/gt7-eiger-bridge-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A yellow car crossing the railway bridge on the Eiger Nordwand course"></picture>
+        <span>Eiger Nordwand · the bridge <b>4K</b></span>
+      </button>
+      <button class="shot zoom" type="button" data-full="img/gt7-eiger-road-3840.jpg" data-full-webp="img/gt7-eiger-road-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
+        <picture><source type="image/webp" srcset="img/gt7-eiger-road-800.webp 800w, img/gt7-eiger-road-1600.webp 1600w, img/gt7-eiger-road-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-eiger-road-1600.jpg" srcset="img/gt7-eiger-road-800.jpg 800w, img/gt7-eiger-road-1600.jpg 1600w, img/gt7-eiger-road-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A pack of cars on the mountain road at Eiger Nordwand"></picture>
+        <span>Eiger Nordwand · the pack <b>4K</b></span>
+      </button>
+      <button class="shot zoom" type="button" data-full="img/gt7-garage-walk-3840.jpg" data-full-webp="img/gt7-garage-walk-3840.webp" data-cap="Pit garage · Gran Turismo 7 · 3840 × 2160">
+        <picture><source type="image/webp" srcset="img/gt7-garage-walk-800.webp 800w, img/gt7-garage-walk-1600.webp 1600w, img/gt7-garage-walk-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-garage-walk-1600.jpg" srcset="img/gt7-garage-walk-800.jpg 800w, img/gt7-garage-walk-1600.jpg 1600w, img/gt7-garage-walk-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A driver in a helmet walking through the pit garage toward the light"></picture>
+        <span>Walking out to the car <b>4K</b></span>
+      </button>
+      <button class="shot zoom" type="button" data-full="img/gt7-engine-3840.jpg" data-full-webp="img/gt7-engine-3840.webp" data-cap="Garage detail · Gran Turismo 7 · 3840 × 2160">
+        <picture><source type="image/webp" srcset="img/gt7-engine-800.webp 800w, img/gt7-engine-1600.webp 1600w, img/gt7-engine-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-engine-1600.jpg" srcset="img/gt7-engine-800.jpg 800w, img/gt7-engine-1600.jpg 1600w, img/gt7-engine-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="Close-up of an open-wheel car's engine and suspension in the garage"></picture>
+        <span>Engine and suspension, up close <b>4K</b></span>
+      </button>
+      <button class="shot zoom" type="button" data-full="img/gt7-neon-pit-3840.jpg" data-full-webp="img/gt7-neon-pit-3840.webp" data-cap="Pit lane at night · Gran Turismo 7 · 3840 × 2160">
+        <picture><source type="image/webp" srcset="img/gt7-neon-pit-800.webp 800w, img/gt7-neon-pit-1600.webp 1600w, img/gt7-neon-pit-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-neon-pit-1600.jpg" srcset="img/gt7-neon-pit-800.jpg 800w, img/gt7-neon-pit-1600.jpg 1600w, img/gt7-neon-pit-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A pit lane at night under neon light, wet tarmac reflecting the gantry"></picture>
+        <span>Pit lane, night, rain <b>4K</b></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="vr">
+  <div class="wrap">
+    <div class="vr-grid">
+      <div>
+        <div class="eyebrow">Racing in VR · from 25 September</div>
+        <h2>In the car,<br>not in front of it.</h2>
+        <p>On the screen you watch the corner. In the headset you are sitting in the cockpit: the dashboard in front of you, the mirrors where mirrors are, the apex where you turn your head. Gran Turismo 7 runs its whole game in VR on PlayStation VR2, and this rig is built for it.</p>
+        <ul class="vr-points">
+          <li><b>Every car, every track</b> in GT7's VR mode. Not a demo track.</li>
+          <li><b>Screen first, then the headset.</b> Short stints to start; stop the moment you want to.</li>
+          <li><b>Ages 12 and up</b> for the headset, per the manufacturer. Glasses are fine.</li>
+          <li><b>More VR games are coming.</b> Gran Turismo 7 first; other PlayStation VR2 titles follow.<span class="soon">soon</span></li>
+        </ul>
+      </div>
+      <div class="vr-stack">
+        <button class="shot zoom" type="button" data-full="img/gt7-cockpit-3840.jpg" data-full-webp="img/gt7-cockpit-3840.webp" data-cap="Cockpit view, Trial Mountain · Gran Turismo 7 · 3840 × 2160 — the view the headset puts you in">
+          <picture><source type="image/webp" srcset="img/gt7-cockpit-800.webp 800w, img/gt7-cockpit-1600.webp 1600w, img/gt7-cockpit-2560.webp 2560w" sizes="(max-width: 860px) 100vw, 60vw"><img src="img/gt7-cockpit-1600.jpg" srcset="img/gt7-cockpit-800.jpg 800w, img/gt7-cockpit-1600.jpg 1600w, img/gt7-cockpit-2560.jpg 2560w" sizes="(max-width: 860px) 100vw, 60vw" width="3840" height="2160" loading="lazy" decoding="async" alt="Cockpit view at Trial Mountain: the wheel, the dashboard and the pack ahead — the view you get in VR"></picture>
+          <span>The cockpit view: this is where the headset puts you <b>4K</b></span>
+        </button>
+        <figure class="headset zoom" tabindex="0" role="button" data-full="img/psvr2-headset-2560.png" data-full-webp="img/psvr2-headset-2560.webp" data-cap="PlayStation VR2 with its two Sense controllers">
+          <picture>
+            <source type="image/webp" srcset="img/psvr2-headset-800.webp 800w, img/psvr2-headset-1600.webp 1600w, img/psvr2-headset-2560.webp 2560w" sizes="(max-width: 860px) 100vw, 60vw">
+            <img src="img/psvr2-headset-1600.png" srcset="img/psvr2-headset-800.png 800w, img/psvr2-headset-1600.png 1600w, img/psvr2-headset-2560.png 2560w" sizes="(max-width: 860px) 100vw, 60vw" width="2560" height="687" loading="lazy" decoding="async" alt="PlayStation VR2 headset with its two Sense controllers">
+          </picture>
+          <figcaption>PlayStation VR2 — 4K HDR OLED panels, 110° field of view, headset feedback. Installed here from 25 September. <em>Tap to enlarge.</em></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="room">
+  <div class="wrap">
+    <div class="eyebrow">Your room</div>
+    <h2>Private. Up to five of you.</h2>
+    <p style="max-width:40rem">A booking is the room, not a seat in a hall. Come alone and chase a lap time, or bring friends and rotate — one drives, the rest watch the big screen and argue about braking points. Five people is the limit; the room is not a hall and does not pretend to be.</p>
+    <div class="modes">
+      <div class="mode"><b>Hot laps</b><p>Pick a car and a circuit, set a time, beat it.</p></div>
+      <div class="mode"><b>Beat your friends</b><p>Same car, same track, one lap each. The board keeps score.</p></div>
+      <div class="mode"><b>Race the AI</b><p>Full grids in GT7's career and custom races.</p></div>
+      <div class="mode"><b>Race online</b><p>GT7's daily races and lobbies against real drivers.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="games">
+  <div class="wrap">
+    <div class="eyebrow">Not just racing</div>
+    <h2>The PS5. The big screen.<br>Your friends.</h2>
+    <p style="max-width:40rem">Book the room for a console night instead. Four can play at once — three controllers are here, bring a fourth if you are more. Rotate, run a tournament, or put one person on the rig while the others take the screen.</p>
+    <p style="max-width:40rem"><b style="color:var(--chalk)">PlayStation Plus is active on the console.</b> Any game in the PlayStation Plus catalogue can be downloaded on request — name it when you book and it is installed before you arrive.</p>
+    <div class="tiles">
+      <div class="tile zoom">
+        <picture><source type="image/webp" srcset="img/tile-fc-800.webp 800w, img/tile-fc-1600.webp 1600w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw"><img src="img/tile-fc-1600.jpg" srcset="img/tile-fc-800.jpg 800w, img/tile-fc-1600.jpg 1600w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw" width="1600" height="900" loading="lazy" decoding="async" alt="EA SPORTS FC 26: a Bayern player shielding the ball from two defenders"></picture>
+        <b>FIFA</b><p>EA SPORTS FC. Head-to-head, or a four-player night.</p>
+      </div>
+      <div class="tile zoom">
+        <picture><source type="image/webp" srcset="img/tile-wwe-800.webp 800w, img/tile-wwe-1600.webp 1600w, img/tile-wwe-2560.webp 2560w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw"><img src="img/tile-wwe-1600.jpg" srcset="img/tile-wwe-800.jpg 800w, img/tile-wwe-1600.jpg 1600w, img/tile-wwe-2560.jpg 2560w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw" width="3840" height="2160" loading="lazy" decoding="async" alt="WWE 2K25 key art: Roman Reigns crouched in the ring"></picture>
+        <b>WWE</b><p>WWE 2K. Four in the ring on one screen.</p>
+      </div>
+      <div class="tile zoom">
+        <picture><source type="image/webp" srcset="img/tile-rl-800.webp 800w, img/tile-rl-1600.webp 1600w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw"><img src="img/tile-rl-1600.jpg" srcset="img/tile-rl-800.jpg 800w, img/tile-rl-1600.jpg 1600w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw" width="1600" height="900" loading="lazy" decoding="async" alt="Rocket League: a car on the pitch under stadium lights"></picture>
+        <b>Rocket League</b><p>Split-screen car football. Two to four on the screen.</p>
+      </div>
+      <div class="tile zoom">
+        <picture><source type="image/webp" srcset="img/tile-mk-800.webp 800w, img/tile-mk-1600.webp 1600w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw"><img src="img/tile-mk-1600.jpg" srcset="img/tile-mk-800.jpg 800w, img/tile-mk-1600.jpg 1600w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw" width="1600" height="667" loading="lazy" decoding="async" alt="Mortal Kombat 1: Liu Kang at dusk in a field"></picture>
+        <b>Mortal Kombat</b><p>Winner stays on.</p>
+      </div>
+      <div class="tile zoom">
+        <picture><source type="image/webp" srcset="img/tile-gt7-800.webp 800w, img/tile-gt7-1600.webp 1600w, img/tile-gt7-2560.webp 2560w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw"><img src="img/tile-gt7-1600.jpg" srcset="img/tile-gt7-800.jpg 800w, img/tile-gt7-1600.jpg 1600w, img/tile-gt7-2560.jpg 2560w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw" width="2560" height="1920" loading="lazy" decoding="async" alt="Gran Turismo 7 key art, close crop: the blue and the red car"></picture>
+        <b>Gran Turismo 7</b><p>On the pad if the rig is not your thing. Split-screen for two.</p>
+      </div>
+      <div class="tile plain">
+        <b>PS Plus catalogue</b><p>Hundreds more games on the subscription, downloaded on request. Name it when you book; it is ready when you arrive.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="eyebrow">How a session works</div>
+    <h2>Four steps. No walk-ins.</h2>
+    <ol class="steps">
+      <li><b>Book online</b><p>Pick a date, a time and how many of you. The form shows the price, then opens WhatsApp with the details filled in; we confirm the slot there.</p></li>
+      <li><b>Hold it with a ₹100 token</b><p>Paid by UPI once we confirm. It counts toward your bill. It is <b style="color:var(--chalk)">not refunded if you cancel, arrive late or do not come</b>, for any reason. If we cannot run your session, it comes back in full.</p></li>
+      <li><b>Arrive at your time</b><p>Gurugram, Sector 38 — the exact address comes with your confirmation. The building is gated with fingerprint access, so you are met at the gate and brought up. No walk-ins, ever.</p></li>
+      <li><b>Drive, then settle up</b><p>A five-minute briefing, then the room is yours. Pay the balance by the time you played, by UPI or cash, before you leave.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Second drift band: the street circuit — real photography again, above the prices. -->
+<section class="band" id="street" aria-label="Street drift">
+  <div class="bg zoom">
+    <picture>
+      <source type="image/webp" srcset="img/drift-street-800.webp 800w, img/drift-street-1600.webp 1600w, img/drift-street-2560.webp 2560w, img/drift-street-3840.webp 3840w" sizes="100vw">
+      <img src="img/drift-street-1600.jpg" srcset="img/drift-street-800.jpg 800w, img/drift-street-1600.jpg 1600w, img/drift-street-2560.jpg 2560w, img/drift-street-3840.jpg 3840w" sizes="100vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A car mid-drift on a street circuit, smoke trailing, skid marks on the tarmac">
+    </picture>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Premium on purpose</div>
+    <h2>Not a queue at an arcade.</h2>
+    <p>A direct-drive rig and a real cockpit, in a private room, by the hour. The price below is per room, not per person.</p>
+  </div>
+  <span class="credit">Photo: Gabriel Vasiliu / Unsplash</span>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="eyebrow">Price</div>
+    <h2>Three ways to book the room.</h2>
+    <!-- The figures here are repeated in the RATES table in the script (for the live estimate).
+         Change both together. -->
+    <div class="price">
+      <div class="sector"><div class="eyebrow">Console night · PS5 on the big screen</div><div class="amt">₹1,000<small>per hour, weekdays</small></div><p>Up to four playing at once. Weekends ₹1,200.</p></div>
+      <div class="sector"><div class="eyebrow">Racing · the rig on the OLED</div><div class="amt">₹1,500<small>per hour, weekdays</small></div><p>Gran Turismo 7 on the direct-drive wheel and the cockpit. Weekends ₹1,800.</p></div>
+      <div class="sector weekend"><div class="eyebrow">Racing in VR · from 25 September</div><div class="amt">₹2,000<small>per hour, weekdays</small></div><p>The rig plus PlayStation VR2. Weekends ₹2,400. More VR games coming.</p></div>
+    </div>
+    <div class="terms">
+      <div><b>Per room, not per person.</b> One to five people share the hour however they like; four can play at once on the console.</div>
+      <div><b>Weekends cost 20% more</b> than weekdays, on every option.</div>
+      <div><b>Billed by time played,</b> rounded up to the nearest half hour, less the ₹100 token.</div>
+      <div><b>Premium on purpose.</b> This is a direct-drive rig and a real cockpit in a private room, not a queue at an arcade.</div>
+    </div>
+    <div class="guarantee">
+      <b>If we fail you, we pay.</b>
+      <p>A power cut or a fault in the rig during your session is our problem, not yours. <strong>The time you lost is added back</strong> if the room is free after your slot, or <strong>everything you have paid comes back in full, the ₹100 token included</strong> — your choice. Nobody pays for a session they did not get.</p>
+    </div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap two">
+    <div>
+      <div class="eyebrow">Book</div>
+      <h2>Pick your slot.</h2>
+      <p>The form works out the price as you go, then opens WhatsApp with your request. We reply with the slot confirmation and the UPI details for the ₹100 token. Slots are held only once the token is in.</p>
+      <ul class="rules" aria-label="House rules">
+        <li><b>No walk-ins.</b> Booking through this page only.</li>
+        <li><b>Ages 12 and up.</b> Under-18s come with an adult.</li>
+        <li><b>A short waiver on arrival</b> — VR health notes, and you drive at your own risk.</li>
+        <li><b>No alcohol</b> before or during the session.</li>
+        <li><b>Late?</b> Your slot ends at its booked time; the token is not refunded.</li>
+        <li><b>Power cut or rig fault?</b> Time added back, or a full refund with the token. Our fault, our cost.</li>
+      </ul>
+    </div>
+    <form class="book" id="bookForm" autocomplete="on" novalidate>
+      <label>Your name<input name="name" required placeholder="First name is fine"></label>
+      <label>What are you booking<select name="what" required>
+        <option value="">Choose</option>
+        <option value="rig">Racing on the rig</option>
+        <option value="vr">Racing in VR (from 25 Sept)</option>
+        <option value="ps5">Console night on the PS5</option>
+      </select></label>
+      <div class="row">
+        <label>Date<input name="date" type="date" required min="2026-09-12"></label>
+        <label>Start time<select name="time" required><option value="">Pick a date first</option></select></label>
+      </div>
+      <div class="row">
+        <label>How long<select name="hours" required><option value="">Choose</option><option value="1">1 hour</option><option value="1.5">1.5 hours</option><option value="2">2 hours</option><option value="3">3 hours</option></select></label>
+        <label>How many of you<select name="people" required><option value="">Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+      </div>
+      <div class="estimate" id="estimate" aria-live="polite"><div class="sum">Your price</div><div>Pick what you are booking, a date and how long, and the price shows here.</div></div>
+      <button class="btn primary" type="submit">Request this slot on WhatsApp</button>
+      <p class="note">By requesting a slot you accept the ₹100 token rule — not refunded if you cancel or do not come, refunded in full if we cannot run your session — and the house rules above. We use your name and number only to run your booking.</p>
+      <noscript><p class="note">This form needs JavaScript. Turn it on, or come back on a phone — booking is on WhatsApp.</p></noscript>
+    </form>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:52rem">
+    <div class="eyebrow">Questions</div>
+    <h2>Before you ask.</h2>
+    <details><summary>I have never driven a sim rig. Is it for me?</summary><p>Yes, and most first-timers are the people who enjoy it most. The first five minutes are a briefing: how the wheel behaves, where the pedals bite, what the assists do. We start you in a forgiving car with ABS, traction control and the racing line switched on, and the first laps are yours to get used to the force feedback, because a direct-drive wheel pushes back in a way a controller never does.</p><p>Most people are lapping consistently within twenty minutes. If you already race on a controller, expect a humbling first ten minutes and a much faster car by the end of the hour.</p></details>
+    <details><summary>Can we use the VR headset right now?</summary><p>Not yet. The PlayStation VR2 is installed around 25 September, and VR sessions open from that date at the VR rate. Until then every racing session runs on the 65-inch OLED at the screen rate, which is the same rig, the same wheel and the same game — only the view changes.</p><p>You can already book a VR slot for a date from the 25th onward. The form will not let you pick VR for an earlier date. Gran Turismo 7 is the first VR title; other PlayStation VR2 games are coming after it.</p></details>
+    <details><summary>Is the ₹100 token really non-refundable?</summary><p>When the reason is on your side, yes: if you cancel, arrive late or do not come, the token is not refunded, whatever the reason — illness, traffic, a change of plan. The token holds the room for you, and while it is held nobody else can book that hour. It is not a fee on top: it counts toward your bill when you come.</p><p>When the reason is on our side, everything is refunded in full, token included. Reschedules are at our discretion and never guaranteed, but ask — with a day's notice we can usually move you.</p></details>
+    <details><summary>What if the power goes, or something breaks mid-session?</summary><p>Then it is our problem, and you do not pay for time you did not get. If the room is free after your slot, the lost minutes are added straight back. If it is not, or if the session cannot continue, you choose: a full refund of everything you have paid, the ₹100 token included, or a rebooking with the lost time added on top.</p><p>This covers power cuts, the console or the wheel failing, and anything else on our side of the room. It does not cover time lost because you arrived late.</p></details>
+    <details><summary>Where exactly is it, and how do I get there?</summary><p>Gurugram, Sector 38. The exact address and directions are shared with your confirmation, not before, because the building is a gated residence with fingerprint access and does not allow unaccompanied visitors. You are met at the gate at your slot time and brought up.</p><p>Ask about parking when we confirm your slot and we will tell you what is available that day.</p></details>
+    <details><summary>How do I pay?</summary><p>The ₹100 token by UPI, to the details we send with your confirmation. The balance on the day, by UPI or cash, before you leave. You are billed for the time you actually played, rounded up to the nearest half hour, and the token comes off that total. There is no card machine.</p></details>
+    <details><summary>Can we stay longer once we are there?</summary><p>If the room is free after your slot, yes — say so before your time is up and the extra time is billed at the same rate, in half hours. If someone is booked after you, your slot ends at its booked time, so book the length you think you will want.</p></details>
+    <details><summary>Which games can we play?</summary><p>On the rig, Gran Turismo 7. On the pad, whatever is installed — FIFA (EA SPORTS FC), WWE 2K, Rocket League, Mortal Kombat and GT7 to start — plus anything in the PlayStation Plus catalogue, because the subscription is active on the console: name the game when you book and it is downloaded before you arrive. Your own disc or your own PlayStation account is welcome too.</p><p>In VR it is Gran Turismo 7 first, from 25 September; other PlayStation VR2 games follow — ask what is installed when you book.</p></details>
+    <details><summary>How many controllers are there?</summary><p>Three. Four people can play at once if one of you brings a fourth PS5 controller, and you are welcome to bring your own controller anyway if you prefer it. The room holds five, so on a console night one person sits out, takes the rig, or runs the tournament bracket.</p></details>
+    <details><summary>Can I bring my own wheel or headset?</summary><p>No. The rig is fixed to the cockpit and calibrated, and that is what you are paying for. Your own PS5 controller is welcome, and so is your own PlayStation account if you want your Gran Turismo 7 progress, cars and licences on the screen.</p></details>
+    <details><summary>What about motion sickness in VR?</summary><p>Some people feel it in the first minutes, especially in a car, because your eyes see movement your body does not feel. So we do not put the headset on you cold: every VR session starts on the screen, moves to the headset in short stints, and stops the moment you want to. Tell us if you know you are prone to it and we will keep the stints shorter.</p><p>The headset is for ages 12 and up, per the manufacturer. It fits over most glasses.</p></details>
+    <details><summary>What should I bring or wear?</summary><p>Nothing in particular. Closed shoes are better than sandals on the pedals, and anything you can sit in for an hour is fine. Water is welcome; keep food and other drinks away from the rig and the screen. If you wear glasses, keep them on for the screen and for VR.</p></details>
+    <details><summary>Can we book for a birthday, a team night or a group?</summary><p>Yes — the room is built for it. Up to five people per booking, four playing at once on the console, or everyone taking turns on the rig with the lap board keeping score. Book two or three hours for a group; one hour goes quickly with five people rotating. Tell us it is an occasion when you book and we will set the games up before you arrive.</p></details>
+    <details><summary>Can I take photos or record my laps?</summary><p>Yes. Photos and videos for your own use are fine, and the PS5 can save your best lap for you to take home. Please keep other guests out of your shots unless they are happy to be in them.</p></details>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <p><b style="color:var(--chalk)">VR Racing</b> is an independent, owner-run venture in Gurugram. It is hosted on a MEcommerce subdomain with the company's knowledge and is not a MEcommerce service. The owner's name and the full address come with your booking confirmation.</p>
+  <p>Booking and questions on WhatsApp: <a class="wa" href="#book" data-wa-link data-wa-text>use the form above</a>. The ₹100 booking token is not refunded if you cancel or do not come; it is refunded in full if we cannot run your session. The balance is billed by time played. We keep only the details needed to run your booking and delete them on request.</p>
+  <p class="mono" style="font-size:.8rem;color:var(--tarmac-2)">Gran Turismo, PlayStation, PlayStation Plus and PlayStation VR2 are trademarks of Sony Interactive Entertainment; Fanatec and Playseat are trademarks of their owners; the games named are trademarks of their publishers. Game frames and product images belong to their publishers and makers (Sony Interactive Entertainment / Polyphony Digital, Fanatec, Playseat, EA, 2K, Psyonix, Warner Bros. Games) and are shown to describe the equipment and games on offer; drift photographs by RAW Visual Studio and Gabriel Vasiliu on Unsplash. Named and shown for what they are, not affiliated.</p>
+</div></footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Full-size image">
+  <picture id="lbPic"><source id="lbWebp" type="image/webp" srcset=""><img id="lbImg" alt=""></picture>
+  <div class="cap" id="lbCap"></div>
+  <button class="close" type="button" id="lbClose" aria-label="Close">×</button>
+</dialog>
+
+<script>
+  (function(){
+    'use strict';
+    // ---- constants ---------------------------------------------------------------------
+    // The WhatsApp number comes from <body data-wa>, the single place it lives.
+    var WA=document.body.getAttribute('data-wa');
+    // Hourly rates in rupees. These mirror the #price cards above — change both together.
+    // `from` = the first bookable date for that option.
+    var RATES={
+      rig:{name:'Racing on the rig',wd:1500,we:1800},
+      vr:{name:'Racing in VR',wd:2000,we:2400,from:'2026-09-25'},
+      ps5:{name:'Console night on the PS5',wd:1000,we:1200}
+    };
+    var OPEN='2026-09-12';               // first bookable date (launch Saturday)
+    var TOKEN=100;                       // the UPI booking token
+    var SLOTS={wd:['18:30','19:30','20:30','21:30'],we:['11:00','12:30','14:00','15:30','17:00','18:30','20:00']};
+
+    // ---- WhatsApp links + the visible number, all from the one constant ------------------
+    var pretty='+91 '+WA.slice(2,7)+' '+WA.slice(7);
+    document.querySelectorAll('[data-wa-link]').forEach(function(a){a.href='https://wa.me/'+WA;});
+    document.querySelectorAll('[data-wa-text]').forEach(function(a){a.textContent=pretty;});
+
+    // ---- booking form: live price, date-aware time slots, WhatsApp hand-off ---------------
+    var f=document.getElementById('bookForm');
+    var est=document.getElementById('estimate');
+    var timeSel=f.elements.time;
+    function isWeekend(iso){var d=new Date(iso+'T00:00:00');var day=d.getDay();return day===0||day===6;}
+    function niceDate(iso){var d=new Date(iso+'T00:00:00');return d.toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
+    function rupees(n){return '₹'+n.toLocaleString('en-IN');}
+    function fillSlots(iso){
+      var keep=timeSel.value;
+      var list=iso?SLOTS[isWeekend(iso)?'we':'wd']:[];
+      timeSel.innerHTML='';
+      var o=document.createElement('option');o.value='';o.textContent=iso?'Choose':'Pick a date first';timeSel.appendChild(o);
+      list.forEach(function(t){var op=document.createElement('option');op.value=t;op.textContent=t;timeSel.appendChild(op);});
+      if(list.indexOf(keep)>=0)timeSel.value=keep;
+    }
+    // Returns {ok, title, text, line} — `line` is the one-line estimate carried into the WhatsApp message.
+    function quote(){
+      var what=f.elements.what.value,iso=f.elements.date.value,hrs=parseFloat(f.elements.hours.value);
+      if(!what||!iso||!hrs)return{ok:false,warn:false,title:'Your price',text:'Pick what you are booking, a date and how long, and the price shows here.'};
+      if(iso<OPEN)return{ok:false,warn:true,title:'Bookings start Saturday 12 September',text:'Pick a date from the 12th onward.'};
+      var r=RATES[what];
+      if(r.from&&iso<r.from)return{ok:false,warn:true,title:'VR sessions start on 25 September',text:'Pick a date from the 25th, or book the rig on the screen for this date.'};
+      var we=isWeekend(iso),rate=we?r.we:r.wd,total=rate*hrs,bal=total-TOKEN;
+      var h=hrs===1?'1 hour':hrs+' hours';
+      var line=rupees(total)+' ('+(we?'weekend':'weekday')+' rate '+rupees(rate)+'/hr × '+h+'); '+rupees(TOKEN)+' token now, '+rupees(bal)+' on the day';
+      return{ok:true,warn:false,title:rupees(total),sub:'for '+h+', '+(we?'weekend':'weekday')+' rate',text:rupees(TOKEN)+' token by UPI once we confirm, '+rupees(bal)+' on the day. Billed by time played if you stop early.',line:line};
+    }
+    function render(){
+      var q=quote();
+      est.classList.toggle('warn',!!q.warn);
+      est.innerHTML='<div class="sum">'+q.title+(q.sub?'<small>'+q.sub+'</small>':'')+'</div><div>'+q.text+'</div>';
+    }
+    f.addEventListener('change',function(e){if(e.target.name==='date')fillSlots(e.target.value);render();});
+    f.addEventListener('input',render);
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      // native validity, reported inline (no dialogs); then our own date rules
+      if(!f.checkValidity()){f.reportValidity();return;}
+      var q=quote();
+      if(!q.ok){render();est.scrollIntoView({block:'center'});return;}
+      var d=new FormData(f);
+      var msg='Hi, I would like to book VR Racing.\n'+
+        'Name: '+d.get('name')+'\n'+
+        'What: '+RATES[d.get('what')].name+'\n'+
+        'Date: '+niceDate(d.get('date'))+'\n'+
+        'Start: '+d.get('time')+'\n'+
+        'Duration: '+(d.get('hours')==='1'?'1 hour':d.get('hours')+' hours')+'\n'+
+        'People: '+d.get('people')+'\n'+
+        'Estimate: '+q.line+'\n'+
+        'I understand the ₹100 token is not refunded if I cancel or do not come.';
+      window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank','noopener');
+    });
+    fillSlots('');render();
+
+    // ---- the slow zoom plays only while a photograph is on screen ---------------------------
+    var zooms=document.querySelectorAll('.zoom');
+    if('IntersectionObserver' in window){
+      var zo=new IntersectionObserver(function(es){es.forEach(function(en){en.target.classList.toggle('in',en.isIntersecting);});},{threshold:.05});
+      zooms.forEach(function(el){zo.observe(el);});
+    }else{zooms.forEach(function(el){el.classList.add('in');});}
+
+    // ---- the lap readout on the hero: milliseconds tick, off under reduced motion ---------
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ms=document.getElementById('ms');
+    if(ms&&!reduce){var t=0;setInterval(function(){t=(t+37)%1000;ms.textContent=String(t).padStart(3,'0');},90);}
+
+    // ---- the 4K lightbox: any .shot button opens its full-size frame in a <dialog> ---------
+    var lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),lbWebp=document.getElementById('lbWebp'),lbCap=document.getElementById('lbCap');
+    if(lb&&typeof lb.showModal==='function'){
+      var open=function(b){
+        lbWebp.srcset=b.getAttribute('data-full-webp')||'';
+        lbImg.src=b.getAttribute('data-full');
+        lbImg.alt=(b.querySelector('img')||{}).alt||'';
+        lbCap.textContent=b.getAttribute('data-cap')||'';
+        lb.showModal();
+      };
+      document.querySelectorAll('[data-full]').forEach(function(b){
+        b.addEventListener('click',function(){open(b);});
+        if(b.tagName!=='BUTTON')b.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(b);}});
+      });
+      var close=function(){lb.close();lbImg.src='';lbWebp.srcset='';};
+      document.getElementById('lbClose').addEventListener('click',close);
+      lb.addEventListener('click',function(e){if(e.target===lb||e.target===lbImg)close();});
+    }
+  })();
+</script>
+</body>
+</html>

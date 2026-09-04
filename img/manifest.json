@@ -1,0 +1,194 @@
+{
+  "_comment": "Every image the page uses: its master in img/raw/ (git-ignored, 4K where the source offers it), the widths to produce, and the credit line. tools/optimise_images.py reads this and writes img/<name>-<width>.{webp,jpg|png} plus img/CREDITS.md. Product shots keep their transparency (alpha=true -> png fallback instead of jpg). crop = [left, top, right, bottom] on the master, applied before resizing.",
+  "widths": [
+    3840,
+    2560,
+    1600,
+    800
+  ],
+  "images": [
+    {
+      "name": "gt7-keyart",
+      "src": "gt7-store-15.jpg",
+      "max": 3840,
+      "sizes": "100vw",
+      "alt": "Gran Turismo 7 key art: a blue and a red car nose to nose",
+      "credit": "Gran Turismo 7 key art (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, from the PlayStation Store product page"
+    },
+    {
+      "name": "drift-bmw-rx7",
+      "src": "unsplash-IXTtgOnVNMo.jpg",
+      "max": 3840,
+      "sizes": "100vw",
+      "alt": "A yellow BMW and a white Mazda RX-7 drifting side by side through a corner, tyre smoke pouring off the rear wheels",
+      "credit": "Drift photograph (3840x2560) — RAW Visual Studio on Unsplash, https://unsplash.com/photos/IXTtgOnVNMo (Unsplash licence: free for commercial use)"
+    },
+    {
+      "name": "drift-street",
+      "src": "unsplash-ZVenr6API4c.jpg",
+      "max": 3840,
+      "sizes": "100vw",
+      "alt": "A car mid-drift on a street circuit, smoke trailing, skid marks on the tarmac",
+      "credit": "Drift photograph (3840x2160) — Gabriel Vasiliu on Unsplash, https://unsplash.com/photos/ZVenr6API4c (Unsplash licence)"
+    },
+    {
+      "name": "gt7-rx-vision",
+      "src": "gt7-ps-gran-turismo-7-mazda-rx-vision-GT3-02-en-16aug21.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "Mazda RX-Vision GT3 Concept powering along a mountain road in Gran Turismo 7",
+      "credit": "Gran Turismo 7 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, playstation.com"
+    },
+    {
+      "name": "gt7-eiger-subaru",
+      "src": "gt7-upd-gt7-update-149-eiger-nordwand-5.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "A blue Subaru at speed on the Eiger Nordwand course, Alps behind",
+      "credit": "Gran Turismo 7 Update 1.49 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, via GTPlanet"
+    },
+    {
+      "name": "gt7-eiger-station",
+      "src": "gt7-upd-gt7-update-149-eiger-nordwand-1.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "Cars cornering past the Kleine Scheidegg station on the Eiger Nordwand course",
+      "credit": "Gran Turismo 7 Update 1.49 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, via GTPlanet"
+    },
+    {
+      "name": "gt7-eiger-bridge",
+      "src": "gt7-upd-gt7-update-149-eiger-nordwand-3.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "A yellow car crossing the railway bridge on the Eiger Nordwand course",
+      "credit": "Gran Turismo 7 Update 1.49 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, via GTPlanet"
+    },
+    {
+      "name": "gt7-eiger-road",
+      "src": "gt7-upd-gt7-update-149-eiger-nordwand-8.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "A pack of cars on the mountain road at Eiger Nordwand",
+      "credit": "Gran Turismo 7 Update 1.49 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, via GTPlanet"
+    },
+    {
+      "name": "gt7-garage-walk",
+      "src": "gt7-ps-gran-turismo-7-screenshot-02-disclaimer-en-01oct20.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "A driver in a helmet walking through the pit garage toward the light",
+      "credit": "Gran Turismo 7 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, playstation.com"
+    },
+    {
+      "name": "gt7-engine",
+      "src": "gt7-ps-gran-turismo-7-screenshot-07-disclaimer-en-01oct20.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "Close-up of an open-wheel car's engine and suspension in the garage",
+      "credit": "Gran Turismo 7 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, playstation.com"
+    },
+    {
+      "name": "gt7-neon-pit",
+      "src": "gt7-store-1.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "A pit lane at night under neon light, wet tarmac reflecting the gantry",
+      "credit": "Gran Turismo 7 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, from the PlayStation Store"
+    },
+    {
+      "name": "gt7-cockpit",
+      "src": "gt7-ps-gran-turismo-7-screenshot-ps5-06-en-05aug21.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 60vw",
+      "alt": "Cockpit view at Trial Mountain: the wheel, the dashboard and the pack ahead — the view you get in VR",
+      "credit": "Gran Turismo 7 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, playstation.com"
+    },
+    {
+      "name": "gt7-cockpit-classic",
+      "src": "gt7-sop-MusicRally_02.jpg",
+      "max": 3840,
+      "sizes": "(max-width: 860px) 100vw, 40vw",
+      "alt": "Cockpit view from a classic roadster, wooden wheel and chrome dials, in Gran Turismo 7",
+      "credit": "Gran Turismo 7 screenshot (3840x2160) — © Sony Interactive Entertainment / Polyphony Digital, via GTPlanet"
+    },
+    {
+      "name": "psvr2-headset",
+      "src": "psvr2-headset-controllers.png",
+      "max": 2560,
+      "alpha": true,
+      "sizes": "(max-width: 860px) 100vw, 50vw",
+      "alt": "PlayStation VR2 headset with its two Sense controllers",
+      "credit": "PlayStation VR2 product image — © Sony Interactive Entertainment, playstation.com"
+    },
+    {
+      "name": "fanatec-gt-dd-pro",
+      "src": "fanatec-ddpro-01.webp",
+      "max": 1600,
+      "alpha": true,
+      "sizes": "(max-width: 860px) 100vw, 40vw",
+      "alt": "Fanatec Gran Turismo DD Pro: the direct-drive base, the GT wheel and the pedal set",
+      "credit": "Fanatec Gran Turismo DD Pro product image (2000x1333) — © Endor AG / Fanatec, fanatec.com"
+    },
+    {
+      "name": "playseat-trophy",
+      "src": "playseat-red-1.png",
+      "max": 1600,
+      "alpha": true,
+      "sizes": "(max-width: 860px) 100vw, 40vw",
+      "alt": "Playseat Trophy cockpit in red",
+      "credit": "Playseat Trophy product image (2000x2000) — © Playseat, playseat.com"
+    },
+    {
+      "name": "tile-fc",
+      "src": "fc26-musiala.jpg",
+      "max": 1600,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "EA SPORTS FC 26: a Bayern player shielding the ball from two defenders",
+      "credit": "EA SPORTS FC 26 image (1920x1080) — © Electronic Arts, ea.com"
+    },
+    {
+      "name": "tile-wwe",
+      "src": "wwe2k25-keyart.jpg",
+      "crop": [
+        0,
+        600,
+        6000,
+        3975
+      ],
+      "max": 3840,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "WWE 2K25 key art: Roman Reigns crouched in the ring",
+      "credit": "WWE 2K25 Standard Edition key art (6000x7200, cropped) — © 2K / Take-Two Interactive, newsroom-uk.2k.com"
+    },
+    {
+      "name": "tile-rl",
+      "src": "rl-g2.jpg",
+      "max": 1600,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "Rocket League: a car on the pitch under stadium lights",
+      "credit": "Rocket League image (1920x1080) — © Psyonix / Epic Games, rocketleague.com"
+    },
+    {
+      "name": "tile-mk",
+      "src": "mk1-hero.jpg",
+      "max": 1600,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "Mortal Kombat 1: Liu Kang at dusk in a field",
+      "credit": "Mortal Kombat 1 image (1920x800) — © Warner Bros. Games / NetherRealm, mortalkombat.com"
+    },
+    {
+      "name": "tile-gt7",
+      "src": "gt7-store-15.jpg",
+      "max": 2560,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "Gran Turismo 7 key art, close crop: the blue and the red car",
+      "credit": "Gran Turismo 7 key art (3840x2160, cropped) — © Sony Interactive Entertainment / Polyphony Digital, from the PlayStation Store product page",
+      "crop": [
+        640,
+        120,
+        3200,
+        2040
+      ]
+    }
+  ]
+}
