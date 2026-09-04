@@ -281,6 +281,14 @@
       "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
       "alt": "F1 25 key art: three drivers above a McLaren, a Williams and a Haas at speed",
       "credit": "F1 25 key art (3840x2160) — © Electronic Arts / Codemasters, from the PlayStation Store"
+    },
+    {
+      "name": "tile-rev",
+      "src": "rev-standard.jpg",
+      "max": 2560,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "Resident Evil Village key art: Chris Redfield's face in the snow beside the Village wordmark",
+      "credit": "Resident Evil Village key art (3840x2160) — © Capcom, from the PlayStation Store"
     }
   ]
 }
