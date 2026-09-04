@@ -32,3 +32,4 @@ Masters live in `img/raw/` (not committed). Each line: what the file is, its mas
 - **gta6-vice-street** — Grand Theft Auto VI screenshot (3840x2160) — © Rockstar Games / Take-Two Interactive, rockstargames.com/VI/media
 - **gta6-vice-towers** — Grand Theft Auto VI screenshot (3840x2160) — © Rockstar Games / Take-Two Interactive, rockstargames.com/VI/media
 - **tile-snowrunner** — SnowRunner 1-Year Anniversary Edition key art (3840x2160, border cropped) — © Focus Entertainment / Saber Interactive, from the PlayStation Store
+- **tile-f125** — F1 25 key art (3840x2160) — © Electronic Arts / Codemasters, from the PlayStation Store

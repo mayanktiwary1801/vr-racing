@@ -273,6 +273,14 @@
       "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
       "alt": "SnowRunner key art: a yellow Freightliner hauling pipes through deep snow, an off-roader behind it",
       "credit": "SnowRunner 1-Year Anniversary Edition key art (3840x2160, border cropped) — © Focus Entertainment / Saber Interactive, from the PlayStation Store"
+    },
+    {
+      "name": "tile-f125",
+      "src": "f125-standard.jpg",
+      "max": 2560,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "F1 25 key art: three drivers above a McLaren, a Williams and a Haas at speed",
+      "credit": "F1 25 key art (3840x2160) — © Electronic Arts / Codemasters, from the PlayStation Store"
     }
   ]
 }
