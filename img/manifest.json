@@ -289,6 +289,14 @@
       "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
       "alt": "Resident Evil Village key art: Chris Redfield's face in the snow beside the Village wordmark",
       "credit": "Resident Evil Village key art (3840x2160) — © Capcom, from the PlayStation Store"
+    },
+    {
+      "name": "tile-acc",
+      "src": "acc-1.jpg",
+      "max": 2560,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "Assetto Corsa Competizione: a Lamborghini Huracan GT3 leading a pack through a corner at dusk",
+      "credit": "Assetto Corsa Competizione screenshot (3840x2160) — © Kunos Simulazioni / 505 Games, from the PlayStation Store"
     }
   ]
 }

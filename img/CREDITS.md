@@ -34,3 +34,4 @@ Masters live in `img/raw/` (not committed). Each line: what the file is, its mas
 - **tile-snowrunner** — SnowRunner 1-Year Anniversary Edition key art (3840x2160, border cropped) — © Focus Entertainment / Saber Interactive, from the PlayStation Store
 - **tile-f125** — F1 25 key art (3840x2160) — © Electronic Arts / Codemasters, from the PlayStation Store
 - **tile-rev** — Resident Evil Village key art (3840x2160) — © Capcom, from the PlayStation Store
+- **tile-acc** — Assetto Corsa Competizione screenshot (3840x2160) — © Kunos Simulazioni / 505 Games, from the PlayStation Store
