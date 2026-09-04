@@ -221,22 +221,6 @@
       "credit": "Grand Theft Auto VI official cover art, landscape (3840x2160) — © Rockstar Games / Take-Two Interactive, rockstargames.com/VI/media"
     },
     {
-      "name": "tile-truck",
-      "src": "truckdriver-1.jpg",
-      "max": 2560,
-      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
-      "alt": "Truck Driver: The American Dream key art: four American trucks on the road",
-      "credit": "Truck Driver: The American Dream key art (3840x2160) — © SOEDESCO, from the PlayStation Store"
-    },
-    {
-      "name": "tile-bus",
-      "src": "bussim21-store.png",
-      "max": 2560,
-      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
-      "alt": "Bus Simulator 21 Next Stop: a city bus pulling into a night-time stop",
-      "credit": "Bus Simulator 21 Next Stop key art (3840x2160) — © astragon Entertainment, from the PlayStation Store"
-    },
-    {
       "name": "gta6-hero",
       "src": "gta6-hero.jpg",
       "max": 3840,

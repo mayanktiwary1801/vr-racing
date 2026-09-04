@@ -26,8 +26,6 @@ Masters live in `img/raw/` (not committed). Each line: what the file is, its mas
 - **tile-goy** — Ghost of Yotei screenshot (3840x2160) — © Sony Interactive Entertainment / Sucker Punch Productions, playstation.com
 - **tile-gta5** — Grand Theft Auto V key art (3840x2160, cropped) — © Rockstar Games / Take-Two Interactive, from the PlayStation Store
 - **tile-gta6** — Grand Theft Auto VI official cover art, landscape (3840x2160) — © Rockstar Games / Take-Two Interactive, rockstargames.com/VI/media
-- **tile-truck** — Truck Driver: The American Dream key art (3840x2160) — © SOEDESCO, from the PlayStation Store
-- **tile-bus** — Bus Simulator 21 Next Stop key art (3840x2160) — © astragon Entertainment, from the PlayStation Store
 - **gta6-hero** — Grand Theft Auto VI hero art (3840x1920) — © Rockstar Games / Take-Two Interactive, rockstargames.com/VI/media
 - **gta6-cheetah** — Grand Theft Auto VI screenshot (3840x2160) — © Rockstar Games / Take-Two Interactive, rockstargames.com/VI/media
 - **gta6-kalaga-road** — Grand Theft Auto VI screenshot (3840x2160) — © Rockstar Games / Take-Two Interactive, rockstargames.com/VI/media
