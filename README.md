@@ -1,6 +1,6 @@
 # VR Racing — booking page
 
-A single static page for **VR Racing**, an owner-run sim-racing room in Gurugram (Sector 38). Not a MEcommerce project; hosted on the `vrracing.mecomm.in` subdomain with the company's knowledge.
+A single static page for **VR Racing**, an owner-run sim-racing room in Gurugram (Sector 38). Not a MEcommerce project; hosted on the `vrracing.commercedwar.com` subdomain (CommerceDwar is the company's brand) with the company's knowledge.
 
 **No personal name, phone number or street address belongs anywhere in this repo.** The page names the venture, the sector and a business WhatsApp number only; the owner's name and the full address go to a guest with the booking confirmation.
 
@@ -8,7 +8,7 @@ A single static page for **VR Racing**, an owner-run sim-racing room in Gurugram
 - `img/` — every image the page uses, in four widths (3840 / 2560 / 1600 / 800) as WebP plus a JPEG or PNG fallback, produced by `tools/optimise_images.py` from `img/manifest.json`. `img/CREDITS.md` lists where each image came from and who owns it.
 - `img/raw/` — the 4K masters (git-ignored; keep a backup). The manifest names each master.
 - `og.png` — the WhatsApp/social link-preview card, produced by `tools/og_card.py`.
-- `CNAME` — the custom domain for GitHub Pages (`vrracing.mecomm.in`); harmless on other hosts.
+- `CNAME` — the custom domain for GitHub Pages (`vrracing.commercedwar.com`); harmless on other hosts.
 - Booking = a form that works out the price and opens WhatsApp with the request pre-filled; the ₹100 UPI token details are sent on WhatsApp after the slot is confirmed. No backend, no data stored by the page.
 
 ## Editing
@@ -39,5 +39,5 @@ The 4K frames in the gallery open at their full 3840 × 2160 in the tap-to-enlar
 1. Put the business WhatsApp number into `<body data-wa>`; keep the personal number off the site.
 2. Confirm the price figures in `#price` and in `RATES`.
 3. Publish from a fresh, single-commit history under a neutral author (the pre-publish history is local only).
-4. Point `vrracing.mecomm.in` at the host with a `CNAME` record on the `mecomm.in` DNS (Hostinger); wait for HTTPS.
+4. Point `vrracing.commercedwar.com` at the host with a `CNAME` record on the `commercedwar.com` DNS (Hostinger); wait for HTTPS.
 5. Add photos of the room and the rig through the manifest + script above.

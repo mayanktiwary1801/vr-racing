@@ -1,4 +1,4 @@
-# Regenerate og.png — the 1200x630 card WhatsApp / social previews show for https://vrracing.mecomm.in/.
+# Regenerate og.png — the 1200x630 card WhatsApp / social previews show for https://vrracing.commercedwar.com/.
 # Run from anywhere: `python tools/og_card.py` (needs Pillow; uses the Windows fonts Impact / Bahnschrift / Consolas).
 # Re-run whenever the token, the weekday floor or the weekend uplift changes on the page.
 # No personal name anywhere on the card: the site is owner-run and unnamed by design.
