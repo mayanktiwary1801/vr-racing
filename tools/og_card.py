@@ -43,10 +43,10 @@ d.text((64, 96), "VR", font=wordmark, fill=SEAT)
 d.text((64, 258), "RACING", font=wordmark, fill=CHALK)
 
 # sub-line
-d.text((72, 468), "GT7 in VR. Your own race room in Gurugram.", font=sub, fill=CHALK)
+d.text((72, 468), "VR racing in Gurugram.", font=sub, fill=CHALK)
 
 # mono strip with the rig
-d.text((72, 534), "PlayStation VR2 · Fanatec DD Pro · Playseat Trophy · PS5 · up to 5 people", font=mono, fill=MUTED)
+d.text((72, 534), "Gran Turismo 7 · PS VR2 · Fanatec · Playseat", font=mono, fill=MUTED)
 
 # right panel: a big "₹100" token block reads as the one rule people need before they click
 tok_big = ImageFont.truetype(FONTS + "impact.ttf", 96)
