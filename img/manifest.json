@@ -189,6 +189,14 @@
         3200,
         2040
       ]
+    },
+    {
+      "name": "tile-goy",
+      "src": "ghost-of-yotei-cherry-blossoms.jpg",
+      "max": 2560,
+      "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
+      "alt": "Ghost of Yotei: Atsu on horseback under cherry blossoms",
+      "credit": "Ghost of Yotei screenshot (3840x2160) — © Sony Interactive Entertainment / Sucker Punch Productions, playstation.com"
     }
   ]
 }
