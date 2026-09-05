@@ -19,7 +19,8 @@ Edit `index.html`, commit, push to `main`; the host redeploys in about a minute.
 - **Prices** live in two places that must match: the three `#price` cards and the `RATES` table at the top of the script (the live estimate in the form). Weekend = weekday + 20%.
 - **Dates**: `OPEN` (first bookable date, also the date input's `min`) and `RATES.vr.from` (first VR date) in the script; the "from 25 September" wording in the copy.
 - **Time slots**: the `SLOTS` table in the script — weekday evenings and weekend days.
-- **The games grid**: the first two tiles are always visible; every tile carrying class `extra` hides behind the "more" tile, which counts them itself and opens them in place (with scripts off, every tile shows).
+- **The games grid and the 4K gallery**: the first two items are always visible; every item carrying class `extra` hides behind the "more" button of its grid, which counts them itself and opens them in place (with scripts off, everything shows).
+- **The section menu**: the nav lists every section; under 860 px the links fold behind the Menu button. Add a link to `nav.links` and it appears in both places.
 - **The link-preview card**: regenerate with `python tools/og_card.py` (Pillow + the Windows fonts Impact, Bahnschrift, Consolas) whenever the token, the weekday floor or the weekend uplift changes.
 
 ## Images

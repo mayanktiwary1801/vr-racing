@@ -96,7 +96,18 @@
   nav.links{display:flex;gap:1.3rem;font-size:.92rem}
   nav.links a{text-decoration:none;color:var(--tarmac)}
   nav.links a:hover{color:var(--chalk)}
-  @media (max-width:640px){nav.links{display:none}}
+  /* the Menu button: hidden wherever the links fit on one line beside the brand */
+  .menu{display:none;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk);background:transparent;border:1px solid var(--line);border-radius:6px;padding:.5rem .8rem;cursor:pointer}
+  .menu:hover{border-color:var(--tarmac)}
+  .menu .bars{display:inline-block;width:18px;height:12px;background:linear-gradient(var(--chalk) 0 2px,transparent 2px 5px,var(--chalk) 5px 7px,transparent 7px 10px,var(--chalk) 10px 12px)}
+  /* Under 860 px the nine links no longer fit beside the brand, so they fold into a panel that drops from the bar.
+     Every section is listed, the same list as on the desktop, so any part of the page is one tap away. */
+  @media (max-width:860px){
+    .menu{display:inline-flex}
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(11,12,16,.97);border-bottom:1px solid var(--line);padding:.2rem 0 .5rem;font-size:1.02rem}
+    nav.links a{padding:.85rem 1.25rem;border-top:1px solid var(--line);color:var(--chalk)}
+    header.top.open nav.links{display:flex}
+  }
 
   /* ---- hero: the 4K key art full-bleed, the words over its dark left half ---- */
   section.hero{padding:0;border-top:0;min-height:min(86vh,58rem);display:grid;align-items:end;overflow:hidden}
@@ -197,17 +208,21 @@
   .tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(11,12,16,.92) 0%,rgba(11,12,16,.45) 45%,rgba(11,12,16,.05) 100%)}
   .tile b{display:block;font-family:var(--display);font-weight:800;font-size:1.45rem;letter-spacing:.05em;text-transform:uppercase;margin:0 0 .15rem;text-shadow:0 2px 12px rgba(0,0,0,.7)}
   .tile p{margin:0;color:var(--chalk);font-size:.92rem;opacity:.9;text-shadow:0 1px 8px rgba(0,0,0,.8)}
-  /* the "more" tile: a real <button> in the grid. Two games show by default; the .extra tiles stay hidden
-     until it is pressed (phones scrolled too long). Open, it drops to the foot of the grid as a full-width
-     "Show fewer" bar. At 2 and 1 columns the closed tile spans the row, shorter than a 4:3 tile. */
-  .tile.more{background:linear-gradient(160deg,#1e2129,var(--carbon));justify-content:center;cursor:pointer;color:inherit;font:inherit;text-align:left;align-items:stretch;appearance:none;-webkit-appearance:none;transition:border-color .2s ease,background .2s ease}
-  .tile.more:hover{border-color:var(--tarmac);background:linear-gradient(160deg,#252935,var(--carbon-2))}
-  .tile.more b{color:var(--kerb)}
-  .tile.more .sub{display:block;color:var(--tarmac);font-size:.92rem;line-height:1.5}
-  .tiles:not(.open) .extra{display:none}
-  .tiles.open .tile.more{order:99;grid-column:1/-1;aspect-ratio:auto;min-height:0;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:.3rem 1rem;padding:1.1rem 1.2rem}
-  .tiles.open .tile.more b{margin:0}
-  @media (max-width:860px){.tiles:not(.open) .tile.more{grid-column:1/-1;aspect-ratio:auto;min-height:7.5rem}}
+  /* ---- the "more" pattern. A grid marked .has-more hides its .extra items until its .more button is pressed
+     (the games grid and the 4K gallery: phones scrolled too long). Open, the button drops to the foot of the grid
+     as a full-width "Show fewer" bar. The toggle is in the script at the foot of the page; the <noscript> rule in
+     <head> shows everything when scripts are off. ---- */
+  .has-more:not(.open) .extra{display:none}
+  .more{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:stretch;border:1px solid var(--line);border-radius:12px;background:linear-gradient(160deg,#1e2129,var(--carbon));padding:1rem 1.1rem;cursor:pointer;color:inherit;font:inherit;text-align:left;appearance:none;-webkit-appearance:none;transition:border-color .2s ease,background .2s ease}
+  .more:hover{border-color:var(--tarmac);background:linear-gradient(160deg,#252935,var(--carbon-2))}
+  .more b{display:block;font-family:var(--display);font-weight:800;font-size:1.45rem;letter-spacing:.05em;text-transform:uppercase;color:var(--kerb);margin:0 0 .15rem}
+  .more .sub{display:block;color:var(--tarmac);font-size:.92rem;line-height:1.5}
+  /* the slim full-width form: the gallery's bar always, the games tile once open */
+  .more.bar,.has-more.open .more{grid-column:1/-1;aspect-ratio:auto;min-height:0;flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:.3rem 1rem;padding:1.1rem 1.2rem}
+  .more.bar b,.has-more.open .more b{margin:0}
+  .has-more.open .more{order:99}
+  /* the games tile: 4:3 beside the two games at three columns; at two and one columns it spans the row, shorter */
+  @media (max-width:860px){.has-more:not(.open) .tile.more{grid-column:1/-1;aspect-ratio:auto;min-height:7.5rem}}
 
   /* ---- steps — a real sequence, so the numbers earn their place ---- */
   ol.steps{list-style:none;margin:1.2rem 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;counter-reset:s}
@@ -266,7 +281,7 @@
   footer .wrap{display:grid;gap:1rem}
   footer p{margin:0;max-width:70ch}
 </style>
-<noscript><style>.tiles:not(.open) .extra{display:flex}.tile.more{display:none}</style></noscript>
+<noscript><style>.has-more:not(.open) .tile.extra{display:flex}.has-more:not(.open) .shot.extra{display:block}.more{display:none}@media (max-width:860px){.menu{display:none}header.top .wrap{height:auto;flex-wrap:wrap;padding-bottom:.6rem}nav.links{display:flex;position:static;flex-direction:row;flex-wrap:wrap;gap:.5rem 1rem;width:100%;border:0;padding:0;background:none}nav.links a{padding:.2rem 0;border:0}}</style></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -296,8 +311,9 @@
 
 <header class="top"><div class="wrap">
   <a class="brand" href="#top"><i></i>VR RACING</a>
-  <nav class="links" aria-label="Sections">
-    <a href="#vr">VR racing</a><a href="#rig">The rig</a><a href="#gallery">GT7 in 4K</a><a href="#games">Games</a><a href="#how">How it works</a><a href="#price">Price</a><a href="#book">Book</a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
+  <nav class="links" id="site-nav" aria-label="Sections">
+    <a href="#vr">VR racing</a><a href="#rig">The rig</a><a href="#gallery">GT7 in 4K</a><a href="#room">The room</a><a href="#games">Games</a><a href="#how">How it works</a><a href="#price">Price</a><a href="#book">Book</a><a href="#faq">FAQ</a>
   </nav>
 </div></header>
 
@@ -416,7 +432,7 @@
     <div class="eyebrow">Gran Turismo 7 · official frames</div>
     <h2>What runs on the screen.<br>In 4K.</h2>
     <p style="max-width:40rem">Every frame below is Gran Turismo 7 as it renders on the PlayStation 5 — the game you drive here, on the 65-inch OLED. Tap any one to see it at its full 3840 × 2160.</p>
-    <div class="gallery">
+    <div class="gallery has-more" id="gallery-frames">
       <button class="shot zoom" type="button" data-full="img/gt7-keyart-3840.jpg" data-full-webp="img/gt7-keyart-3840.webp" data-cap="Gran Turismo 7 key art · 3840 × 2160">
         <picture><source type="image/webp" srcset="img/gt7-keyart-800.webp 800w, img/gt7-keyart-1600.webp 1600w, img/gt7-keyart-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-keyart-1600.jpg" srcset="img/gt7-keyart-800.jpg 800w, img/gt7-keyart-1600.jpg 1600w, img/gt7-keyart-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="Gran Turismo 7 key art: a blue and a red car nose to nose"></picture>
         <span>Gran Turismo 7 · key art <b>4K</b></span>
@@ -425,31 +441,35 @@
         <picture><source type="image/webp" srcset="img/gt7-rx-vision-800.webp 800w, img/gt7-rx-vision-1600.webp 1600w, img/gt7-rx-vision-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-rx-vision-1600.jpg" srcset="img/gt7-rx-vision-800.jpg 800w, img/gt7-rx-vision-1600.jpg 1600w, img/gt7-rx-vision-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="Mazda RX-Vision GT3 Concept powering along a mountain road in Gran Turismo 7"></picture>
         <span>Mazda RX-Vision GT3 · mountain road <b>4K</b></span>
       </button>
-      <button class="shot zoom" type="button" data-full="img/gt7-eiger-subaru-3840.jpg" data-full-webp="img/gt7-eiger-subaru-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
+      <!-- The "more" bar: two frames show by default; this reveals the .extra frames in place (count filled by the script). -->
+      <button class="more bar" type="button" id="more-frames" aria-expanded="false" aria-controls="gallery-frames" data-open-label="Show fewer" data-open-sub="Back to the first two.">
+        <b><span data-count>7</span> more frames</b><span class="sub">Official Polyphony frames, each opening at its full 3840 × 2160.</span>
+      </button>
+      <button class="shot zoom extra" type="button" data-full="img/gt7-eiger-subaru-3840.jpg" data-full-webp="img/gt7-eiger-subaru-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
         <picture><source type="image/webp" srcset="img/gt7-eiger-subaru-800.webp 800w, img/gt7-eiger-subaru-1600.webp 1600w, img/gt7-eiger-subaru-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-eiger-subaru-1600.jpg" srcset="img/gt7-eiger-subaru-800.jpg 800w, img/gt7-eiger-subaru-1600.jpg 1600w, img/gt7-eiger-subaru-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A blue Subaru at speed on the Eiger Nordwand course, Alps behind"></picture>
         <span>Eiger Nordwand · Subaru <b>4K</b></span>
       </button>
-      <button class="shot zoom" type="button" data-full="img/gt7-eiger-station-3840.jpg" data-full-webp="img/gt7-eiger-station-3840.webp" data-cap="Kleine Scheidegg, Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
+      <button class="shot zoom extra" type="button" data-full="img/gt7-eiger-station-3840.jpg" data-full-webp="img/gt7-eiger-station-3840.webp" data-cap="Kleine Scheidegg, Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
         <picture><source type="image/webp" srcset="img/gt7-eiger-station-800.webp 800w, img/gt7-eiger-station-1600.webp 1600w, img/gt7-eiger-station-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-eiger-station-1600.jpg" srcset="img/gt7-eiger-station-800.jpg 800w, img/gt7-eiger-station-1600.jpg 1600w, img/gt7-eiger-station-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="Cars cornering past the Kleine Scheidegg station on the Eiger Nordwand course"></picture>
         <span>Eiger Nordwand · the station corner <b>4K</b></span>
       </button>
-      <button class="shot zoom" type="button" data-full="img/gt7-eiger-bridge-3840.jpg" data-full-webp="img/gt7-eiger-bridge-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
+      <button class="shot zoom extra" type="button" data-full="img/gt7-eiger-bridge-3840.jpg" data-full-webp="img/gt7-eiger-bridge-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
         <picture><source type="image/webp" srcset="img/gt7-eiger-bridge-800.webp 800w, img/gt7-eiger-bridge-1600.webp 1600w, img/gt7-eiger-bridge-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-eiger-bridge-1600.jpg" srcset="img/gt7-eiger-bridge-800.jpg 800w, img/gt7-eiger-bridge-1600.jpg 1600w, img/gt7-eiger-bridge-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A yellow car crossing the railway bridge on the Eiger Nordwand course"></picture>
         <span>Eiger Nordwand · the bridge <b>4K</b></span>
       </button>
-      <button class="shot zoom" type="button" data-full="img/gt7-eiger-road-3840.jpg" data-full-webp="img/gt7-eiger-road-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
+      <button class="shot zoom extra" type="button" data-full="img/gt7-eiger-road-3840.jpg" data-full-webp="img/gt7-eiger-road-3840.webp" data-cap="Eiger Nordwand · Gran Turismo 7 · 3840 × 2160">
         <picture><source type="image/webp" srcset="img/gt7-eiger-road-800.webp 800w, img/gt7-eiger-road-1600.webp 1600w, img/gt7-eiger-road-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-eiger-road-1600.jpg" srcset="img/gt7-eiger-road-800.jpg 800w, img/gt7-eiger-road-1600.jpg 1600w, img/gt7-eiger-road-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A pack of cars on the mountain road at Eiger Nordwand"></picture>
         <span>Eiger Nordwand · the pack <b>4K</b></span>
       </button>
-      <button class="shot zoom" type="button" data-full="img/gt7-garage-walk-3840.jpg" data-full-webp="img/gt7-garage-walk-3840.webp" data-cap="Pit garage · Gran Turismo 7 · 3840 × 2160">
+      <button class="shot zoom extra" type="button" data-full="img/gt7-garage-walk-3840.jpg" data-full-webp="img/gt7-garage-walk-3840.webp" data-cap="Pit garage · Gran Turismo 7 · 3840 × 2160">
         <picture><source type="image/webp" srcset="img/gt7-garage-walk-800.webp 800w, img/gt7-garage-walk-1600.webp 1600w, img/gt7-garage-walk-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-garage-walk-1600.jpg" srcset="img/gt7-garage-walk-800.jpg 800w, img/gt7-garage-walk-1600.jpg 1600w, img/gt7-garage-walk-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A driver in a helmet walking through the pit garage toward the light"></picture>
         <span>Walking out to the car <b>4K</b></span>
       </button>
-      <button class="shot zoom" type="button" data-full="img/gt7-engine-3840.jpg" data-full-webp="img/gt7-engine-3840.webp" data-cap="Garage detail · Gran Turismo 7 · 3840 × 2160">
+      <button class="shot zoom extra" type="button" data-full="img/gt7-engine-3840.jpg" data-full-webp="img/gt7-engine-3840.webp" data-cap="Garage detail · Gran Turismo 7 · 3840 × 2160">
         <picture><source type="image/webp" srcset="img/gt7-engine-800.webp 800w, img/gt7-engine-1600.webp 1600w, img/gt7-engine-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-engine-1600.jpg" srcset="img/gt7-engine-800.jpg 800w, img/gt7-engine-1600.jpg 1600w, img/gt7-engine-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="Close-up of an open-wheel car's engine and suspension in the garage"></picture>
         <span>Engine and suspension, up close <b>4K</b></span>
       </button>
-      <button class="shot zoom" type="button" data-full="img/gt7-neon-pit-3840.jpg" data-full-webp="img/gt7-neon-pit-3840.webp" data-cap="Pit lane at night · Gran Turismo 7 · 3840 × 2160">
+      <button class="shot zoom extra" type="button" data-full="img/gt7-neon-pit-3840.jpg" data-full-webp="img/gt7-neon-pit-3840.webp" data-cap="Pit lane at night · Gran Turismo 7 · 3840 × 2160">
         <picture><source type="image/webp" srcset="img/gt7-neon-pit-800.webp 800w, img/gt7-neon-pit-1600.webp 1600w, img/gt7-neon-pit-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-neon-pit-1600.jpg" srcset="img/gt7-neon-pit-800.jpg 800w, img/gt7-neon-pit-1600.jpg 1600w, img/gt7-neon-pit-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A pit lane at night under neon light, wet tarmac reflecting the gantry"></picture>
         <span>Pit lane, night, rain <b>4K</b></span>
       </button>
@@ -478,7 +498,7 @@
     <h2>The PS5. The big screen.<br>Your friends.</h2>
     <p style="max-width:40rem">Book the room for a console night instead. Four can play at once — three controllers are here, bring a fourth if you are more. Rotate, run a tournament, or put one person on the rig while the others take the screen.</p>
     <p style="max-width:40rem"><b style="color:var(--chalk)">PlayStation Plus is active on the console.</b> Any game in the PlayStation Plus catalogue can be downloaded on request — name it when you book and it is installed before you arrive.</p>
-    <div class="tiles" id="game-tiles">
+    <div class="tiles has-more" id="game-tiles">
       <div class="tile zoom">
         <picture><source type="image/webp" srcset="img/tile-fc-800.webp 800w, img/tile-fc-1600.webp 1600w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw"><img src="img/tile-fc-1600.jpg" srcset="img/tile-fc-800.jpg 800w, img/tile-fc-1600.jpg 1600w" sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw" width="1600" height="900" loading="lazy" decoding="async" alt="EA SPORTS FC 26: a Bayern player shielding the ball from two defenders"></picture>
         <b>FIFA</b><p>EA SPORTS FC. Head-to-head, or a four-player night.</p>
@@ -490,7 +510,7 @@
       <!-- The "more" tile. Phones scrolled too long, so two games show by default and this button reveals
            the .extra tiles in place (see the script at the foot of the page, which also fills the count from
            the DOM). Without JavaScript the <noscript> rule in <head> shows every tile and hides this button. -->
-      <button class="tile more" type="button" id="more-games" aria-expanded="false" aria-controls="game-tiles">
+      <button class="tile more" type="button" id="more-games" aria-expanded="false" aria-controls="game-tiles" data-open-label="Show fewer" data-open-sub="Back to the short list.">
         <b><span data-count>10</span> more games</b><span class="sub">See everything installed on the console. Anything else in the PlayStation Plus catalogue is downloaded on request.</span>
       </button>
       <div class="tile zoom extra">
@@ -759,23 +779,37 @@
     });
     fillSlots('');render();
 
-    // ---- games grid: two tiles up front, the rest behind the "more" tile ------------------------
-    // Phone readers said the page scrolled too long, so the full list is one tap away instead of
-    // always open. The count is read from the DOM, never typed, so it cannot drift from the tiles.
-    var grid=document.getElementById('game-tiles'),more=document.getElementById('more-games');
-    if(grid&&more){
-      var cnt=more.querySelector('[data-count]');
-      if(cnt)cnt.textContent=grid.querySelectorAll('.extra').length;
-      var lbl=more.querySelector('b'),sub=more.querySelector('.sub');
+    // ---- the "more" pattern: every .has-more grid hides its .extra items behind its .more button -------
+    // Phone readers said the page scrolled too long, so the games grid and the 4K gallery open on demand.
+    // Counts are read from the DOM, never typed, so they cannot drift from the items actually present.
+    document.querySelectorAll('.has-more').forEach(function(grid){
+      var btn=grid.querySelector('.more');if(!btn)return;
+      var cnt=btn.querySelector('[data-count]');if(cnt)cnt.textContent=grid.querySelectorAll('.extra').length;
+      var lbl=btn.querySelector('b'),sub=btn.querySelector('.sub');
       var closedLbl=lbl.innerHTML,closedSub=sub.textContent;
-      more.addEventListener('click',function(){
-        var open=grid.classList.toggle('open');
-        more.setAttribute('aria-expanded',open?'true':'false');
-        lbl.innerHTML=open?'Show fewer':closedLbl;
-        sub.textContent=open?'Back to the short list.':closedSub;
-        // Collapsing pulls ten tiles out from above the reader; put the section's top back under the header.
-        if(!open)(more.closest('section')||grid).scrollIntoView({block:'start'});
+      btn.addEventListener('click',function(){
+        var isOpen=grid.classList.toggle('open');
+        btn.setAttribute('aria-expanded',isOpen?'true':'false');
+        lbl.innerHTML=isOpen?btn.getAttribute('data-open-label'):closedLbl;
+        sub.textContent=isOpen?btn.getAttribute('data-open-sub'):closedSub;
+        // Collapsing pulls the extra items out from above the reader; put the section's top back under the header.
+        if(!isOpen)(btn.closest('section')||grid).scrollIntoView({block:'start'});
       });
+    });
+
+    // ---- the section menu: under 860 px the nav links fold into a panel behind the Menu button --------
+    // Picking a section closes the panel (the anchor does the scrolling); Escape and a tap outside close it too.
+    var hdr=document.querySelector('header.top'),menuBtn=hdr&&hdr.querySelector('.menu'),nav=document.getElementById('site-nav');
+    if(hdr&&menuBtn&&nav){
+      var setMenu=function(isOpen){
+        hdr.classList.toggle('open',isOpen);
+        menuBtn.setAttribute('aria-expanded',isOpen?'true':'false');
+        menuBtn.querySelector('.menu-label').textContent=isOpen?'Close':'Menu';
+      };
+      menuBtn.addEventListener('click',function(){setMenu(!hdr.classList.contains('open'));});
+      nav.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'&&hdr.classList.contains('open')){setMenu(false);menuBtn.focus();}});
+      document.addEventListener('click',function(e){if(hdr.classList.contains('open')&&!hdr.contains(e.target))setMenu(false);});
     }
 
     // ---- the slow zoom plays only while a photograph is on screen ---------------------------
