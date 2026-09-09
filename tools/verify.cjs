@@ -173,14 +173,19 @@ function nextDay(from, wantWeekend) {
     // FAQ bar and the spec sheet
     const closedCount = await page.$$eval('#faq-list details', (ds) => ds.filter((d) => getComputedStyle(d).display !== 'none').length);
     check('375px: FAQ shows 7 before the bar', closedCount === 7, String(closedCount));
-    // every "more" bar's closed label must name exactly the number of hidden items it reveals (the FAQ's group labels are not items)
-    const labels = await page.evaluate(() => [...document.querySelectorAll('.has-more')].map((grid) => {
-      const btn = grid.querySelector('.more'); const sel = btn.getAttribute('data-count-sel') || '.extra';
-      const shown = parseInt(btn.querySelector('[data-count]').textContent, 10);
-      const hidden = [...grid.querySelectorAll(sel)].filter((e) => getComputedStyle(e).display === 'none').length;
-      return { id: grid.id, shown, hidden };
-    }));
-    for (const l of labels) check(`375px: "${l.shown} more" on #${l.id} matches the ${l.hidden} hidden items`, l.shown === l.hidden);
+    // every "more" bar's closed label must name exactly the number of ITEMS its click reveals. The test owns the definition of
+    // an item per grid (the page's own data-count-sel must not be trusted here, or the check could not fail): questions in the
+    // FAQ, tiles, frames, photos — the FAQ's group labels are not questions. Measured across the click, then closed again.
+    const ITEMS = { 'faq-list': 'details', 'game-tiles': '.tile:not(.more)', 'gallery-frames': '.shot', 'room-photos': '.photo' };
+    for (const [id, sel] of Object.entries(ITEMS)) {
+      const before = await page.evaluate(([id, sel]) => [...document.querySelectorAll('#' + id + ' ' + sel)].filter((e) => getComputedStyle(e).display !== 'none').length, [id, sel]);
+      const shown = await page.$eval('#' + id + ' .more [data-count]', (e) => parseInt(e.textContent, 10));
+      await page.evaluate((id) => document.querySelector('#' + id + ' .more').scrollIntoView(), id);
+      await page.click('#' + id + ' .more');
+      const after = await page.evaluate(([id, sel]) => [...document.querySelectorAll('#' + id + ' ' + sel)].filter((e) => getComputedStyle(e).display !== 'none').length, [id, sel]);
+      await page.click('#' + id + ' .more');
+      check(`375px: "${shown} more" on #${id} equals the ${after - before} items the click reveals`, shown === after - before, `${before} → ${after}`);
+    }
     // the bar is off on the hero right now: it must also be out of the tab order (inert), not merely off-screen
     await page.evaluate(() => window.scrollTo(0, 0));
     await page.waitForTimeout(300);
