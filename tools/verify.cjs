@@ -173,6 +173,21 @@ function nextDay(from, wantWeekend) {
     // FAQ bar and the spec sheet
     const closedCount = await page.$$eval('#faq-list details', (ds) => ds.filter((d) => getComputedStyle(d).display !== 'none').length);
     check('375px: FAQ shows 7 before the bar', closedCount === 7, String(closedCount));
+    // every "more" bar's closed label must name exactly the number of hidden items it reveals (the FAQ's group labels are not items)
+    const labels = await page.evaluate(() => [...document.querySelectorAll('.has-more')].map((grid) => {
+      const btn = grid.querySelector('.more'); const sel = btn.getAttribute('data-count-sel') || '.extra';
+      const shown = parseInt(btn.querySelector('[data-count]').textContent, 10);
+      const hidden = [...grid.querySelectorAll(sel)].filter((e) => getComputedStyle(e).display === 'none').length;
+      return { id: grid.id, shown, hidden };
+    }));
+    for (const l of labels) check(`375px: "${l.shown} more" on #${l.id} matches the ${l.hidden} hidden items`, l.shown === l.hidden);
+    // the bar is off on the hero right now: it must also be out of the tab order (inert), not merely off-screen
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.waitForTimeout(300);
+    check('375px: bar inert while off', await page.$eval('#sticky', (b) => b.inert === true && !b.classList.contains('on')));
+    await page.evaluate(() => document.getElementById('vr').scrollIntoView());
+    await page.waitForTimeout(300);
+    check('375px: bar not inert while on', await page.$eval('#sticky', (b) => b.inert === false && b.classList.contains('on')));
     await page.evaluate(() => document.getElementById('more-faq').scrollIntoView());
     await page.click('#more-faq');
     const openCount = await page.$$eval('#faq-list details', (ds) => ds.filter((d) => getComputedStyle(d).display !== 'none').length);

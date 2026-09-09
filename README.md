@@ -25,7 +25,7 @@ Edit `index.html`, commit, push to `main`; the host redeploys in about a minute.
 
 ### The launch offer
 
-50% off for the first five groups of three to five people. Its state lives in **one place** — three attributes on `<body>` — and is right even with scripts off:
+50% off for the first five groups of three to five people. Its state lives in **one place** — three attributes on `<body>`. With scripts off the page shows the open or closed wording from `data-offer` alone (the count and the stale check need the script), so **to close the offer for every visitor, set `data-offer="closed"`** — a count of `0` closes it only where scripts run:
 
 ```html
 <body data-wa="…" data-offer="open" data-offer-remaining="" data-offer-review-by="2026-09-14">
@@ -34,7 +34,7 @@ Edit `index.html`, commit, push to `main`; the host redeploys in about a minute.
 | Attribute | Values | Meaning |
 | --- | --- | --- |
 | `data-offer` | `open` / `closed` | the offer is on, or over. The script may show an open offer as **stale** (below). |
-| `data-offer-remaining` | `""` or a number | leave empty for "Limited to the first five qualifying groups"; put a number (maintained by hand after each confirmed group) for "N of 5 still open". `0` closes the offer. Never show a number you have not set yourself. |
+| `data-offer-remaining` | `""` or a number | leave empty for "Limited to the first five qualifying groups"; put a number (maintained by hand after each confirmed group) for "N of 5 still open". `0` closes the offer where scripts run (use `data-offer="closed"` to close it everywhere); anything that is not a number counts as empty. Never show a number you have not set yourself. |
 | `data-offer-review-by` | `YYYY-MM-DD` | the date you last confirmed the offer plus a week, in IST. Past it, the page goes **stale** on its own: the band says "Ask us on WhatsApp whether the launch offer is still open", the estimate shows the full price with "to be confirmed on WhatsApp", the WhatsApp text says "please confirm", and no number shows. It never deletes a live offer silently. |
 
 Precedence: closed (`data-offer="closed"` or remaining `0`) beats stale beats open. The comparison uses today's date in IST for every visitor (the business's clock), not the phone's timezone.
@@ -73,7 +73,7 @@ Real reviews only. `REVIEWS` in the script is an array of objects — `{name:'Ri
 
 ### The FAQ
 
-Nineteen questions in `#faq-list`: the seven most asked sit open to view; the other twelve carry class `extra` and sit behind the "12 more questions" bar, grouped under small labels (also `extra`). It is the same "more" pattern as the games and the gallery — the count is read from the DOM. The bar carries `data-collapse="self"` so collapsing keeps the reader at the bar, with the seven questions still above it (the grids use the default and scroll their section back to the top).
+Nineteen questions in `#faq-list`: the seven most asked sit open to view; the other twelve carry class `extra` and sit behind the "12 more questions" bar, grouped under small labels (also `extra`). It is the same "more" pattern as the games and the gallery — the count is read from the DOM; because the labels are `extra` too, the FAQ bar carries `data-count-sel="details.extra"` so it counts questions only. The bar carries `data-collapse="self"` so collapsing keeps the reader at the bar, with the seven questions still above it (the grids use the default and scroll their section back to the top).
 
 ### The games grid, the 4K gallery and the room strip
 

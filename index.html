@@ -282,6 +282,7 @@
   .first p{color:var(--tarmac)}
   .first p b{color:var(--chalk);font-weight:600}
   .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem;margin-top:1rem}
+  .reviews[hidden]{display:none}
   .review{margin:0;background:var(--carbon);border:1px solid var(--line);border-radius:10px;padding:1.2rem}
   .review blockquote{margin:0 0 .8rem;color:var(--chalk)}
   .review figcaption{font-family:var(--mono);font-size:.78rem;color:var(--tarmac)}
@@ -892,7 +893,7 @@
     <details><summary>Is the price per person or per room?</summary><p>Per room. Whether one of you comes or five, the hour costs the same, and you share it however you like — on a console night four can play at once. So an hour of VR racing at ₹2,000 for five friends is ₹400 each, in a room nobody else is in.</p></details>
     <details><summary>What if I cancel — or you can't run my session?</summary><p>When the reason is on your side, yes: if you cancel, arrive late or do not come, the token is not refunded, whatever the reason — illness, traffic, a change of plan. The token holds the room for you, and while it is held nobody else can book that hour. It is not a fee on top: it counts toward your bill when you come.</p><p>When the reason is on our side, everything is refunded in full, token included. Reschedules are at our discretion and never guaranteed, but ask — with a day's notice we can usually move you.</p></details>
     <details><summary>Is VR suitable for everyone?</summary><p>Most people, from age 12 up — the headset's own rule; under-18s come with an adult. It fits over glasses. Some people feel motion sickness in the first minutes, so every VR session starts on the screen and moves to the headset in short stints, and we stop the moment you want.</p><p>If you know you are prone to it, say so when you book and we keep the stints shorter; the rig on the screen is the same wheel and the same game.</p></details>
-    <button class="more bar" type="button" id="more-faq" aria-expanded="false" aria-controls="faq-list" data-collapse="self" data-open-label="Show fewer" data-open-sub="Back to the seven most asked.">
+    <button class="more bar" type="button" id="more-faq" aria-expanded="false" aria-controls="faq-list" data-collapse="self" data-count-sel="details.extra" data-open-label="Show fewer" data-open-sub="Back to the seven most asked.">
       <b><span data-count>12</span> more questions</b><span class="sub">Paying, staying longer, the rig, VR, games, controllers, what to bring.</span>
     </button>
     <div class="eyebrow group extra">Booking and money</div>
@@ -942,7 +943,7 @@
 
 <!-- The phone booking bar (under 860 px). The script turns it on once the hero has scrolled away and off while the form,
      the closing band, the footer, the menu or the lightbox is on screen. -->
-<div class="sticky" id="sticky"><a class="btn primary" href="#book">Book your slot</a><span class="hint">from ₹1,000/hr<br>per room, up to five</span></div>
+<div class="sticky" id="sticky" inert><a class="btn primary" href="#book">Book your slot</a><span class="hint">from ₹1,000/hr<br>per room, up to five</span></div>
 
 <dialog class="lightbox" id="lightbox" aria-label="Full-size image">
   <picture id="lbPic"><source id="lbWebp" type="image/webp" srcset=""><img id="lbImg" alt=""></picture>
@@ -972,7 +973,7 @@
     // off. Structural numbers live here. 50 % comes off rate × hours for a group of three or more; the token is never discounted.
     var OFFER={
       open:document.body.getAttribute('data-offer')==='open',
-      remaining:(function(v){return v===null||v===''?null:parseInt(v,10);})(document.body.getAttribute('data-offer-remaining')),
+      remaining:(function(v){var n=parseInt(v,10);return isFinite(n)?n:null;})(document.body.getAttribute('data-offer-remaining')),   // "" or junk = no number
       reviewBy:document.body.getAttribute('data-offer-review-by')||'',
       total:5,pct:50,minPeople:3
     };
@@ -1069,7 +1070,9 @@
     // Counts are read from the DOM, never typed, so they cannot drift from the items actually present.
     document.querySelectorAll('.has-more').forEach(function(grid){
       var btn=grid.querySelector('.more');if(!btn)return;
-      var cnt=btn.querySelector('[data-count]');if(cnt)cnt.textContent=grid.querySelectorAll('.extra').length;
+      // the count is read from the DOM, never typed; a grid whose .extra items include non-items (the FAQ's group labels)
+      // names what to count in data-count-sel
+      var cnt=btn.querySelector('[data-count]');if(cnt)cnt.textContent=grid.querySelectorAll(btn.getAttribute('data-count-sel')||'.extra').length;
       var lbl=btn.querySelector('b'),sub=btn.querySelector('.sub');
       var closedLbl=lbl.innerHTML,closedSub=sub.textContent;
       btn.addEventListener('click',function(){
@@ -1126,7 +1129,9 @@
       var heroGone=false,near={};
       var paint=function(){
         var blocked=Object.keys(near).some(function(k){return near[k];})||(hdr&&hdr.classList.contains('open'));
-        bar.classList.toggle('on',heroGone&&!blocked);
+        var on=heroGone&&!blocked;
+        bar.classList.toggle('on',on);
+        bar.inert=!on;   // off-screen is not out of the tab order by itself
       };
       new IntersectionObserver(function(es){es.forEach(function(en){heroGone=!en.isIntersecting;});paint();},{threshold:0}).observe(document.getElementById('top'));
       var so=new IntersectionObserver(function(es){es.forEach(function(en){near[en.target.id||en.target.tagName]=en.isIntersecting;});paint();},{threshold:0});
