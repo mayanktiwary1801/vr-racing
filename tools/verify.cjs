@@ -177,6 +177,8 @@ function nextDay(from, wantWeekend) {
     // an item per grid (the page's own data-count-sel must not be trusted here, or the check could not fail): questions in the
     // FAQ, tiles, frames, photos — the FAQ's group labels are not questions. Measured across the click, then closed again.
     const ITEMS = { 'faq-list': 'details', 'game-tiles': '.tile:not(.more)', 'gallery-frames': '.shot', 'room-photos': '.photo' };
+    const grids = await page.$$eval('.has-more', (gs) => gs.map((g) => g.id));
+    check('375px: every "more" grid on the page has an item definition in this test', grids.every((id) => ITEMS[id]) && grids.length === Object.keys(ITEMS).length, grids.join(','));
     for (const [id, sel] of Object.entries(ITEMS)) {
       const before = await page.evaluate(([id, sel]) => [...document.querySelectorAll('#' + id + ' ' + sel)].filter((e) => getComputedStyle(e).display !== 'none').length, [id, sel]);
       const shown = await page.$eval('#' + id + ' .more [data-count]', (e) => parseInt(e.textContent, 10));
