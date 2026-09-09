@@ -3,27 +3,42 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VR Racing in Gurugram — your own VR race room</title>
-<meta name="description" content="Gran Turismo 7 in VR on PlayStation VR2, on a Fanatec direct-drive wheel and a Playseat Trophy cockpit, in a private room in Gurugram, Sector 38. Screen sessions on a 65-inch OLED, and PS5 nights: FIFA, WWE, Rocket League, Mortal Kombat and the PlayStation Plus catalogue on request. Up to five people per slot. Booking online only.">
-<meta property="og:title" content="VR Racing in Gurugram — your own VR race room">
-<meta property="og:description" content="Gran Turismo 7 in VR on PlayStation VR2, on a Fanatec direct-drive wheel and a Playseat Trophy cockpit. Your own room in Gurugram, up to five people, evenings and weekends. Book online.">
+<title>VR Racing in Gurugram — private VR & sim racing, Sector 38</title>
+<meta name="description" content="Private VR and sim racing in Gurugram (Gurgaon), Sector 38: Gran Turismo 7 on PlayStation VR2, a Fanatec direct-drive wheel and a Playseat Trophy cockpit in your own room, up to five people, from ₹1,000 an hour. Racing simulator sessions on a 65-inch OLED, and PS5 nights. Book online; a ₹100 token holds your slot.">
+<meta property="og:title" content="VR Racing in Gurugram — private VR & sim racing, Sector 38">
+<meta property="og:description" content="Gran Turismo 7 in PlayStation VR2 on a Fanatec direct-drive rig, in a private room in Gurugram, Sector 38. Per room, up to five people, from ₹1,000 an hour. Book online.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vrracing.commercedwar.com/">
 <meta property="og:image" content="https://vrracing.commercedwar.com/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="VR Racing in Gurugram — your own VR race room. ₹100 UPI token per booking, weekdays from ₹1,000 an hour, weekends +20%.">
+<meta property="og:image:alt" content="VR Racing in Gurugram — private VR and sim racing. ₹100 UPI token per booking, weekdays from ₹1,000 an hour, weekends +20%.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="VR Racing in Gurugram — your own VR race room">
-<meta name="twitter:description" content="Gran Turismo 7 in VR on PlayStation VR2, on a Fanatec direct-drive wheel and a Playseat Trophy cockpit. Your own room in Gurugram, up to five people, evenings and weekends. Book online.">
+<meta name="twitter:title" content="VR Racing in Gurugram — private VR & sim racing, Sector 38">
+<meta name="twitter:description" content="Gran Turismo 7 in PlayStation VR2 on a Fanatec direct-drive rig, in a private room in Gurugram, Sector 38. Per room, up to five people, from ₹1,000 an hour. Book online.">
 <meta name="twitter:image" content="https://vrracing.commercedwar.com/og.png">
 <meta name="theme-color" content="#0b0c10">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230b0c10'/%3E%3Cpath d='M12 18h12l8 18 8-18h12L36 50h-8z' fill='%23e0261c'/%3E%3Crect x='12' y='52' width='40' height='4' fill='%23ffd23f'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" imagesrcset="img/gt7-cockpit-800.webp 800w, img/gt7-cockpit-1600.webp 1600w, img/gt7-cockpit-2560.webp 2560w, img/gt7-cockpit-3840.webp 3840w" imagesizes="100vw" type="image/webp">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="preload" as="image" imagesrcset="img/gt7-cockpit-800.webp 800w, img/gt7-cockpit-1600.webp 1600w, img/gt7-cockpit-2560.webp 2560w, img/gt7-cockpit-3840.webp 3840w" imagesizes="100vw" type="image/webp" fetchpriority="high">
+<!-- The font stylesheet loads without blocking the first paint (preload, then switched to a stylesheet); the faces use
+     display=swap, so text renders in the fallback stack first. With scripts off the <noscript> link loads it the plain way. -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
 <style>
+  /* ---- fallback faces with the web fonts' metrics, so the swap from the fallback to the web font moves nothing.
+     Method (9 Sept 2026): each pair measured in Chromium at 100 px — the width of one long sample string, and ascent /
+     descent from the baseline — with the web fonts loaded. size-adjust = web width / fallback width; the ascent and
+     descent overrides are the web font's, divided by size-adjust (the overrides apply to the adjusted size). A local()
+     that is absent on a device is skipped, and the stack falls through. Measured fallbacks: Impact + Arial (display),
+     Arial (body), Consolas + Courier New (mono). Residual: Android has none of these, so its Roboto fallback is
+     unadjusted and its swap can still shift — unmeasured here. Layout-shift is asserted by tools/verify.cjs + Lighthouse. */
+  @font-face{font-family:"BSD Fallback Impact";src:local("Impact");size-adjust:98.33%;ascent-override:99.7%;descent-override:21.4%;line-gap-override:0%}
+  @font-face{font-family:"BSD Fallback Arial";src:local("Arial");size-adjust:86.2%;ascent-override:113.7%;descent-override:24.4%;line-gap-override:0%}
+  @font-face{font-family:"IT Fallback Arial";src:local("Arial");size-adjust:95.14%;ascent-override:102%;descent-override:25.2%;line-gap-override:0%}
+  @font-face{font-family:"Plex Fallback Consolas";src:local("Consolas");size-adjust:109.13%;ascent-override:94.4%;descent-override:25.7%;line-gap-override:0%}
+  @font-face{font-family:"Plex Fallback Courier";src:local("Courier New");size-adjust:100%;ascent-override:103%;descent-override:28%;line-gap-override:0%}
   /* ---- tokens: the subject's own materials ----
      pit    = asphalt at night, the OLED's true black
      carbon = the cockpit's frame, panels
@@ -34,10 +49,10 @@
   :root{
     --pit:#0b0c10; --carbon:#15171e; --carbon-2:#1e2129; --line:#2a2e38;
     --seat:#e0261c; --seat-deep:#b81c14; --kerb:#ffd23f;
-    --chalk:#f2efe9; --tarmac:#9297a3; --tarmac-2:#6a6f7a;
-    --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
-    --body:"Inter Tight",Inter,"Helvetica Neue",Arial,sans-serif;
-    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --chalk:#f2efe9; --tarmac:#9297a3; --tarmac-2:#7c828e;   /* tarmac-2 was #6a6f7a (3.9:1 on pit); #7c828e = 5.06:1 on pit, 4.64:1 on carbon — computed 9 Sept 2026 */
+    --display:"Big Shoulders Display","BSD Fallback Impact","BSD Fallback Arial",Impact,"Arial Narrow",sans-serif;
+    --body:"Inter Tight","IT Fallback Arial",Inter,"Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono","Plex Fallback Consolas","Plex Fallback Courier",ui-monospace,Menlo,monospace;
     --wrap:72rem;
   }
   *{box-sizing:border-box}
@@ -100,9 +115,11 @@
   .menu{display:none;align-items:center;gap:.55rem;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chalk);background:transparent;border:1px solid var(--line);border-radius:6px;padding:.5rem .8rem;cursor:pointer}
   .menu:hover{border-color:var(--tarmac)}
   .menu .bars{display:inline-block;width:18px;height:12px;background:linear-gradient(var(--chalk) 0 2px,transparent 2px 5px,var(--chalk) 5px 7px,transparent 7px 10px,var(--chalk) 10px 12px)}
-  /* Under 860 px the nine links no longer fit beside the brand, so they fold into a panel that drops from the bar.
-     Every section is listed, the same list as on the desktop, so any part of the page is one tap away. */
-  @media (max-width:860px){
+  /* Under the NAV BREAKPOINT the eleven entries no longer fit beside the brand, so they fold into a panel that drops from
+     the bar. Every section is listed, the same list as on the desktop, so any part of the page is one tap away.
+     The breakpoint is measured, not guessed: brand 128 px + links 778 px + wrap padding 40 px + a 24 px gap = 970 px at the
+     current copy (9 Sept 2026), plus 40 px of slack. Re-measure when a link is added (README "The section menu"). */
+  @media (max-width:1010px){ /* NAV BREAKPOINT 1010 */
     .menu{display:inline-flex}
     nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:rgba(11,12,16,.97);border-bottom:1px solid var(--line);padding:.2rem 0 .5rem;font-size:1.02rem}
     nav.links a{padding:.85rem 1.25rem;border-top:1px solid var(--line);color:var(--chalk)}
@@ -130,8 +147,20 @@
   .readout{justify-self:end;text-align:right;padding-bottom:.4rem}
   .readout .eyebrow{display:block;margin-bottom:.1rem}
   .readout .lap{font-family:var(--mono);font-weight:600;font-size:clamp(2rem,1.4rem + 2vw,3rem);line-height:1;color:var(--kerb);letter-spacing:.02em;text-shadow:0 2px 16px rgba(0,0,0,.7)}
-  .readout .foot{font-family:var(--mono);font-size:.74rem;color:var(--tarmac);margin-top:.5rem;max-width:22rem}
+  .readout .board{display:grid;gap:.35rem;margin-top:.7rem;font-family:var(--mono);font-size:.8rem;color:var(--chalk);text-shadow:0 1px 8px rgba(0,0,0,.8)}
+  .readout .board span::before{content:"";display:inline-block;width:.5rem;height:.5rem;background:var(--seat);transform:skewX(-18deg);margin-right:.5rem;vertical-align:.05em}
   @media (max-width:860px){.readout{justify-self:start;text-align:left}}
+  /* the experience line under the H1, and the facts line (also used on the closing band) */
+  .hero .tag{font-family:var(--display);font-weight:800;font-size:clamp(1.6rem,1.2rem + 1.6vw,2.5rem);text-transform:uppercase;letter-spacing:.03em;line-height:1;margin:0 0 .9rem;color:var(--chalk);text-shadow:0 2px 16px rgba(0,0,0,.7)}
+  .hero .tag b{color:var(--kerb);font-weight:800}
+  .facts{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;line-height:1.9;color:var(--chalk);margin:0 0 1.3rem;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+  .facts i{display:inline-block;width:.5rem;height:.5rem;background:var(--kerb);transform:skewX(-18deg);margin:0 .5rem 0 .55rem;vertical-align:.05em}
+  .facts i:first-child{margin-left:0}
+  .cta-row{margin:1.6rem 0 0}
+  /* the Book link in the menu is the red button on every width */
+  nav.links a.book{color:#fff;background:var(--seat);border-radius:6px;padding:.55rem .9rem;min-height:44px;display:inline-flex;align-items:center;font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;align-self:center}
+  nav.links a.book:hover{background:var(--seat-deep);color:#fff}
+  @media (max-width:1010px){nav.links a.book{margin:.6rem 1.25rem .4rem;padding:.8rem 1rem;text-align:center;border-top:0;justify-content:center;display:flex}}
 
   /* ---- full-bleed photo bands ---- */
   .band{position:relative;padding:0;border-top:1px solid var(--line);min-height:min(72vh,46rem);display:grid;align-items:end;overflow:hidden}
@@ -142,7 +171,27 @@
   .band .wrap{padding-top:6rem;padding-bottom:2.6rem}
   .band h2{margin-bottom:.6rem;text-shadow:0 2px 24px rgba(0,0,0,.6)}
   .band p{max-width:38rem;margin:0;text-shadow:0 1px 12px rgba(0,0,0,.7)}
-  .band .credit{position:absolute;right:1rem;bottom:.6rem;z-index:1;font-family:var(--mono);font-size:.68rem;color:var(--tarmac-2)}
+  .band .credit{position:absolute;right:1rem;bottom:.6rem;z-index:1;font-family:var(--mono);font-size:.68rem;color:var(--tarmac);text-shadow:0 1px 6px rgba(0,0,0,.95)}
+
+  /* ---- the launch offer: one panel, three states (open / stale / closed) driven by data-offer on <body>.
+     Elements marked only-open / only-stale / only-closed show in that state alone; not-closed shows in open and stale. ---- */
+  section.offer{padding:2.2rem 0}
+  @media (max-width:860px){section.offer{padding:1.6rem 0}.offer-panel .wide-only{display:none}}
+  .offer-panel{border:1px solid rgba(255,210,63,.45);border-left:5px solid var(--kerb);border-radius:12px;background:linear-gradient(120deg,rgba(255,210,63,.07),rgba(21,23,30,.55));padding:1.5rem 1.6rem 1.5rem;display:grid;grid-template-columns:1.5fr 1fr;gap:1.2rem 2.5rem;align-items:center}
+  @media (max-width:860px){.offer-panel{grid-template-columns:1fr;padding:1.3rem 1.2rem}}
+  .offer-panel h2{margin:.6rem 0 .5rem;font-size:clamp(1.9rem,1.5rem + 2vw,3.2rem)}
+  .offer-panel p{margin:0 0 .8rem;color:var(--chalk)}
+  .offer-panel p.fine{color:var(--tarmac);font-size:.92rem;margin:0}
+  .offer-panel .line{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--kerb);margin:0 0 .9rem}
+  .offer-panel .side{display:grid;gap:.8rem;justify-items:start}
+  @media (min-width:861px){.offer-panel .side{justify-items:end;text-align:right}}
+  body[data-offer="open"] .only-stale,body[data-offer="open"] .only-closed,
+  body[data-offer="stale"] .only-open,body[data-offer="stale"] .only-closed,
+  body[data-offer="closed"] .only-open,body[data-offer="closed"] .only-stale,body[data-offer="closed"] .not-closed{display:none!important}
+  .offer-link{margin:1.2rem 0 0;color:var(--tarmac)}
+  .offer-link a{color:var(--kerb)}
+  .band .offer-line{font-family:var(--mono);font-size:.9rem;letter-spacing:.04em;color:var(--kerb);margin:0 0 .4rem}
+  .band .offer-line b{font-weight:600}
 
   /* ---- sections: shared ---- */
   section h2{font-family:var(--display);font-weight:900;font-size:clamp(2.4rem,2rem + 2.5vw,4rem);text-transform:uppercase;letter-spacing:.02em;line-height:.95;margin:.3rem 0 1.2rem}
@@ -159,7 +208,7 @@
   .product figcaption{font-family:var(--mono);font-size:.78rem;color:var(--tarmac);margin-top:.9rem;display:flex;justify-content:space-between;gap:1rem}
   .product figcaption b{color:var(--chalk);font-weight:600}
   .product figcaption em,.headset figcaption em{font-style:normal;color:var(--kerb)}
-  .headset figcaption em{color:#9a6700}
+  .headset figcaption em{color:#895c00}   /* was #9a6700 (3.8:1 on the card's darker end); #895c00 passes 4.5:1 on both ends — computed */
   table.sheet{width:100%;border-collapse:collapse;font-size:.98rem;table-layout:fixed}
   table.sheet td{padding:.75rem 0;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}
   table.sheet td:first-child{font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tarmac);width:7.5rem;padding-top:.95rem}
@@ -192,6 +241,51 @@
   .headset{margin:0;overflow:hidden;padding:1rem 1.2rem .2rem;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#f7f7f8,#e2e3e7)}  /* a light product card: the headset itself is white */
   .headset img{width:100%;height:auto;filter:drop-shadow(0 14px 22px rgba(0,0,0,.25))}
   .headset figcaption{font-family:var(--mono);font-size:.76rem;color:#3a3d46;padding:.6rem 0 .8rem}
+
+  /* ---- groups: the use-case labels (static, nothing to click) ---- */
+  .uses{list-style:none;margin:1rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+  .uses li{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--chalk);border:1px solid var(--line);border-radius:4px;padding:.45rem .65rem;background:rgba(21,23,30,.6)}
+
+  /* ---- the room photographs: eight slots; a .slot shows its labelled placeholder until the photo lands ---- */
+  .photos{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem;margin-top:1.4rem}
+  @media (max-width:860px){.photos{grid-template-columns:repeat(2,1fr);gap:.7rem}}
+  .photo{margin:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--carbon);aspect-ratio:4/3;position:relative}
+  .photo picture,.photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .photo .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:.9rem;background:radial-gradient(70% 70% at 50% 40%,#1b1e26,var(--carbon) 90%)}
+  .photo .ph::before{content:"";position:absolute;top:.9rem;left:.9rem;width:.7rem;height:.7rem;background:var(--seat);transform:skewX(-18deg)}
+  .photo .ph span{font-family:var(--display);font-weight:800;font-size:clamp(1rem,.8rem + .8vw,1.3rem);letter-spacing:.05em;text-transform:uppercase;line-height:1;color:var(--chalk)}
+  .photo .ph em{font-family:var(--mono);font-style:normal;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--kerb);margin-top:.35rem}
+  .photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.6rem .9rem .7rem;font-family:var(--mono);font-size:.74rem;color:var(--chalk);background:linear-gradient(transparent,rgba(11,12,16,.85))}
+  .photo.slot figcaption{display:none}
+
+  /* ---- the rig: the experience column and the hardware list; the spec sheet folds ---- */
+  .split{margin:1.2rem 0 0}
+  .exp .big{font-size:clamp(1.15rem,1.05rem + .5vw,1.45rem);color:var(--chalk);max-width:34rem;margin:.6rem 0 .8rem}
+  .exp p{color:var(--tarmac)}
+  .hw{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.6rem;color:var(--tarmac)}
+  .hw li{padding-left:1.4rem;position:relative}
+  .hw li::before{content:"";position:absolute;left:0;top:.55em;width:.7rem;height:.7rem;background:var(--seat);transform:skewX(-18deg)}
+  .hw b{color:var(--chalk);font-weight:600}
+  details.spec{margin-top:1.4rem}
+  details.spec table{margin-top:.6rem}
+
+  /* ---- how it works: the where block and the two trust lines ---- */
+  .where{margin-top:1.2rem;border:1px solid var(--line);border-left:4px solid var(--seat);border-radius:8px;padding:1rem 1.2rem;background:var(--carbon);color:var(--tarmac);max-width:44rem}
+  .where b{color:var(--chalk);font-weight:600}
+  .trust{list-style:none;margin:.8rem 0 0;padding:0;display:grid;gap:.35rem;color:var(--tarmac);max-width:44rem}
+  .trust li{padding-left:1.4rem;position:relative}
+  .trust li::before{content:"";position:absolute;left:0;top:.55em;width:.7rem;height:.7rem;background:var(--kerb);transform:skewX(-18deg)}
+  .trust b{color:var(--chalk);font-weight:600}
+
+  /* ---- reviews: the "first racers" block until a real review exists, then the cards ---- */
+  .first{max-width:44rem}
+  .first p{color:var(--tarmac)}
+  .first p b{color:var(--chalk);font-weight:600}
+  .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1rem;margin-top:1rem}
+  .review{margin:0;background:var(--carbon);border:1px solid var(--line);border-radius:10px;padding:1.2rem}
+  .review blockquote{margin:0 0 .8rem;color:var(--chalk)}
+  .review figcaption{font-family:var(--mono);font-size:.78rem;color:var(--tarmac)}
+  .review figcaption b{color:var(--chalk);font-weight:600;display:block}
 
   /* ---- modes / game tiles ---- */
   .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.9rem;margin-top:1rem}
@@ -239,6 +333,9 @@
   .sector.weekend{border-color:rgba(255,210,63,.45);box-shadow:inset 0 0 0 1px rgba(255,210,63,.15)}
   .sector.weekend .amt{color:var(--kerb)}
   .sector p{margin:.6rem 0 0;color:var(--tarmac);font-size:.95rem}
+  .sector p b{color:var(--chalk);font-weight:600}
+  .perroom{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,1.2rem + 1.4vw,2.3rem);text-transform:uppercase;letter-spacing:.03em;line-height:1.05;margin:1.5rem 0 .3rem;color:var(--chalk)}
+  .perroom b{color:var(--kerb);font-weight:800}
   .sector p.perk{margin-top:.8rem;padding-top:.7rem;border-top:1px dashed rgba(255,210,63,.35);color:var(--chalk)}
   .sector p.perk b{color:var(--kerb);font-weight:600}
   .terms{margin-top:1.2rem;display:grid;gap:.5rem;font-size:.95rem;color:var(--tarmac)}
@@ -259,6 +356,7 @@
   .estimate{border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;background:var(--pit);font-size:.95rem;color:var(--tarmac);display:grid;gap:.25rem}
   .estimate .sum{font-family:var(--mono);font-weight:600;font-size:1.5rem;color:var(--kerb);line-height:1.1}
   .estimate .sum small{font-family:var(--body);font-weight:500;font-size:.9rem;color:var(--tarmac);margin-left:.35rem}
+  .estimate .sum s{color:var(--tarmac);font-size:1rem;font-weight:500;margin-right:.4rem}
   .estimate.warn{border-color:rgba(224,38,28,.6)}
   .estimate.warn .sum{color:var(--seat);font-size:1.05rem;font-family:var(--body);font-weight:600}
   .rules{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
@@ -275,19 +373,42 @@
   details[open] summary::after{content:"–"}
   details p{margin:.6rem 0 0;color:var(--tarmac);max-width:62ch}
   details p+p{margin-top:.5rem}
+  .faqs{border-bottom:1px solid var(--line)}
+  .faqs details:last-of-type{border-bottom:0}
+  .faqs .more.bar{margin:1rem 0}
+  .faqs .group{margin:1.4rem 0 .2rem}
+
+  /* ---- the phone booking bar: fixed at the foot of the screen under 860 px once the hero has scrolled away. The script
+     turns it on/off (.on); with the lightbox open the dialog's showModal() already makes it inert, and the :has() rule keeps
+     it from showing through the backdrop. ---- */
+  .sticky{display:none}
+  @media (max-width:860px){
+    .sticky{position:fixed;left:0;right:0;bottom:0;z-index:15;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.55rem 1rem calc(.55rem + env(safe-area-inset-bottom));background:rgba(11,12,16,.94);backdrop-filter:blur(8px);border-top:1px solid var(--line);transform:translateY(105%);transition:transform .2s ease}
+    .sticky.on{transform:none}
+    .sticky .btn{font-size:1.1rem;padding:.7rem 1.1rem;min-height:48px}
+    .sticky .hint{font-family:var(--mono);font-size:.72rem;color:var(--tarmac);text-align:right;line-height:1.35}
+  }
+  body:has(dialog[open]) .sticky{display:none}
+  @media (prefers-reduced-motion:reduce){.sticky{transition:none}}
 
   /* ---- footer ---- */
   footer{border-top:1px solid var(--line);padding:2.5rem 0 3rem;font-size:.9rem;color:var(--tarmac)}
   footer .wrap{display:grid;gap:1rem}
   footer p{margin:0;max-width:70ch}
 </style>
-<noscript><style>.has-more:not(.open) .tile.extra{display:flex}.has-more:not(.open) .shot.extra{display:block}.more{display:none}@media (max-width:860px){.menu{display:none}header.top .wrap{height:auto;flex-wrap:wrap;padding-bottom:.6rem}nav.links{display:flex;position:static;flex-direction:row;flex-wrap:wrap;gap:.5rem 1rem;width:100%;border:0;padding:0;background:none}nav.links a{padding:.2rem 0;border:0}}</style></noscript>
+<noscript><style>.has-more:not(.open) .tile.extra{display:flex}.has-more:not(.open) .shot.extra{display:block}.has-more:not(.open) details.extra{display:block}.has-more:not(.open) .photo.extra{display:block}.has-more:not(.open) .group.extra{display:block}.more{display:none}@media (max-width:1010px){.menu{display:none}header.top .wrap{height:auto;flex-wrap:wrap;padding-bottom:.6rem}nav.links{display:flex;position:static;flex-direction:row;flex-wrap:wrap;gap:.5rem 1rem;width:100%;border:0;padding:0;background:none}nav.links a{padding:.2rem 0;border:0}}</style></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "EntertainmentBusiness"],
   "name": "VR Racing",
-  "description": "Gran Turismo 7 in VR on PlayStation VR2, on a Fanatec direct-drive wheel and a Playseat Trophy cockpit, in a private room in Gurugram; screen sessions and PS5 nights too. Booking only, up to five people per slot.",
+  "description": "Private VR and sim racing in Gurugram (Gurgaon), Sector 38: Gran Turismo 7 on PlayStation VR2, on a Fanatec direct-drive wheel and a Playseat Trophy cockpit, in your own room for up to five people; racing simulator sessions on a 65-inch OLED and PS5 nights too. By booking only — no walk-ins, so no opening hours are listed.",
+  "maximumAttendeeCapacity": 5,
+  "makesOffer": [
+    {"@type": "Offer", "name": "Racing in VR — the room per hour, weekdays", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 2000, "priceCurrency": "INR", "unitCode": "HUR", "unitText": "hour"}, "availabilityStarts": "2026-09-25"},
+    {"@type": "Offer", "name": "Racing on the rig, on the screen — the room per hour, weekdays", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 1500, "priceCurrency": "INR", "unitCode": "HUR", "unitText": "hour"}},
+    {"@type": "Offer", "name": "Console night on the PS5 — the room per hour, weekdays", "priceSpecification": {"@type": "UnitPriceSpecification", "price": 1000, "priceCurrency": "INR", "unitCode": "HUR", "unitText": "hour"}}
+  ],
   "url": "https://vrracing.commercedwar.com/",
   "image": "https://vrracing.commercedwar.com/og.png",
   "priceRange": "₹1,000–₹2,400 per hour",
@@ -305,15 +426,20 @@
 </script>
 </head>
 <!-- data-wa = the ONE place the WhatsApp number lives. The script fills every booking link and the
-     visible number from it. Replace it with the VR Racing business number before publishing. -->
-<body data-wa="918102266504">
+     visible number from it. Replace it with the VR Racing business number before publishing.
+     data-offer* = the ONE place the launch offer is set (see README "The launch offer"):
+       data-offer           "open" or "closed"  (the script may switch an open offer to "stale" — see reviewBy below)
+       data-offer-remaining "" for no number, or the number of groups still open, maintained by hand after each confirmed group
+       data-offer-review-by the date the owner last confirmed the offer plus a week (YYYY-MM-DD, IST); past it the page
+                            stops promising the discount and sends the question to WhatsApp ("stale") until it is bumped -->
+<body data-wa="918102266504" data-offer="open" data-offer-remaining="" data-offer-review-by="2026-09-14">
 <div class="ambient" aria-hidden="true"></div>
 
 <header class="top"><div class="wrap">
   <a class="brand" href="#top"><i></i>VR RACING</a>
   <button class="menu" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
   <nav class="links" id="site-nav" aria-label="Sections">
-    <a href="#vr">VR racing</a><a href="#rig">The rig</a><a href="#gallery">GT7 in 4K</a><a href="#room">The room</a><a href="#games">Games</a><a href="#how">How it works</a><a href="#price">Price</a><a href="#book">Book</a><a href="#faq">FAQ</a>
+    <a href="#price">Price</a><a href="#vr">VR racing</a><a href="#groups">Groups</a><a href="#room">The room</a><a href="#rig">The rig</a><a href="#gallery">GT7 in 4K</a><a href="#games">Games</a><a href="#how">How it works</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a class="book" href="#book">Book</a>
   </nav>
 </div></header>
 
@@ -327,20 +453,71 @@
   </div>
   <div class="wrap">
     <div>
-      <span class="flag"><i></i> PlayStation VR2 · from 25 September</span>
+      <span class="flag"><i></i> PlayStation VR2 · from 25 Sept</span>
       <h1 class="display">VR Racing<span>in Gurugram.</span></h1>
-      <p class="lede">The sim lounges in NCR put you in front of a screen. This room puts you inside the car: Gran Turismo 7 on PlayStation VR2, on a direct-drive Fanatec wheel and a Playseat Trophy cockpit. Until the headset lands, the same rig on a 65-inch OLED — and PS5 nights on the big screen. Your own room, up to five of you. Booking online only.</p>
+      <p class="tag">Drive the car. <b>Don't watch it.</b></p>
+      <p class="lede">Gran Turismo 7 in PlayStation VR2, or the direct-drive rig on a 65-inch OLED, in a private room that is yours by the hour. Up to five of you. Sector 38, by booking only.</p>
+      <p class="facts"><i></i>Private room<i></i>Up to 5 people<i></i>Sector 38, Gurugram<i></i>From ₹1,000/hr · VR ₹2,000/hr on weekdays</p>
       <div class="cta">
-        <a class="btn primary" href="#book">Book a VR slot</a>
-        <a class="btn ghost" href="#vr">Why VR</a>
+        <a class="btn primary" href="#book">Book your slot</a>
+        <a class="btn ghost" href="#vr">See the experience</a>
       </div>
       <p class="on">On <b>Gran Turismo 7</b> · PlayStation 5 · Fanatec direct drive · Playseat Trophy</p>
     </div>
     <div class="readout" aria-label="Session board">
       <span class="eyebrow">Sector 38 · VR lap</span>
       <div class="lap" aria-live="off">1:47.<span id="ms">000</span></div>
-      <div class="foot">₹100 UPI token holds your slot · balance by time played · rig, VR or a PS5 night</div>
+      <div class="board"><span>Per room, not per person</span><span>Up to five people</span><span>₹100 token holds your slot</span></div>
     </div>
+  </div>
+</section>
+
+<!-- The launch offer. ONE place sets its state: the data-offer* attributes on <body> (see README "The launch offer").
+     The script reads them, applies the 50 % in the estimate for groups of three or more, and switches this panel between
+     open / stale / closed through the only-open / only-stale / only-closed / not-closed classes (CSS in <head>). -->
+<section class="offer" id="offer" data-nav="no" aria-label="Launch offer">
+  <div class="wrap">
+    <div class="offer-panel">
+      <div>
+        <span class="flag"><i></i> Launch offer</span>
+        <h2 class="not-closed">50% off for our first five groups.</h2>
+        <h2 class="only-closed">Our first five groups are in. Thank you.</h2>
+        <p class="not-closed">Bring three to five people and race together. We're opening our doors to our first five groups at half price as we build our first racing community — and we'll ask you for honest feedback afterwards.</p>
+        <p class="only-closed">The regular rates apply now; the room, the rig and the welcome are exactly the same.</p>
+        <p class="line only-open" data-offer-line>Limited to the first five qualifying groups</p>
+        <p class="line only-stale">Ask us on WhatsApp whether the launch offer is still open</p>
+        <p class="fine not-closed">Three to five people, counted on arrival · the first five confirmed group bookings · any option, any day, the whole booking (up to four hours) · the ₹100 token still applies and counts toward your bill. Alone or a couple? The regular rates apply and you are just as welcome.</p>
+      </div>
+      <div class="side not-closed">
+        <a class="btn primary" href="#book">Claim the offer</a>
+        <span class="eyebrow wide-only">Pick your slot below; the price shows the offer for three or more of you</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <div class="eyebrow">Price</div>
+    <h2>Three ways to book the room.<br>VR leads.</h2>
+    <!-- The figures here are repeated in the RATES table in the script (for the live estimate).
+         Change both together. -->
+    <div class="price">
+      <div class="sector weekend"><div class="eyebrow">Racing in VR · the headline session · from 25 September</div><div class="amt">₹2,000<small>per hour, weekdays</small></div><p>Gran Turismo 7 on PlayStation VR2, on the rig. <b>Weekends ₹2,400.</b> More VR games coming.</p><p class="perk"><b>Book three hours or more on a weekday</b> and unlimited Thums Up, chips and Kurkure are on us — for everyone in the room, up to five.</p></div>
+      <div class="sector"><div class="eyebrow">Racing · the rig on the OLED</div><div class="amt">₹1,500<small>per hour, weekdays</small></div><p>Gran Turismo 7 on the direct-drive wheel and the cockpit. <b>Weekends ₹1,800.</b></p></div>
+      <div class="sector"><div class="eyebrow">Console night · PS5 on the big screen</div><div class="amt">₹1,000<small>per hour, weekdays</small></div><p>Up to four playing at once. <b>Weekends ₹1,200.</b></p></div>
+    </div>
+    <p class="perroom">Prices are per room, not per person. <b>Up to five people share the room.</b></p>
+    <div class="terms">
+      <div><b>Weekends cost 20% more</b> than weekdays, on every option.</div>
+      <div><b>Billed by time played,</b> rounded up to the nearest half hour, less the ₹100 token. One to five people share the hour however they like.</div>
+      <div><b>Premium on purpose.</b> A direct-drive rig and a real cockpit in a private room, not a queue at an arcade.</div>
+    </div>
+    <div class="guarantee">
+      <b>If we fail you, we pay.</b>
+      <p>A power cut or a fault in the rig during your session is our problem, not yours. <strong>The time you lost is added back</strong> if the room is free after your slot, or <strong>everything you have paid comes back in full, the ₹100 token included</strong> — your choice. Nobody pays for a session they did not get.</p>
+    </div>
+    <p class="cta-row"><a class="btn primary" href="#book">Book your slot</a></p>
   </div>
 </section>
 
@@ -359,6 +536,7 @@
           <li><b>More VR games are coming.</b> Gran Turismo 7 first; Resident Evil Village (18+) is installed alongside it, the whole game in the headset; other PlayStation VR2 titles follow.<span class="soon">soon</span></li>
           <li><b>Three hours or more of VR on a weekday, and the snacks are on us.</b> Unlimited Thums Up, chips and Kurkure for everyone in the room, up to five.</li>
         </ul>
+        <p class="cta-row"><a class="btn primary" href="#book">Book your slot</a></p>
       </div>
       <div class="vr-stack">
         <button class="shot zoom" type="button" data-full="img/gt7-cockpit-3840.jpg" data-full-webp="img/gt7-cockpit-3840.webp" data-cap="Cockpit view, Trial Mountain · Gran Turismo 7 · 3840 × 2160 — the view the headset puts you in">
@@ -377,27 +555,69 @@
   </div>
 </section>
 
-<!-- Drift band: real photography, 4K — what a direct-drive wheel teaches you to catch. -->
-<section class="band" id="drift" aria-label="Drifting">
-  <div class="bg zoom">
-    <picture>
-      <source type="image/webp" srcset="img/drift-bmw-rx7-800.webp 800w, img/drift-bmw-rx7-1600.webp 1600w, img/drift-bmw-rx7-2560.webp 2560w, img/drift-bmw-rx7-3840.webp 3840w" sizes="100vw">
-      <img src="img/drift-bmw-rx7-1600.jpg" srcset="img/drift-bmw-rx7-800.jpg 800w, img/drift-bmw-rx7-1600.jpg 1600w, img/drift-bmw-rx7-2560.jpg 2560w, img/drift-bmw-rx7-3840.jpg 3840w" sizes="100vw" width="3840" height="2560" loading="lazy" decoding="async" alt="A yellow BMW and a white Mazda RX-7 drifting side by side through a corner, tyre smoke pouring off the rear wheels">
-    </picture>
-  </div>
+<section id="groups">
   <div class="wrap">
-    <div class="eyebrow">Opposite lock</div>
-    <h2>The rear steps out.<br>You catch it.</h2>
-    <p>A direct-drive wheel tells you the exact moment the rear tyres let go, through your hands, before your eyes know. That is what you cannot get from a controller, and it is what the first twenty minutes here are about.</p>
+    <div class="eyebrow">Bring the gang</div>
+    <h2>One room.<br>Up to five of you.</h2>
+    <p style="max-width:40rem">Take turns driving, chase the fastest lap, and make a night of it: one drives, the rest watch the big screen and argue about braking points. The price is the room's, however many of you come — one or five.</p>
+    <ul class="uses" aria-label="Who books the room">
+      <li>Friends</li><li>Birthdays</li><li>Date nights</li><li>College groups</li><li>Small team outings</li><li>Racing enthusiasts</li><li>Gaming groups</li>
+    </ul>
+    <div class="modes">
+      <div class="mode"><b>Hot laps</b><p>Pick a car and a circuit, set a time, beat it.</p></div>
+      <div class="mode"><b>Beat your friends</b><p>Same car, same track, one lap each. The board keeps score.</p></div>
+      <div class="mode"><b>Race the AI</b><p>Full grids in GT7's career and custom races.</p></div>
+      <div class="mode"><b>Race online</b><p>GT7's daily races and lobbies against real drivers.</p></div>
+    </div>
+    <p class="offer-link not-closed">Three or more of you? <a href="#offer">See the launch offer.</a></p>
+    <p class="cta-row"><a class="btn primary" href="#book">Book your slot</a></p>
   </div>
-  <span class="credit">Photo: RAW Visual Studio / Unsplash</span>
+</section>
+
+<!-- The room, for real: eight slots for photographs of the actual room and rig. A slot carrying class "slot" shows a
+     labelled placeholder. To fill one: add its manifest entry (README "The room photographs" has the eight entries ready),
+     run tools/optimise_images.py, and replace the <div class="ph"> with the <picture> the script prints — keep the
+     figcaption, add class "zoom" and the data-full attributes if it should open full-size. -->
+<section id="room">
+  <div class="wrap">
+    <div class="eyebrow">The room, for real</div>
+    <h2>This is where you sit.</h2>
+    <p style="max-width:40rem">Photographs of the actual room and rig, as the wheel goes in. The game frames elsewhere on this page are what runs on the screen; these are the seat, the wheel and the people.</p>
+    <div class="photos has-more" id="room-photos">
+      <figure class="photo slot" data-slot="room-01"><div class="ph"><span>The room from the door</span><em>photo coming</em></div><figcaption>The room from the door</figcaption></figure>
+      <figure class="photo slot" data-slot="room-02"><div class="ph"><span>In the cockpit</span><em>photo coming</em></div><figcaption>In the cockpit</figcaption></figure>
+      <figure class="photo slot" data-slot="room-03"><div class="ph"><span>In the headset</span><em>from 25 September</em></div><figcaption>In the PlayStation VR2</figcaption></figure>
+      <figure class="photo slot" data-slot="room-04"><div class="ph"><span>The wheel, up close</span><em>photo coming</em></div><figcaption>The Fanatec GT DD Pro wheel, up close</figcaption></figure>
+      <button class="more bar" type="button" id="more-photos" aria-expanded="false" aria-controls="room-photos" data-open-label="Show fewer" data-open-sub="Back to the first four."><b><span data-count>4</span> more photos</b><span class="sub">The base and pedals, friends watching, a first lap, the whole room.</span></button>
+      <figure class="photo slot extra" data-slot="room-05"><div class="ph"><span>Direct drive and pedals</span><em>photo coming</em></div><figcaption>The direct-drive base and the pedals</figcaption></figure>
+      <figure class="photo slot extra" data-slot="room-06"><div class="ph"><span>Friends, watching</span><em>photo coming</em></div><figcaption>Friends on the sofa, watching the big screen</figcaption></figure>
+      <figure class="photo slot extra" data-slot="room-07"><div class="ph"><span>The reaction</span><em>photo coming</em></div><figcaption>A first lap in VR</figcaption></figure>
+      <figure class="photo slot extra" data-slot="room-08"><div class="ph"><span>The whole room</span><em>photo coming</em></div><figcaption>The whole room</figcaption></figure>
+    </div>
+  </div>
 </section>
 
 <section id="rig">
   <div class="wrap">
     <div class="eyebrow">The rig</div>
     <h2>Direct drive.<br>Real pedals.<br>A proper seat.</h2>
-    <p style="max-width:40rem">This is the equipment sim-racing lounges charge by the half hour for, set up in a private room with nobody waiting behind you. The wheel talks to the car through a 5 Nm direct-drive motor, so you feel the kerb, the lock-up and the rear stepping out. The cockpit holds you in place for it.</p>
+    <div class="two split">
+      <div class="exp">
+        <div class="eyebrow">The experience</div>
+        <p class="big">Feel every corner. The wheel loads up as the car turns, the kerb comes through your hands, and the rear tells you the moment it lets go — before your eyes know.</p>
+        <p>This is the equipment sim-racing lounges charge by the half hour for, set up in a private room with nobody waiting behind you. The cockpit holds you in place for it.</p>
+      </div>
+      <div>
+        <div class="eyebrow">The hardware</div>
+        <ul class="hw">
+          <li><b>Fanatec Gran Turismo DD Pro</b> — 5 Nm direct drive, PlayStation-licensed</li>
+          <li><b>Playseat Trophy</b> — the cockpit, direct-drive rated</li>
+          <li><b>PlayStation VR2</b><span class="soon">from 25 Sep</span></li>
+          <li><b>65-inch LG 4K OLED</b></li>
+          <li><b>Gran Turismo 7</b> on PlayStation 5, with PlayStation Plus</li>
+        </ul>
+      </div>
+    </div>
     <div class="products">
       <figure class="product zoom" tabindex="0" role="button" data-full="img/fanatec-gt-dd-pro-1600.png" data-full-webp="img/fanatec-gt-dd-pro-1600.webp" data-cap="Fanatec Gran Turismo DD Pro — 5 Nm direct-drive base, GT wheel, pedals">
         <picture>
@@ -414,7 +634,9 @@
         <figcaption><b>Playseat Trophy</b><span>direct-drive rated · <em>tap to enlarge</em></span></figcaption>
       </figure>
     </div>
-    <table class="sheet">
+    <details class="spec">
+      <summary>Full spec sheet</summary>
+      <table class="sheet">
       <tr><td>Wheel</td><td><b>Fanatec Gran Turismo DD Pro</b> — 5 Nm direct-drive base, GT wheel, quick release. Officially licensed for PlayStation.</td></tr>
       <tr><td>Pedals</td><td>Fanatec pedal set with the bundle. Shifter and handbrake join in late September.<span class="soon">from 25 Sep</span></td></tr>
       <tr><td>Cockpit</td><td><b>Playseat Trophy</b> — a direct-drive-rated racing seat and frame.</td></tr>
@@ -422,8 +644,25 @@
       <tr><td>Console</td><td>PlayStation 5, with <b>PlayStation Plus</b> — the subscription's game catalogue, downloaded on request.</td></tr>
       <tr><td>Game</td><td><b>Gran Turismo 7</b> — hundreds of cars, real circuits, licences, online lobbies.</td></tr>
       <tr><td>VR</td><td><b>PlayStation VR2</b> — GT7's full VR mode: you sit in the car, turn your head to the apex, and race in stereo 4K.<span class="soon">from 25 Sep</span></td></tr>
-    </table>
+      </table>
+    </details>
   </div>
+</section>
+
+<!-- Drift band: real photography, 4K — what a direct-drive wheel teaches you to catch. -->
+<section class="band" id="drift" data-nav="no" aria-label="Drifting">
+  <div class="bg zoom">
+    <picture>
+      <source type="image/webp" srcset="img/drift-bmw-rx7-800.webp 800w, img/drift-bmw-rx7-1600.webp 1600w, img/drift-bmw-rx7-2560.webp 2560w, img/drift-bmw-rx7-3840.webp 3840w" sizes="100vw">
+      <img src="img/drift-bmw-rx7-1600.jpg" srcset="img/drift-bmw-rx7-800.jpg 800w, img/drift-bmw-rx7-1600.jpg 1600w, img/drift-bmw-rx7-2560.jpg 2560w, img/drift-bmw-rx7-3840.jpg 3840w" sizes="100vw" width="3840" height="2560" loading="lazy" decoding="async" alt="A yellow BMW and a white Mazda RX-7 drifting side by side through a corner, tyre smoke pouring off the rear wheels">
+    </picture>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Opposite lock</div>
+    <h2>The rear steps out.<br>You catch it.</h2>
+    <p>A direct-drive wheel tells you the exact moment the rear tyres let go, through your hands, before your eyes know. That is what you cannot get from a controller, and it is what the first twenty minutes here are about.</p>
+  </div>
+  <span class="credit">Photo: RAW Visual Studio / Unsplash</span>
 </section>
 
 <!-- The 4K gallery. Each frame is Polyphony's own 3840x2160 screenshot; tap to see it full size. -->
@@ -473,21 +712,6 @@
         <picture><source type="image/webp" srcset="img/gt7-neon-pit-800.webp 800w, img/gt7-neon-pit-1600.webp 1600w, img/gt7-neon-pit-2560.webp 2560w" sizes="(max-width: 640px) 100vw, 50vw"><img src="img/gt7-neon-pit-1600.jpg" srcset="img/gt7-neon-pit-800.jpg 800w, img/gt7-neon-pit-1600.jpg 1600w, img/gt7-neon-pit-2560.jpg 2560w" sizes="(max-width: 640px) 100vw, 50vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A pit lane at night under neon light, wet tarmac reflecting the gantry"></picture>
         <span>Pit lane, night, rain <b>4K</b></span>
       </button>
-    </div>
-  </div>
-</section>
-
-
-<section id="room">
-  <div class="wrap">
-    <div class="eyebrow">Your room</div>
-    <h2>Private. Up to five of you.</h2>
-    <p style="max-width:40rem">A booking is the room, not a seat in a hall. Come alone and chase a lap time, or bring friends and rotate — one drives, the rest watch the big screen and argue about braking points. Five people is the limit; the room is not a hall and does not pretend to be.</p>
-    <div class="modes">
-      <div class="mode"><b>Hot laps</b><p>Pick a car and a circuit, set a time, beat it.</p></div>
-      <div class="mode"><b>Beat your friends</b><p>Same car, same track, one lap each. The board keeps score.</p></div>
-      <div class="mode"><b>Race the AI</b><p>Full grids in GT7's career and custom races.</p></div>
-      <div class="mode"><b>Race online</b><p>GT7's daily races and lobbies against real drivers.</p></div>
     </div>
   </div>
 </section>
@@ -583,49 +807,34 @@
       <li><b>Book online</b><p>Pick a date, a time and how many of you. The form shows the price, then opens WhatsApp with the details filled in; we confirm the slot there.</p></li>
       <li><b>Hold it with a ₹100 token</b><p>Paid by UPI once we confirm. It counts toward your bill. It is <b style="color:var(--chalk)">not refunded if you cancel, arrive late or do not come</b>, for any reason. If we cannot run your session, it comes back in full.</p></li>
       <li><b>Arrive at your time</b><p>Gurugram, Sector 38 — the exact address comes with your confirmation. The building is gated with fingerprint access, so you are met at the gate and brought up. No walk-ins, ever.</p></li>
-      <li><b>Drive, then settle up</b><p>A five-minute briefing, then the room is yours. Pay the balance by the time you played, by UPI or cash, before you leave.</p></li>
+      <li><b>Drive, then settle up</b><p>A five-minute briefing, then the room is yours. Pay the balance by the time you played, by UPI or cash, before you leave. Then tell us how it went — we ask every group for honest feedback on WhatsApp after the session, and it decides what we fix next.</p></li>
     </ol>
+    <div class="where">
+      <b>Sector 38, Gurugram.</b> A private, gated building; the exact address and arrival instructions come with your booking confirmation. You're met at the gate at your slot time.
+    </div>
+    <ul class="trust" aria-label="Good to know">
+      <li><b>Owner-run.</b> One room, no walk-ins, nobody waiting behind you.</li>
+      <li><b>If we fail you, we pay.</b> A power cut or a rig fault means the time added back or a full refund, token included.</li>
+    </ul>
   </div>
 </section>
 
-<!-- Second drift band: the street circuit — real photography again, above the prices. -->
-<section class="band" id="street" aria-label="Street drift">
-  <div class="bg zoom">
-    <picture>
-      <source type="image/webp" srcset="img/drift-street-800.webp 800w, img/drift-street-1600.webp 1600w, img/drift-street-2560.webp 2560w, img/drift-street-3840.webp 3840w" sizes="100vw">
-      <img src="img/drift-street-1600.jpg" srcset="img/drift-street-800.jpg 800w, img/drift-street-1600.jpg 1600w, img/drift-street-2560.jpg 2560w, img/drift-street-3840.jpg 3840w" sizes="100vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A car mid-drift on a street circuit, smoke trailing, skid marks on the tarmac">
-    </picture>
-  </div>
+<!-- Reviews. REVIEWS in the script holds the real ones (none yet); while it is empty the "first racers" block shows and the
+     list stays hidden. To add one: README "Reviews". No stars, no counts, nothing invented. -->
+<section id="reviews">
   <div class="wrap">
-    <div class="eyebrow">Premium on purpose</div>
-    <h2>Not a queue at an arcade.</h2>
-    <p>A direct-drive rig and a real cockpit, in a private room, by the hour. The price below is per room, not per person.</p>
-  </div>
-  <span class="credit">Photo: Gabriel Vasiliu / Unsplash</span>
-</section>
-
-<section id="price">
-  <div class="wrap">
-    <div class="eyebrow">Price</div>
-    <h2>Three ways to book the room.<br>VR leads.</h2>
-    <!-- The figures here are repeated in the RATES table in the script (for the live estimate).
-         Change both together. -->
-    <div class="price">
-      <div class="sector weekend"><div class="eyebrow">Racing in VR · the headline session · from 25 September</div><div class="amt">₹2,000<small>per hour, weekdays</small></div><p>Gran Turismo 7 on PlayStation VR2, on the rig. Weekends ₹2,400. More VR games coming.</p><p class="perk"><b>Book three hours or more on a weekday</b> and unlimited Thums Up, chips and Kurkure are on us — for everyone in the room, up to five.</p></div>
-      <div class="sector"><div class="eyebrow">Racing · the rig on the OLED</div><div class="amt">₹1,500<small>per hour, weekdays</small></div><p>Gran Turismo 7 on the direct-drive wheel and the cockpit. Weekends ₹1,800.</p></div>
-      <div class="sector"><div class="eyebrow">Console night · PS5 on the big screen</div><div class="amt">₹1,000<small>per hour, weekdays</small></div><p>Up to four playing at once. Weekends ₹1,200.</p></div>
+    <div class="eyebrow">First racers</div>
+    <h2>Be one of our first racers.</h2>
+    <div class="first" id="reviews-empty">
+      <p>We're opening our doors to our first five groups<span class="only-open"> at 50% off</span> and would love your honest feedback — what was great, what was not, what you would change. Real reviews will appear here, in our guests' own words. <b>None are written yet.</b></p>
     </div>
-    <div class="terms">
-      <div><b>Per room, not per person.</b> One to five people share the hour however they like; four can play at once on the console.</div>
-      <div><b>Weekends cost 20% more</b> than weekdays, on every option.</div>
-      <div><b>Billed by time played,</b> rounded up to the nearest half hour, less the ₹100 token.</div>
-      <div><b>Premium on purpose.</b> This is a direct-drive rig and a real cockpit in a private room, not a queue at an arcade.</div>
-      <div><b>Three hours or more of VR on a weekday:</b> unlimited Thums Up, chips and Kurkure for the room, on us. Up to five people. Weekdays only.</div>
-    </div>
-    <div class="guarantee">
-      <b>If we fail you, we pay.</b>
-      <p>A power cut or a fault in the rig during your session is our problem, not yours. <strong>The time you lost is added back</strong> if the room is free after your slot, or <strong>everything you have paid comes back in full, the ₹100 token included</strong> — your choice. Nobody pays for a session they did not get.</p>
-    </div>
+    <div class="reviews" id="reviews-list" hidden></div>
+    <template id="review-card">
+      <figure class="review">
+        <blockquote></blockquote>
+        <figcaption><b data-r="name"></b><span data-r="meta"></span></figcaption>
+      </figure>
+    </template>
   </div>
 </section>
 
@@ -663,6 +872,7 @@
       <div class="estimate" id="estimate" aria-live="polite"><div class="sum">Your price</div><div>Pick what you are booking, a date and how long, and the price shows here.</div></div>
       <button class="btn primary" type="submit">Request this slot on WhatsApp</button>
       <p class="note">By requesting a slot you accept the ₹100 token rule — not refunded if you cancel or do not come, refunded in full if we cannot run your session — and the house rules above. We use your name and number only to run your booking.</p>
+      <p class="note">After your session we'll ask for your honest feedback on WhatsApp. It decides what we fix next.</p>
       <noscript><p class="note">This form needs JavaScript. Turn it on, or come back on a phone — booking is on WhatsApp.</p></noscript>
     </form>
   </div>
@@ -672,29 +882,67 @@
   <div class="wrap" style="max-width:52rem">
     <div class="eyebrow">Questions</div>
     <h2>Before you ask.</h2>
-    <details><summary>I have never driven a sim rig. Is it for me?</summary><p>Yes, and most first-timers are the people who enjoy it most. The first five minutes are a briefing: how the wheel behaves, where the pedals bite, what the assists do. We start you in a forgiving car with ABS, traction control and the racing line switched on, and the first laps are yours to get used to the force feedback, because a direct-drive wheel pushes back in a way a controller never does.</p><p>Most people are lapping consistently within twenty minutes. If you already race on a controller, expect a humbling first ten minutes and a much faster car by the end of the hour.</p></details>
-    <details><summary>Can we use the VR headset right now?</summary><p>Not yet. The PlayStation VR2 is installed around 25 September, and VR sessions open from that date at the VR rate. Until then every racing session runs on the 65-inch OLED at the screen rate, which is the same rig, the same wheel and the same game — only the view changes.</p><p>You can already book a VR slot for a date from the 25th onward. The form will not let you pick VR for an earlier date. Gran Turismo 7 is the first VR title; Resident Evil Village (18+) is installed alongside it, the whole game playable in the headset; other PlayStation VR2 games are coming after.</p></details>
-    <details><summary>Is the ₹100 token really non-refundable?</summary><p>When the reason is on your side, yes: if you cancel, arrive late or do not come, the token is not refunded, whatever the reason — illness, traffic, a change of plan. The token holds the room for you, and while it is held nobody else can book that hour. It is not a fee on top: it counts toward your bill when you come.</p><p>When the reason is on our side, everything is refunded in full, token included. Reschedules are at our discretion and never guaranteed, but ask — with a day's notice we can usually move you.</p></details>
-    <details><summary>What if the power goes, or something breaks mid-session?</summary><p>Then it is our problem, and you do not pay for time you did not get. If the room is free after your slot, the lost minutes are added straight back. If it is not, or if the session cannot continue, you choose: a full refund of everything you have paid, the ₹100 token included, or a rebooking with the lost time added on top.</p><p>This covers power cuts, the console or the wheel failing, and anything else on our side of the room. It does not cover time lost because you arrived late.</p></details>
+    <!-- Seven questions most people ask are open to view; the other twelve sit behind the "more" bar (the same .has-more
+         pattern as the games and the gallery; count read from the DOM; the <noscript> rule in <head> shows them all). -->
+    <div class="faqs has-more" id="faq-list">
+    <details><summary>How does booking work?</summary><p>Pick a date, a time and how many of you in the form above. It shows the price as you go, then opens WhatsApp with the request written out; we confirm the slot there and send the UPI details for the ₹100 token, which holds the room and counts toward your bill. The balance is paid on the day, by the time you played.</p><p>No walk-ins — every visit starts with a booking, and the exact address comes with the confirmation.</p></details>
+    <details><summary>What's included?</summary><p>The room, the rig and the screen for the time you book: the Fanatec direct-drive wheel and pedals on the Playseat Trophy, Gran Turismo 7 and the rest of the games installed on the PS5, the 65-inch OLED, and from 25 September the PlayStation VR2 at the VR rate. A five-minute briefing to start, water at the rig, three controllers on console nights.</p><p>Book three hours or more of VR on a weekday and unlimited Thums Up, chips and Kurkure for the room are on us.</p></details>
     <details><summary>Where exactly is it, and how do I get there?</summary><p>Gurugram, Sector 38. The exact address and directions are shared with your confirmation, not before, because the building is a gated residence with fingerprint access and does not allow unaccompanied visitors. You are met at the gate at your slot time and brought up.</p><p>Ask about parking when we confirm your slot and we will tell you what is available that day.</p></details>
-    <details><summary>How do I pay?</summary><p>The ₹100 token by UPI, to the details we send with your confirmation. The balance on the day, by UPI or cash, before you leave. You are billed for the time you actually played, rounded up to the nearest half hour, and the token comes off that total. There is no card machine.</p></details>
-    <details><summary>Can we stay longer once we are there?</summary><p>If the room is free after your slot, yes — say so before your time is up and the extra time is billed at the same rate, in half hours. If someone is booked after you, your slot ends at its booked time, so book the length you think you will want.</p></details>
-    <details><summary>Which games can we play?</summary><p>On the rig, Gran Turismo 7. On the pad, whatever is installed — FIFA (EA SPORTS FC), WWE 2K, Rocket League, Mortal Kombat, Ghost of Yōtei, Resident Evil Village, Grand Theft Auto V, SnowRunner, Assetto Corsa Competizione and GT7 to start, F1 25 arriving, with Grand Theft Auto VI joining on 19 November 2026 — plus anything in the PlayStation Plus catalogue, because the subscription is active on the console: name the game when you book and it is downloaded before you arrive. Your own disc or your own PlayStation account is welcome too.</p><p>In VR it is Gran Turismo 7 first, from 25 September, with Resident Evil Village (18+) installed alongside; other PlayStation VR2 games follow — ask what is installed when you book.</p></details>
-    <details><summary>Can I drive GTA on the wheel?</summary><p>No. Grand Theft Auto on PlayStation 5 does not support steering wheels — that is Rockstar's decision, and no adapter we would trust changes it. You play it on the pad, from the racing seat if you like, on the 65-inch OLED.</p><p>Grand Theft Auto VI arrives on 19 November 2026 and will be on this console from day one, on the pad as well. The games that run on the wheel here are Gran Turismo 7 — the headline — F1 25 from the day it arrives (EA lists our exact wheel base for it), Assetto Corsa Competizione, and SnowRunner, which we test on our base before your slot.</p></details>
-    <details><summary>How many controllers are there?</summary><p>Three. Four people can play at once if one of you brings a fourth PS5 controller, and you are welcome to bring your own controller anyway if you prefer it. The room holds five, so on a console night one person sits out, takes the rig, or runs the tournament bracket.</p></details>
-    <details><summary>Can I bring my own wheel or headset?</summary><p>No. The rig is fixed to the cockpit and calibrated, and that is what you are paying for. Your own PS5 controller is welcome, and so is your own PlayStation account if you want your Gran Turismo 7 progress, cars and licences on the screen.</p></details>
-    <details><summary>What about motion sickness in VR?</summary><p>Some people feel it in the first minutes, especially in a car, because your eyes see movement your body does not feel. So we do not put the headset on you cold: every VR session starts on the screen, moves to the headset in short stints, and stops the moment you want to. Tell us if you know you are prone to it and we will keep the stints shorter.</p><p>The headset is for ages 12 and up, per the manufacturer. It fits over most glasses.</p></details>
-    <details><summary>What should I bring or wear?</summary><p>Nothing in particular. Closed shoes are better than sandals on the pedals, and anything you can sit in for an hour is fine. Water is welcome; keep food and other drinks away from the rig and the screen. If you wear glasses, keep them on for the screen and for VR.</p><p>Book three hours or more of VR on a weekday and we feed the room: unlimited Thums Up, chips and Kurkure for everyone, up to five people — on the sofa side, not at the wheel. Weekdays only.</p></details>
-    <details><summary>Can we book for a birthday, a team night or a group?</summary><p>Yes — the room is built for it. Up to five people per booking, four playing at once on the console, or everyone taking turns on the rig with the lap board keeping score. Book two or three hours for a group; one hour goes quickly with five people rotating. Tell us it is an occasion when you book and we will set the games up before you arrive.</p></details>
-    <details><summary>Can I take photos or record my laps?</summary><p>Yes. Photos and videos for your own use are fine, and the PS5 can save your best lap for you to take home. Please keep other guests out of your shots unless they are happy to be in them.</p></details>
+    <details><summary>How many people can come, and can we book for a birthday or a group?</summary><p>Yes — the room is built for it. Up to five people per booking, four playing at once on the console, or everyone taking turns on the rig with the lap board keeping score. Book two or three hours for a group; one hour goes quickly with five people rotating. Tell us it is an occasion when you book and we will set the games up before you arrive.</p></details>
+    <details><summary>Is the price per person or per room?</summary><p>Per room. Whether one of you comes or five, the hour costs the same, and you share it however you like — on a console night four can play at once. So an hour of VR racing at ₹2,000 for five friends is ₹400 each, in a room nobody else is in.</p></details>
+    <details><summary>What if I cancel — or you can't run my session?</summary><p>When the reason is on your side, yes: if you cancel, arrive late or do not come, the token is not refunded, whatever the reason — illness, traffic, a change of plan. The token holds the room for you, and while it is held nobody else can book that hour. It is not a fee on top: it counts toward your bill when you come.</p><p>When the reason is on our side, everything is refunded in full, token included. Reschedules are at our discretion and never guaranteed, but ask — with a day's notice we can usually move you.</p></details>
+    <details><summary>Is VR suitable for everyone?</summary><p>Most people, from age 12 up — the headset's own rule; under-18s come with an adult. It fits over glasses. Some people feel motion sickness in the first minutes, so every VR session starts on the screen and moves to the headset in short stints, and we stop the moment you want.</p><p>If you know you are prone to it, say so when you book and we keep the stints shorter; the rig on the screen is the same wheel and the same game.</p></details>
+    <button class="more bar" type="button" id="more-faq" aria-expanded="false" aria-controls="faq-list" data-collapse="self" data-open-label="Show fewer" data-open-sub="Back to the seven most asked.">
+      <b><span data-count>12</span> more questions</b><span class="sub">Paying, staying longer, the rig, VR, games, controllers, what to bring.</span>
+    </button>
+    <div class="eyebrow group extra">Booking and money</div>
+    <details class="extra"><summary>How do I pay?</summary><p>The ₹100 token by UPI, to the details we send with your confirmation. The balance on the day, by UPI or cash, before you leave. You are billed for the time you actually played, rounded up to the nearest half hour, and the token comes off that total. There is no card machine.</p></details>
+    <details class="extra"><summary>Can we stay longer once we are there?</summary><p>If the room is free after your slot, yes — say so before your time is up and the extra time is billed at the same rate, in half hours. If someone is booked after you, your slot ends at its booked time, so book the length you think you will want.</p></details>
+    <details class="extra"><summary>What if the power goes, or something breaks mid-session?</summary><p>Then it is our problem, and you do not pay for time you did not get. If the room is free after your slot, the lost minutes are added straight back. If it is not, or if the session cannot continue, you choose: a full refund of everything you have paid, the ₹100 token included, or a rebooking with the lost time added on top.</p><p>This covers power cuts, the console or the wheel failing, and anything else on our side of the room. It does not cover time lost because you arrived late.</p></details>
+    <div class="eyebrow group extra">The rig and VR</div>
+    <details class="extra"><summary>I have never driven a sim rig. Is it for me?</summary><p>Yes, and most first-timers are the people who enjoy it most. The first five minutes are a briefing: how the wheel behaves, where the pedals bite, what the assists do. We start you in a forgiving car with ABS, traction control and the racing line switched on, and the first laps are yours to get used to the force feedback, because a direct-drive wheel pushes back in a way a controller never does.</p><p>Most people are lapping consistently within twenty minutes. If you already race on a controller, expect a humbling first ten minutes and a much faster car by the end of the hour.</p></details>
+    <details class="extra"><summary>Can we use the VR headset right now?</summary><p>Not yet. The PlayStation VR2 is installed around 25 September, and VR sessions open from that date at the VR rate. Until then every racing session runs on the 65-inch OLED at the screen rate, which is the same rig, the same wheel and the same game — only the view changes.</p><p>You can already book a VR slot for a date from the 25th onward. The form will not let you pick VR for an earlier date. Gran Turismo 7 is the first VR title; Resident Evil Village (18+) is installed alongside it, the whole game playable in the headset; other PlayStation VR2 games are coming after.</p></details>
+    <details class="extra"><summary>Can I bring my own wheel or headset?</summary><p>No. The rig is fixed to the cockpit and calibrated, and that is what you are paying for. Your own PS5 controller is welcome, and so is your own PlayStation account if you want your Gran Turismo 7 progress, cars and licences on the screen.</p></details>
+    <details class="extra"><summary>What about motion sickness in VR?</summary><p>Some people feel it in the first minutes, especially in a car, because your eyes see movement your body does not feel. So we do not put the headset on you cold: every VR session starts on the screen, moves to the headset in short stints, and stops the moment you want to. Tell us if you know you are prone to it and we will keep the stints shorter.</p><p>The headset is for ages 12 and up, per the manufacturer. It fits over most glasses.</p></details>
+    <div class="eyebrow group extra">Games</div>
+    <details class="extra"><summary>Which games can we play?</summary><p>On the rig, Gran Turismo 7. On the pad, whatever is installed — FIFA (EA SPORTS FC), WWE 2K, Rocket League, Mortal Kombat, Ghost of Yōtei, Resident Evil Village, Grand Theft Auto V, SnowRunner, Assetto Corsa Competizione and GT7 to start, F1 25 arriving, with Grand Theft Auto VI joining on 19 November 2026 — plus anything in the PlayStation Plus catalogue, because the subscription is active on the console: name the game when you book and it is downloaded before you arrive. Your own disc or your own PlayStation account is welcome too.</p><p>In VR it is Gran Turismo 7 first, from 25 September, with Resident Evil Village (18+) installed alongside; other PlayStation VR2 games follow — ask what is installed when you book.</p></details>
+    <details class="extra"><summary>Can I drive GTA on the wheel?</summary><p>No. Grand Theft Auto on PlayStation 5 does not support steering wheels — that is Rockstar's decision, and no adapter we would trust changes it. You play it on the pad, from the racing seat if you like, on the 65-inch OLED.</p><p>Grand Theft Auto VI arrives on 19 November 2026 and will be on this console from day one, on the pad as well. The games that run on the wheel here are Gran Turismo 7 — the headline — F1 25 from the day it arrives (EA lists our exact wheel base for it), Assetto Corsa Competizione, and SnowRunner, which we test on our base before your slot.</p></details>
+    <details class="extra"><summary>How many controllers are there?</summary><p>Three. Four people can play at once if one of you brings a fourth PS5 controller, and you are welcome to bring your own controller anyway if you prefer it. The room holds five, so on a console night one person sits out, takes the rig, or runs the tournament bracket.</p></details>
+    <div class="eyebrow group extra">On the day</div>
+    <details class="extra"><summary>What should I bring or wear?</summary><p>Nothing in particular. Closed shoes are better than sandals on the pedals, and anything you can sit in for an hour is fine. Water is welcome; keep food and other drinks away from the rig and the screen. If you wear glasses, keep them on for the screen and for VR.</p><p>Book three hours or more of VR on a weekday and we feed the room: unlimited Thums Up, chips and Kurkure for everyone, up to five people — on the sofa side, not at the wheel. Weekdays only.</p></details>
+    <details class="extra"><summary>Can I take photos or record my laps?</summary><p>Yes. Photos and videos for your own use are fine, and the PS5 can save your best lap for you to take home. Please keep other guests out of your shots unless they are happy to be in them.</p></details>
+    </div>
   </div>
 </section>
+
+<!-- The closing band: the street circuit, real photography — the page ends with an action, not the FAQ. -->
+<section class="band" id="street" data-nav="no" aria-label="Your next lap">
+  <div class="bg zoom">
+    <picture>
+      <source type="image/webp" srcset="img/drift-street-800.webp 800w, img/drift-street-1600.webp 1600w, img/drift-street-2560.webp 2560w, img/drift-street-3840.webp 3840w" sizes="100vw">
+      <img src="img/drift-street-1600.jpg" srcset="img/drift-street-800.jpg 800w, img/drift-street-1600.jpg 1600w, img/drift-street-2560.jpg 2560w, img/drift-street-3840.jpg 3840w" sizes="100vw" width="3840" height="2160" loading="lazy" decoding="async" alt="A car mid-drift on a street circuit, smoke trailing, skid marks on the tarmac">
+    </picture>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Your next lap</div>
+    <h2>Your next lap<br>is waiting.</h2>
+    <p class="facts"><i></i>Private VR &amp; sim racing<i></i>Sector 38, Gurugram<i></i>Per room, up to five of you</p>
+    <p class="offer-line only-open">First five groups of three or more: <b>50% off.</b></p>
+    <p class="cta-row"><a class="btn primary" href="#book">Book your slot</a></p>
+  </div>
+  <span class="credit">Photo: Gabriel Vasiliu / Unsplash</span>
+</section>
+
 
 <footer><div class="wrap">
   <p><b style="color:var(--chalk)">VR Racing</b> is an independent, owner-run venture in Gurugram. It is hosted on a CommerceDwar subdomain with the company's knowledge and is not a CommerceDwar or MEcommerce service. The owner's name and the full address come with your booking confirmation.</p>
   <p>Booking and questions on WhatsApp: <a class="wa" href="#book" data-wa-link data-wa-text>use the form above</a>. The ₹100 booking token is not refunded if you cancel or do not come; it is refunded in full if we cannot run your session. The balance is billed by time played. We keep only the details needed to run your booking and delete them on request.</p>
   <p class="mono" style="font-size:.8rem;color:var(--tarmac-2)">Gran Turismo, PlayStation, PlayStation Plus and PlayStation VR2 are trademarks of Sony Interactive Entertainment; Fanatec and Playseat are trademarks of their owners; the games named are trademarks of their publishers. Game frames and product images belong to their publishers and makers (Sony Interactive Entertainment / Polyphony Digital / Sucker Punch, Fanatec, Playseat, EA, 2K, Psyonix, Warner Bros. Games) and are shown to describe the equipment and games on offer; drift photographs by RAW Visual Studio and Gabriel Vasiliu on Unsplash. Named and shown for what they are, not affiliated.</p>
 </div></footer>
+
+<!-- The phone booking bar (under 860 px). The script turns it on once the hero has scrolled away and off while the form,
+     the closing band, the footer, the menu or the lightbox is on screen. -->
+<div class="sticky" id="sticky"><a class="btn primary" href="#book">Book your slot</a><span class="hint">from ₹1,000/hr<br>per room, up to five</span></div>
 
 <dialog class="lightbox" id="lightbox" aria-label="Full-size image">
   <picture id="lbPic"><source id="lbWebp" type="image/webp" srcset=""><img id="lbImg" alt=""></picture>
@@ -719,6 +967,31 @@
     var TOKEN=100;                       // the UPI booking token
     var SLOTS={wd:['18:30','19:30','20:30','21:30'],we:['11:00','12:30','14:00','15:30','17:00','18:30','20:00']};
 
+    // ---- the launch offer -----------------------------------------------------------------
+    // Its state lives on <body> (data-offer / data-offer-remaining / data-offer-review-by) — one place, and right with scripts
+    // off. Structural numbers live here. 50 % comes off rate × hours for a group of three or more; the token is never discounted.
+    var OFFER={
+      open:document.body.getAttribute('data-offer')==='open',
+      remaining:(function(v){return v===null||v===''?null:parseInt(v,10);})(document.body.getAttribute('data-offer-remaining')),
+      reviewBy:document.body.getAttribute('data-offer-review-by')||'',
+      total:5,pct:50,minPeople:3
+    };
+    // Today's date in IST — the business's clock, not the visitor's: shift the instant by +5:30 and read it with the UTC
+    // getters. Never toISOString() of the raw time (UTC midnight, 5½ hours off) and never the device's local getters (a
+    // visitor abroad would flip the state a few hours early or late).
+    function todayIST(){var d=new Date(Date.now()+330*60000);var p=function(n){return String(n).padStart(2,'0');};return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate());}
+    // closed (open:false, or the count at 0) beats stale (reviewBy passed without the owner confirming) beats open
+    function offerState(){
+      if(!OFFER.open||OFFER.remaining===0)return 'closed';
+      if(OFFER.reviewBy&&todayIST()>OFFER.reviewBy)return 'stale';
+      return 'open';
+    }
+    var STATE=offerState();
+    document.body.setAttribute('data-offer',STATE);
+    // the band's line: a number only in the open state, and only when the owner has set one by hand
+    var offLine=document.querySelector('[data-offer-line]');
+    if(offLine&&STATE==='open'&&OFFER.remaining!==null)offLine.textContent=OFFER.remaining+' of '+OFFER.total+' still open';
+
     // ---- WhatsApp links + the visible number, all from the one constant ------------------
     var pretty='+91 '+WA.slice(2,7)+' '+WA.slice(7);
     document.querySelectorAll('[data-wa-link]').forEach(function(a){a.href='https://wa.me/'+WA;});
@@ -739,23 +1012,33 @@
       list.forEach(function(t){var op=document.createElement('option');op.value=t;op.textContent=t;timeSel.appendChild(op);});
       if(list.indexOf(keep)>=0)timeSel.value=keep;
     }
-    // Returns {ok, title, text, line} — `line` is the one-line estimate carried into the WhatsApp message.
+    // Returns {ok, title, sub, text, line, total, due, applied, eligible, people} — `line` is the one-line estimate carried
+    // into the WhatsApp message. The launch offer is applied HERE and nowhere else: the on-page estimate and the message
+    // both read this one result, so they cannot disagree.
     function quote(){
-      var what=f.elements.what.value,iso=f.elements.date.value,hrs=parseFloat(f.elements.hours.value);
+      var what=f.elements.what.value,iso=f.elements.date.value,hrs=parseFloat(f.elements.hours.value),people=parseInt(f.elements.people.value,10)||0;
       if(!what||!iso||!hrs)return{ok:false,warn:false,title:'Your price',text:'Pick what you are booking, a date and how long, and the price shows here.'};
       if(iso<OPEN)return{ok:false,warn:true,title:'Bookings start Saturday 12 September',text:'Pick a date from the 12th onward.'};
       var r=RATES[what];
       if(r.from&&iso<r.from)return{ok:false,warn:true,title:'VR sessions start on 25 September',text:'Pick a date from the 25th, or book the rig on the screen for this date.'};
-      var we=isWeekend(iso),rate=we?r.we:r.wd,total=rate*hrs,bal=total-TOKEN;
+      var we=isWeekend(iso),rate=we?r.we:r.wd,total=rate*hrs;
+      var eligible=people>=OFFER.minPeople,applied=STATE==='open'&&eligible;
+      var due=applied?Math.round(total*(1-OFFER.pct/100)):total,bal=due-TOKEN;   // the token comes off the discounted total; it is never itself discounted
       var h=hrs===1?'1 hour':hrs+' hours';
-      var line=rupees(total)+' ('+(we?'weekend':'weekday')+' rate '+rupees(rate)+'/hr × '+h+'); '+rupees(TOKEN)+' token now, '+rupees(bal)+' on the day';
+      var line=rupees(due)+(applied?' with the launch offer, 50% off '+rupees(total):'')+' ('+(we?'weekend':'weekday')+' rate '+rupees(rate)+'/hr × '+h+'); '+rupees(TOKEN)+' token now, '+rupees(bal)+' on the day';
       var perk=(what==='vr'&&hrs>=3&&!we)?' Three hours or more of VR on a weekday: unlimited Thums Up, chips and Kurkure for the room, on us.':'';
-      return{ok:true,warn:false,title:rupees(total),sub:'for '+h+', '+(we?'weekend':'weekday')+' rate',text:rupees(TOKEN)+' token by UPI once we confirm, '+rupees(bal)+' on the day. Billed by time played if you stop early.'+perk,line:line+(perk?' + snacks and Thums Up on the house':'')};
+      var note='';
+      if(STATE==='open'&&people>0&&!eligible)note=' Groups of three or more get the launch offer.';
+      if(STATE==='stale'&&eligible)note=' Launch offer: to be confirmed on WhatsApp.';
+      return{ok:true,warn:false,applied:applied,eligible:eligible,people:people,total:total,due:due,
+        title:rupees(due),sub:'for '+h+', '+(we?'weekend':'weekday')+' rate',
+        text:(applied?'Launch offer, first five groups: 50% off. ':'')+rupees(TOKEN)+' token by UPI once we confirm, '+rupees(bal)+' on the day. Billed by time played if you stop early.'+perk+note,
+        line:line+(perk?' + snacks and Thums Up on the house':'')};
     }
     function render(){
       var q=quote();
       est.classList.toggle('warn',!!q.warn);
-      est.innerHTML='<div class="sum">'+q.title+(q.sub?'<small>'+q.sub+'</small>':'')+'</div><div>'+q.text+'</div>';
+      est.innerHTML='<div class="sum">'+(q.applied?'<s>'+rupees(q.total)+'</s>':'')+q.title+(q.sub?'<small>'+q.sub+'</small>':'')+'</div><div>'+q.text+'</div>';
     }
     f.addEventListener('change',function(e){if(e.target.name==='date')fillSlots(e.target.value);render();});
     f.addEventListener('input',render);
@@ -774,6 +1057,8 @@
         'Duration: '+(d.get('hours')==='1'?'1 hour':d.get('hours')+' hours')+'\n'+
         'People: '+d.get('people')+'\n'+
         'Estimate: '+q.line+'\n'+
+        (q.eligible&&STATE==='open'?'Launch offer: YES (group of '+q.people+')\n':'')+
+        (q.eligible&&STATE==='stale'?'Launch offer: please confirm (group of '+q.people+')\n':'')+
         'I understand the ₹100 token is not refunded if I cancel or do not come.';
       window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank','noopener');
     });
@@ -792,8 +1077,13 @@
         btn.setAttribute('aria-expanded',isOpen?'true':'false');
         lbl.innerHTML=isOpen?btn.getAttribute('data-open-label'):closedLbl;
         sub.textContent=isOpen?btn.getAttribute('data-open-sub'):closedSub;
-        // Collapsing pulls the extra items out from above the reader; put the section's top back under the header.
-        if(!isOpen)(btn.closest('section')||grid).scrollIntoView({block:'start'});
+        // Collapsing pulls the extra items out from above the reader. The games and gallery grids put the section's top back
+        // under the header (the default); a button marked data-collapse="self" keeps the reader at the button itself — the
+        // FAQ bar, so the featured questions above it stay in view.
+        if(!isOpen){
+          if(btn.getAttribute('data-collapse')==='self')btn.scrollIntoView({block:'center'});
+          else (btn.closest('section')||grid).scrollIntoView({block:'start'});
+        }
       });
     });
 
@@ -810,6 +1100,41 @@
       nav.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
       document.addEventListener('keydown',function(e){if(e.key==='Escape'&&hdr.classList.contains('open')){setMenu(false);menuBtn.focus();}});
       document.addEventListener('click',function(e){if(hdr.classList.contains('open')&&!hdr.contains(e.target))setMenu(false);});
+    }
+
+    // ---- reviews: real ones only. One object per review; while the array is empty the "first racers" block shows. ----
+    // Shape: {name:'Riya', group:4, occasion:'birthday', quote:'…', month:'October 2026'}
+    var REVIEWS=[];
+    (function(){
+      var list=document.getElementById('reviews-list'),empty=document.getElementById('reviews-empty'),tpl=document.getElementById('review-card');
+      if(!list||!tpl||!REVIEWS.length)return;
+      REVIEWS.forEach(function(r){
+        var n=tpl.content.cloneNode(true);
+        n.querySelector('blockquote').textContent=r.quote;
+        n.querySelector('[data-r="name"]').textContent=r.name;
+        n.querySelector('[data-r="meta"]').textContent=[r.group?'group of '+r.group:'',r.occasion,r.month].filter(Boolean).join(' · ');
+        list.appendChild(n);
+      });
+      list.hidden=false;if(empty)empty.hidden=true;
+    })();
+
+    // ---- the phone booking bar: on once the hero has scrolled away; off while the form, the closing band or the footer is
+    // on screen, or while the menu is open. With the lightbox open the dialog's showModal() makes the bar inert and the CSS
+    // hides it. ----
+    var bar=document.getElementById('sticky');
+    if(bar&&'IntersectionObserver' in window){
+      var heroGone=false,near={};
+      var paint=function(){
+        var blocked=Object.keys(near).some(function(k){return near[k];})||(hdr&&hdr.classList.contains('open'));
+        bar.classList.toggle('on',heroGone&&!blocked);
+      };
+      new IntersectionObserver(function(es){es.forEach(function(en){heroGone=!en.isIntersecting;});paint();},{threshold:0}).observe(document.getElementById('top'));
+      var so=new IntersectionObserver(function(es){es.forEach(function(en){near[en.target.id||en.target.tagName]=en.isIntersecting;});paint();},{threshold:0});
+      ['book','street'].forEach(function(id){var el=document.getElementById(id);if(el)so.observe(el);});
+      var ft=document.querySelector('footer');if(ft)so.observe(ft);
+      if(menuBtn)menuBtn.addEventListener('click',function(){setTimeout(paint,0);});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')setTimeout(paint,0);});
+      document.addEventListener('click',function(){setTimeout(paint,0);});
     }
 
     // ---- the slow zoom plays only while a photograph is on screen ---------------------------
