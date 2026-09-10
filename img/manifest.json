@@ -148,11 +148,11 @@
     },
     {
       "name": "tile-wwe",
-      "src": "wwe2k26-keyart.jpg",
+      "src": "wwe2k26-keyart.png",
       "max": 3840,
       "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
-      "alt": "WWE 2K26 key art: CM Punk in front of a red X, the WWE 2K26 logo below",
-      "credit": "WWE 2K26 Standard Edition key art (3840x2160) — © 2K / Take-Two Interactive, from the PlayStation Store"
+      "alt": "WWE 2K26 key art: CM Punk in front of a red X",
+      "credit": "WWE 2K26 Standard Edition key art, the logo-free version (3840x2160) — © 2K / Take-Two Interactive, from the PlayStation Store"
     },
     {
       "name": "tile-rl",
