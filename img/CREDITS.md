@@ -19,7 +19,7 @@ Masters live in `img/raw/` (not committed). Each line: what the file is, its mas
 - **fanatec-gt-dd-pro** — Fanatec Gran Turismo DD Pro product image (2000x1333) — © Endor AG / Fanatec, fanatec.com
 - **playseat-trophy** — Playseat Trophy product image (2000x2000) — © Playseat, playseat.com
 - **tile-fc** — EA SPORTS FC 26 image (1920x1080) — © Electronic Arts, ea.com
-- **tile-wwe** — WWE 2K25 Standard Edition key art (6000x7200, cropped) — © 2K / Take-Two Interactive, newsroom-uk.2k.com
+- **tile-wwe** — WWE 2K26 Standard Edition key art (3840x2160) — © 2K / Take-Two Interactive, from the PlayStation Store
 - **tile-rl** — Rocket League image (1920x1080) — © Psyonix / Epic Games, rocketleague.com
 - **tile-mk** — Mortal Kombat 1 image (1920x800) — © Warner Bros. Games / NetherRealm, mortalkombat.com
 - **tile-gt7** — Gran Turismo 7 key art (3840x2160, cropped) — © Sony Interactive Entertainment / Polyphony Digital, from the PlayStation Store product page

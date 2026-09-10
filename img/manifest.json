@@ -148,17 +148,11 @@
     },
     {
       "name": "tile-wwe",
-      "src": "wwe2k25-keyart.jpg",
-      "crop": [
-        0,
-        600,
-        6000,
-        3975
-      ],
+      "src": "wwe2k26-keyart.jpg",
       "max": 3840,
       "sizes": "(max-width: 520px) 100vw, (max-width: 860px) 50vw, 33vw",
-      "alt": "WWE 2K25 key art: Roman Reigns crouched in the ring",
-      "credit": "WWE 2K25 Standard Edition key art (6000x7200, cropped) — © 2K / Take-Two Interactive, newsroom-uk.2k.com"
+      "alt": "WWE 2K26 key art: CM Punk in front of a red X, the WWE 2K26 logo below",
+      "credit": "WWE 2K26 Standard Edition key art (3840x2160) — © 2K / Take-Two Interactive, from the PlayStation Store"
     },
     {
       "name": "tile-rl",
