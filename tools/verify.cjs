@@ -289,7 +289,7 @@ function nextDay(from, wantWeekend) {
       return { details: vis('#faq-list details'), tiles: vis('#game-tiles .tile:not(.more)'), shots: vis('#gallery-frames .shot'), photos: vis('#room-photos .photo'), more: vis('.more'), navRow: getComputedStyle(document.querySelector('nav.links')).display !== 'none', menu: vis('.menu') };
     });
     check('no-JS: all 19 FAQ rows visible', m.details === 19, String(m.details));
-    check('no-JS: all 12 game tiles visible', m.tiles === 12, String(m.tiles));
+    check('no-JS: all 11 game tiles visible', m.tiles === 11, String(m.tiles)); // 12 → 11 on 25 Sept 2026: F1 25 off the page until it arrives (Dec or next year)
     check('no-JS: all 9 gallery frames visible', m.shots === 9, String(m.shots));
     check('no-JS: all 8 room photos visible', m.photos === 8, String(m.photos));
     check('no-JS: "more" buttons hidden, menu links shown in a row', m.more === 0 && m.navRow && m.menu === 0, JSON.stringify(m));
