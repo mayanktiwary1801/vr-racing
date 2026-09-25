@@ -218,13 +218,13 @@ function nextDay(from, wantWeekend) {
     page.on('pageerror', (e) => errors.push('form: ' + e.message));
     await page.goto(BASE, { waitUntil: 'load' });
     const OPEN = await page.evaluate(() => document.querySelector('#bookForm [name=date]').min);
-    const wd = nextDay(OPEN, false), we = nextDay('2026-09-26', true), vrEarly = nextDay(OPEN, false);
+    const wd = nextDay(OPEN, false), we = nextDay('2026-10-17', true), vrEarly = nextDay(OPEN, false);
     const sc = [
       { name: 'weekday rig, 2 people (no discount, note)', v: { what: 'rig', date: wd, hours: '2', people: '2' }, est: /₹3,000/, note: /Groups of three or more get the launch offer/, msg: /Estimate: ₹3,000 \(weekday rate ₹1,500\/hr × 2 hours\); ₹100 token now, ₹2,900 on the day/, noOffer: true },
       { name: 'weekday rig, 3 people (50% off)', v: { what: 'rig', date: wd, hours: '2', people: '3' }, est: /₹3,000.*₹1,500/s, note: /Launch offer, first five groups: 50% off/, msg: /Estimate: ₹1,500 with the launch offer, 50% off ₹3,000 \(weekday rate ₹1,500\/hr × 2 hours\); ₹100 token now, ₹1,400 on the day\nLaunch offer: YES \(group of 3\)/ },
       { name: 'weekend VR, 5 people, 2 h (50% off, weekend rate)', v: { what: 'vr', date: we, hours: '2', people: '5' }, est: /₹4,800.*₹2,400/s, msg: /Estimate: ₹2,400 with the launch offer, 50% off ₹4,800 \(weekend rate ₹2,400\/hr × 2 hours\); ₹100 token now, ₹2,300 on the day\nLaunch offer: YES \(group of 5\)/ },
-      { name: 'weekday VR 3 h, 4 people (offer + snacks perk)', v: { what: 'vr', date: nextDay('2026-09-28', false), hours: '3', people: '4' }, est: /₹6,000.*₹3,000/s, note: /Thums Up/, msg: /Estimate: ₹3,000 with the launch offer, 50% off ₹6,000 \(weekday rate ₹2,000\/hr × 3 hours\); ₹100 token now, ₹2,900 on the day \+ snacks and Thums Up on the house\nLaunch offer: YES \(group of 4\)/ },
-      { name: 'VR before 25 Sept (warning, no message)', v: { what: 'vr', date: vrEarly, hours: '1', people: '3' }, est: /VR sessions start on 25 September/, msg: null },
+      { name: 'weekday VR 3 h, 4 people (offer + snacks perk)', v: { what: 'vr', date: nextDay('2026-10-15', false), hours: '3', people: '4' }, est: /₹6,000.*₹3,000/s, note: /Thums Up/, msg: /Estimate: ₹3,000 with the launch offer, 50% off ₹6,000 \(weekday rate ₹2,000\/hr × 3 hours\); ₹100 token now, ₹2,900 on the day \+ snacks and Thums Up on the house\nLaunch offer: YES \(group of 4\)/ },
+      { name: 'VR before 15 Oct (warning, no message)', v: { what: 'vr', date: vrEarly, hours: '1', people: '3' }, est: /VR sessions start on 15 October/, msg: null },
     ];
     for (const s of sc) {
       const est = await fillForm(page, s.v);

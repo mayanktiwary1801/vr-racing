@@ -20,7 +20,7 @@ Edit `index.html`, commit, push to `main`; the host redeploys in about a minute.
 
 - **The WhatsApp number** lives in one place: `<body data-wa="91…">`. The script fills every booking link and the visible number from it.
 - **Prices** live in two places that must match: the three `#price` cards and the `RATES` table at the top of the script (the live estimate in the form). Weekend = weekday + 20%. The hero's facts line and the phone bar's hint also quote the floor ("from ₹1,000/hr") and the VR rate — change those by hand too.
-- **Dates**: `OPEN` (first bookable date, also the date input's `min`) and `RATES.vr.from` (first VR date) in the script; the "from 25 September" wording in the copy.
+- **Dates**: `OPEN` (first bookable date, also the date input's `min`) and `RATES.vr.from` (first VR date) in the script; the "from 15 October" wording in the copy.
 - **Time slots**: the `SLOTS` table in the script — weekday evenings and weekend days.
 
 ### The launch offer
@@ -63,7 +63,7 @@ Where the offer appears, all driven by that one place: the band under the hero, 
 3. `python tools/optimise_images.py room-01` — it writes the sizes and prints the `<picture>` markup.
 4. In `index.html`, find `data-slot="room-01"`, replace its `<div class="ph">…</div>` with the printed `<picture>`, remove the class `slot` (the caption then shows), and — if the photo should open full-size on tap — add class `zoom` plus `data-full` / `data-full-webp` / `data-cap` like the gallery frames.
 
-The shot list the slots were built for: the room from the door · someone in the cockpit · someone in the PSVR2 (after 25 Sept) · the wheel close-up · the base and pedals · friends watching · a reaction · the whole room. A landscape photo of the room can also replace the hero's game frame later: same pipeline, then swap the hero's `<picture>` and the preload in `<head>`.
+The shot list the slots were built for: the room from the door · someone in the cockpit · someone in the PSVR2 (after 15 Oct) · the wheel close-up · the base and pedals · friends watching · a reaction · the whole room. A landscape photo of the room can also replace the hero's game frame later: same pipeline, then swap the hero's `<picture>` and the preload in `<head>`.
 
 **The hero video slot (not built until a file exists):** a ≤ 15 s landscape loop, ≤ 3 MB as WebM (VP9) with an MP4 (H.264) fallback, would replace the hero `<picture>` with `<video autoplay muted loop playsinline poster="img/gt7-cockpit-1600.jpg">` inside the same `.hero-bg` container (keep the `zoom` class off it). Keep the poster, keep `fetchpriority` on the poster preload.
 
@@ -102,7 +102,7 @@ None, by decision (9 Sept 2026) — to be revisited if bookings do not come. Whe
     python -m http.server 8765 --bind 127.0.0.1
     NODE_PATH=../claude-project/node_modules node tools/verify.cjs http://127.0.0.1:8765/ ../../"Claude generated files"/<folder>
 
-It asserts: no horizontal overflow at 375 / 800 / 1366 and 20 px either side of the menu fold; every section has a menu entry and every link a target; every CTA at least 44 px tall; the phone bar's show/hide rules including the lightbox (and that it never takes focus while the lightbox is open); the FAQ bar and the spec sheet; the lightbox at 3840; the form's WhatsApp text against the estimate for a weekday, a weekend, VR before the 25th, two people and three people; the offer's open / count / stale / closed states; and that with scripts off all 19 FAQ rows, 12 tiles, 9 frames and 8 photos show. It also saves first-screen screenshots at 375 and 1366.
+It asserts: no horizontal overflow at 375 / 800 / 1366 and 20 px either side of the menu fold; every section has a menu entry and every link a target; every CTA at least 44 px tall; the phone bar's show/hide rules including the lightbox (and that it never takes focus while the lightbox is open); the FAQ bar and the spec sheet; the lightbox at 3840; the form's WhatsApp text against the estimate for a weekday, a weekend, VR before 15 October, two people and three people; the offer's open / count / stale / closed states; and that with scripts off all 19 FAQ rows, 12 tiles, 9 frames and 8 photos show. It also saves first-screen screenshots at 375 and 1366.
 
 Lighthouse (mobile preset) with Edge as the browser:
 
